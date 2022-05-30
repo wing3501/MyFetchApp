@@ -31,7 +31,13 @@ class WebviewDataFetchManager: NSObject {
 extension WebviewDataFetchManager: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if let handler = completionHandler {
-            handler("1234")
+            webView.evaluateJavaScript("document.documentElement.innerHTML") { data, error in
+                if let dataString = data as? String {
+                    handler(dataString)
+                }else {
+                    handler("")
+                }
+            }
         }
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {

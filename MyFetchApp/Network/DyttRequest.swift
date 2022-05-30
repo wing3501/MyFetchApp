@@ -20,4 +20,12 @@ struct DyttRequest {
         }
         return ""
     }
+    
+    static func loadMainHtml() async -> String {
+        await withCheckedContinuation({ checkedContinuation in
+            WebviewDataFetchManager.shared.dataString(with: mainPage) { string in
+                checkedContinuation.resume(returning: string)
+            }
+        })
+    }
 }

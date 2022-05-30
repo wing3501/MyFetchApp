@@ -22,7 +22,7 @@ final class Environment {
     }
     
     func loadDyttData() async -> AppAction {
-        let dataString = await DyttRequest.loadMainPage()
+        let dataString = await DyttRequest.loadMainHtml()
         return .updateDyttMainPage(data: dataString)
     }
 }
