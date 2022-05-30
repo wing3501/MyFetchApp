@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9201FA6D283F4C4A004482F0 /* DYTTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201FA6C283F4C4A004482F0 /* DYTTView.swift */; };
+		9201FEDC283F75A0004482F0 /* ColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201FEDB283F75A0004482F0 /* ColorEx.swift */; };
+		9201FEDF283F7B87004482F0 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 9201FEDE283F7B87004482F0 /* SwiftUIX */; };
+		9259CDD128446D6000C33721 /* DateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD028446D6000C33721 /* DateEx.swift */; };
+		9259CDD328446EEC00C33721 /* ArrayEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD228446EEC00C33721 /* ArrayEx.swift */; };
+		9259CDD628446FD600C33721 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD528446FD600C33721 /* Defaults.swift */; };
+		927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927019F6283DC2FB00295028 /* MyFetchApp.swift */; };
+		927019FB283DC2FC00295028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FA283DC2FC00295028 /* Assets.xcassets */; };
+		927019FE283DC2FC00295028 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FD283DC2FC00295028 /* Preview Assets.xcassets */; };
+		92701A05283DC3E400295028 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A04283DC3E400295028 /* AppDelegate.swift */; };
+		92701A0E283DC94C00295028 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A0D283DC94C00295028 /* Kingfisher */; };
+		92701A19283E060100295028 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A18283E060100295028 /* HomeView.swift */; };
+		92701A1B283E061800295028 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A1A283E061800295028 /* AccountView.swift */; };
+		92701A1D283E077700295028 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A1C283E077700295028 /* MainView.swift */; };
+		92701A1F283E07C700295028 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A1E283E07C700295028 /* Store.swift */; };
+		92701A21283E084C00295028 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A20283E084C00295028 /* AppState.swift */; };
+		92701A23283E097E00295028 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A22283E097E00295028 /* AppAction.swift */; };
+		92701A25283E0BDD00295028 /* AppCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A24283E0BDC00295028 /* AppCommand.swift */; };
+		92701A2E283E54E300295028 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A2D283E54E300295028 /* HttpHelper.swift */; };
+		92701A30283E54FF00295028 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A2F283E54FF00295028 /* Alamofire */; };
+		92701A32283E550200295028 /* Fuzi in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A31283E550200295028 /* Fuzi */; };
+		92701A34283E550600295028 /* HandyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A33283E550600295028 /* HandyJSON */; };
+		929800992840A08100FC19D2 /* BindingEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929800982840A08000FC19D2 /* BindingEx.swift */; };
+		9298009B2840B69F00FC19D2 /* DispatchQueueEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */; };
+		9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009D2840C75B00FC19D2 /* TabPageView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9201FA6C283F4C4A004482F0 /* DYTTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DYTTView.swift; sourceTree = "<group>"; };
+		9201FEDB283F75A0004482F0 /* ColorEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEx.swift; sourceTree = "<group>"; };
+		9201FEDD283F7B7C004482F0 /* SwiftUIX-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "SwiftUIX-master"; path = "SPM/SwiftUIX-master"; sourceTree = "<group>"; };
+		9259CDD028446D6000C33721 /* DateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEx.swift; sourceTree = "<group>"; };
+		9259CDD228446EEC00C33721 /* ArrayEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEx.swift; sourceTree = "<group>"; };
+		9259CDD528446FD600C33721 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		927019F3283DC2FB00295028 /* MyFetchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFetchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		927019F6283DC2FB00295028 /* MyFetchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFetchApp.swift; sourceTree = "<group>"; };
+		927019FA283DC2FC00295028 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		927019FD283DC2FC00295028 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		92701A04283DC3E400295028 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92701A09283DC8C600295028 /* Kingfisher-7.2.2 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Kingfisher-7.2.2"; path = "SPM/Kingfisher-7.2.2"; sourceTree = "<group>"; };
+		92701A0F283DCDE000295028 /* Fuzi-3.1.3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Fuzi-3.1.3"; path = "SPM/Fuzi-3.1.3"; sourceTree = "<group>"; };
+		92701A10283DCDF200295028 /* HandyJSON-5.0.4-beta */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "HandyJSON-5.0.4-beta"; path = "SPM/HandyJSON-5.0.4-beta"; sourceTree = "<group>"; };
+		92701A11283DCE0300295028 /* Alamofire-5.6.1 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Alamofire-5.6.1"; path = "SPM/Alamofire-5.6.1"; sourceTree = "<group>"; };
+		92701A18283E060100295028 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		92701A1A283E061800295028 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		92701A1C283E077700295028 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		92701A1E283E07C700295028 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		92701A20283E084C00295028 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		92701A22283E097E00295028 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		92701A24283E0BDC00295028 /* AppCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommand.swift; sourceTree = "<group>"; };
+		92701A2D283E54E300295028 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
+		929800982840A08000FC19D2 /* BindingEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingEx.swift; sourceTree = "<group>"; };
+		9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
+		9298009D2840C75B00FC19D2 /* TabPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPageView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		927019F0283DC2FB00295028 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92701A32283E550200295028 /* Fuzi in Frameworks */,
+				92701A0E283DC94C00295028 /* Kingfisher in Frameworks */,
+				92701A30283E54FF00295028 /* Alamofire in Frameworks */,
+				9201FEDF283F7B87004482F0 /* SwiftUIX in Frameworks */,
+				92701A34283E550600295028 /* HandyJSON in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9201FA6A283F4C0C004482F0 /* YuShe */ = {
+			isa = PBXGroup;
+			children = (
+				9201FA6B283F4C17004482F0 /* dytt */,
+			);
+			path = YuShe;
+			sourceTree = "<group>";
+		};
+		9201FA6B283F4C17004482F0 /* dytt */ = {
+			isa = PBXGroup;
+			children = (
+				9201FA6C283F4C4A004482F0 /* DYTTView.swift */,
+			);
+			path = dytt;
+			sourceTree = "<group>";
+		};
+		9201FEDA283F748D004482F0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9201FEDB283F75A0004482F0 /* ColorEx.swift */,
+				929800982840A08000FC19D2 /* BindingEx.swift */,
+				9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */,
+				9259CDD028446D6000C33721 /* DateEx.swift */,
+				9259CDD228446EEC00C33721 /* ArrayEx.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9259CDD428446F6C00C33721 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				9259CDD528446FD600C33721 /* Defaults.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		927019EA283DC2FB00295028 = {
+			isa = PBXGroup;
+			children = (
+				92701A06283DC4EE00295028 /* Packages */,
+				927019F5283DC2FB00295028 /* MyFetchApp */,
+				927019F4283DC2FB00295028 /* Products */,
+				92701A0C283DC94C00295028 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		927019F4283DC2FB00295028 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				927019F3283DC2FB00295028 /* MyFetchApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		927019F5283DC2FB00295028 /* MyFetchApp */ = {
+			isa = PBXGroup;
+			children = (
+				9259CDD428446F6C00C33721 /* Tool */,
+				9298009C2840BB5000FC19D2 /* View */,
+				9201FEDA283F748D004482F0 /* Extension */,
+				92701A15283E05C500295028 /* Module */,
+				92701A14283E056F00295028 /* Redux */,
+				92701A13283E056C00295028 /* Network */,
+				927019F6283DC2FB00295028 /* MyFetchApp.swift */,
+				92701A04283DC3E400295028 /* AppDelegate.swift */,
+				92701A1C283E077700295028 /* MainView.swift */,
+				927019FA283DC2FC00295028 /* Assets.xcassets */,
+				927019FC283DC2FC00295028 /* Preview Content */,
+			);
+			path = MyFetchApp;
+			sourceTree = "<group>";
+		};
+		927019FC283DC2FC00295028 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				927019FD283DC2FC00295028 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		92701A06283DC4EE00295028 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				92701A09283DC8C600295028 /* Kingfisher-7.2.2 */,
+				92701A0F283DCDE000295028 /* Fuzi-3.1.3 */,
+				92701A10283DCDF200295028 /* HandyJSON-5.0.4-beta */,
+				92701A11283DCE0300295028 /* Alamofire-5.6.1 */,
+				9201FEDD283F7B7C004482F0 /* SwiftUIX-master */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		92701A0C283DC94C00295028 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92701A13283E056C00295028 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				92701A2D283E54E300295028 /* HttpHelper.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		92701A14283E056F00295028 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				92701A1E283E07C700295028 /* Store.swift */,
+				92701A20283E084C00295028 /* AppState.swift */,
+				92701A22283E097E00295028 /* AppAction.swift */,
+				92701A24283E0BDC00295028 /* AppCommand.swift */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		92701A15283E05C500295028 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				9201FA6A283F4C0C004482F0 /* YuShe */,
+				92701A17283E05E000295028 /* Account */,
+				92701A16283E05CC00295028 /* Home */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		92701A16283E05CC00295028 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				92701A18283E060100295028 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		92701A17283E05E000295028 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				92701A1A283E061800295028 /* AccountView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		9298009C2840BB5000FC19D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9298009D2840C75B00FC19D2 /* TabPageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		927019F2283DC2FB00295028 /* MyFetchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92701A01283DC2FC00295028 /* Build configuration list for PBXNativeTarget "MyFetchApp" */;
+			buildPhases = (
+				927019EF283DC2FB00295028 /* Sources */,
+				927019F0283DC2FB00295028 /* Frameworks */,
+				927019F1283DC2FB00295028 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyFetchApp;
+			packageProductDependencies = (
+				92701A0D283DC94C00295028 /* Kingfisher */,
+				92701A2F283E54FF00295028 /* Alamofire */,
+				92701A31283E550200295028 /* Fuzi */,
+				92701A33283E550600295028 /* HandyJSON */,
+				9201FEDE283F7B87004482F0 /* SwiftUIX */,
+			);
+			productName = MyFetchApp;
+			productReference = 927019F3283DC2FB00295028 /* MyFetchApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		927019EB283DC2FB00295028 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					927019F2283DC2FB00295028 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = 927019EE283DC2FB00295028 /* Build configuration list for PBXProject "MyFetchApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 927019EA283DC2FB00295028;
+			productRefGroup = 927019F4283DC2FB00295028 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				927019F2283DC2FB00295028 /* MyFetchApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		927019F1283DC2FB00295028 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				927019FE283DC2FC00295028 /* Preview Assets.xcassets in Resources */,
+				927019FB283DC2FC00295028 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		927019EF283DC2FB00295028 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92701A1F283E07C700295028 /* Store.swift in Sources */,
+				92701A2E283E54E300295028 /* HttpHelper.swift in Sources */,
+				9259CDD128446D6000C33721 /* DateEx.swift in Sources */,
+				9298009B2840B69F00FC19D2 /* DispatchQueueEx.swift in Sources */,
+				9201FA6D283F4C4A004482F0 /* DYTTView.swift in Sources */,
+				92701A05283DC3E400295028 /* AppDelegate.swift in Sources */,
+				92701A1D283E077700295028 /* MainView.swift in Sources */,
+				92701A21283E084C00295028 /* AppState.swift in Sources */,
+				92701A23283E097E00295028 /* AppAction.swift in Sources */,
+				9259CDD628446FD600C33721 /* Defaults.swift in Sources */,
+				929800992840A08100FC19D2 /* BindingEx.swift in Sources */,
+				92701A19283E060100295028 /* HomeView.swift in Sources */,
+				9201FEDC283F75A0004482F0 /* ColorEx.swift in Sources */,
+				9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */,
+				9259CDD328446EEC00C33721 /* ArrayEx.swift in Sources */,
+				927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */,
+				92701A1B283E061800295028 /* AccountView.swift in Sources */,
+				92701A25283E0BDD00295028 /* AppCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		927019FF283DC2FC00295028 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		92701A00283DC2FC00295028 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92701A02283DC2FC00295028 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyFetchApp/Preview Content\"";
+				DEVELOPMENT_TEAM = K9X5AAY2EF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = styf.MyFetchApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92701A03283DC2FC00295028 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyFetchApp/Preview Content\"";
+				DEVELOPMENT_TEAM = K9X5AAY2EF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = styf.MyFetchApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		927019EE283DC2FB00295028 /* Build configuration list for PBXProject "MyFetchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				927019FF283DC2FC00295028 /* Debug */,
+				92701A00283DC2FC00295028 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92701A01283DC2FC00295028 /* Build configuration list for PBXNativeTarget "MyFetchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92701A02283DC2FC00295028 /* Debug */,
+				92701A03283DC2FC00295028 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9201FEDE283F7B87004482F0 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftUIX;
+		};
+		92701A0D283DC94C00295028 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Kingfisher;
+		};
+		92701A2F283E54FF00295028 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Alamofire;
+		};
+		92701A31283E550200295028 /* Fuzi */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Fuzi;
+		};
+		92701A33283E550600295028 /* HandyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HandyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 927019EB283DC2FB00295028 /* Project object */;
+}
