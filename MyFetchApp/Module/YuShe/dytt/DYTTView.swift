@@ -19,9 +19,10 @@ struct DYTTView: View {
             
 
 //        }
-//        .task {
+        .task {
 //            store.dispatch(.loadDyttData)
-//        }
+            store.dispatch(.test(param: ""))
+        }
     }
 }
 

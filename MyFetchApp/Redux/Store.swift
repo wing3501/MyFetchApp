@@ -65,6 +65,10 @@ final class Store: ObservableObject {
         case .updateDyttMainPage(let dataString):
             print("请求到数据-----")
             print(dataString)
+        case .test(let param):
+            WebviewDataFetchManager.shared.dataString(with: "https://www.ygdy8.com/index.html") { string in
+                print("看看===\(string)")
+            }
         }
         return nil
     }
