@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 /// 副作用处理
 final class Environment {
     func setAge(age: Int) async -> AppAction {
@@ -18,5 +19,10 @@ final class Environment {
         print("set Name")
         await Task.sleep(2 * 1000000000)
         return .setAge(age: Int.random(in: 0...100))
+    }
+    
+    func loadDyttData() async -> AppAction {
+        let dataString = await DyttRequest.loadMainPage()
+        return .updateDyttMainPage(data: dataString)
     }
 }

@@ -12,8 +12,7 @@ import Combine
 final class Store: ObservableObject {
     @Published private(set) var appState = AppState()
     private let environment = Environment()
-    
-    var disposeBag = Set<AnyCancellable>()
+    private var disposeBag = Set<AnyCancellable>()
     
     init() {
         setupObservers()
@@ -35,6 +34,7 @@ final class Store: ObservableObject {
         Task {
             if let task = reducer(state: &appState, action: action, environment: environment) {
                 do {
+                    //副作用产生的新action
                     let action = try await task.value
                     dispatch(action)
                 } catch {
@@ -58,6 +58,13 @@ final class Store: ObservableObject {
             return Task {
                 await environment.setName(name: name)
             }
+        case .loadDyttData:
+            return Task {
+                await environment.loadDyttData()
+            }
+        case .updateDyttMainPage(let dataString):
+            print("请求到数据-----")
+            print(dataString)
         }
         return nil
     }

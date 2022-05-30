@@ -11,12 +11,14 @@ import Alamofire
 struct HttpHelper {
     static var timeoutInterval: TimeInterval = 5
     
-    static func GET<Parameters: Encodable>(_ url: URLConvertible, parameters: Parameters?) async -> String? {
-        try? await AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .methodDependent))
-         .serializingString().value
-    }
+//    static func GET(_ url: URLConvertible, parameters: Parameters? = nil) async -> String? {
+//        try? await AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .methodDependent))
+//         .serializingString().value
+        
+        
+//    }
     
-    static func request<Parameters: Encodable>(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) async -> String? {
+    static func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters? = nil, headers: HTTPHeaders?) async -> String? {
         //参数编码
 //        ParameterEncoder
 //                JSONParameterEncoder (.default,.prettyPrinted,.sortedKeys)
@@ -31,10 +33,20 @@ struct HttpHelper {
 //            .accept("application/json")
 //        ]
         
-       try? await AF.request(url, method: method, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers, interceptor: nil, requestModifier: {
+//        AF.request("https://httpbin.org/get").response { response in
+//            debugPrint(response)
+//        }
+        
+        try? await AF.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers, interceptor: nil) { request in
             //需要设置更多的参数
-            $0.timeoutInterval = timeoutInterval
-        })
+            request.timeoutInterval = timeoutInterval
+        }
         .serializingString().value
+        
+//       try? await AF.request(url, method: method, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers, interceptor: nil, requestModifier: {
+//            //需要设置更多的参数
+//            $0.timeoutInterval = timeoutInterval
+//        })
+//        .serializingString().value
     }
 }

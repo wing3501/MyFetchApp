@@ -9,29 +9,20 @@ import SwiftUI
 import Combine
 
 struct DYTTView: View {
+    @EnvironmentObject var store: Store
     @State var selectedTabIndex: Int = 0
     
     
     var body: some View {
-        print("body create")
         return VStack {
-            
-            
-            
+            Text("内容")
             
         }
-        
+        .task {
+            store.dispatch(.loadDyttData)
+        }
     }
 }
-
-
-
-
-
-
-
-
-
 
 struct DYTTView_Previews: PreviewProvider {
     static var previews: some View {

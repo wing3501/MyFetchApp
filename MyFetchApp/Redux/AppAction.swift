@@ -9,7 +9,9 @@ import Foundation
 
 enum AppAction {
     case empty
-    case setName(name:String)
-    case setAge(age:Int)
+    case loadDyttData
+    case updateDyttMainPage(data: String)
+    case setName(name: String)
+    case setAge(age: Int)
 }
 
