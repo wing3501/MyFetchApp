@@ -14,13 +14,14 @@ struct DYTTView: View {
     
     
     var body: some View {
-        return VStack {
-            Text("内容")
+//         VStack {
+            SUWebView("https://www.ygdy8.com/index.html")
             
-        }
-        .task {
-            store.dispatch(.loadDyttData)
-        }
+
+//        }
+//        .task {
+//            store.dispatch(.loadDyttData)
+//        }
     }
 }
 

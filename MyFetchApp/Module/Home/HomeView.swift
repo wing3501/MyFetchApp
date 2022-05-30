@@ -13,7 +13,7 @@ struct HomeView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: DYTTView()) {
+                    NavigationLink(destination: DYTTView().navigationBarTitle("电影天堂", displayMode: .inline)) {
                         HomeViewListRow(logoUrl: "https://www.ygdy8.com/images/logo.gif", SFIcon: "play.rectangle")
                     }
                 } header: {

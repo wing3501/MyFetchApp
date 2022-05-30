@@ -16,6 +16,7 @@
 		9259CDD82844A46000C33721 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD72844A46000C33721 /* Environment.swift */; };
 		9259CDDA2844AF0400C33721 /* DyttRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD92844AF0400C33721 /* DyttRequest.swift */; };
 		9259CDDC2844BAC900C33721 /* StringEncodingEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDDB2844BAC900C33721 /* StringEncodingEx.swift */; };
+		9259CDDE2844C22A00C33721 /* SUWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDDD2844C22A00C33721 /* SUWebView.swift */; };
 		927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927019F6283DC2FB00295028 /* MyFetchApp.swift */; };
 		927019FB283DC2FC00295028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FA283DC2FC00295028 /* Assets.xcassets */; };
 		927019FE283DC2FC00295028 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FD283DC2FC00295028 /* Preview Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		9259CDD72844A46000C33721 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		9259CDD92844AF0400C33721 /* DyttRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttRequest.swift; sourceTree = "<group>"; };
 		9259CDDB2844BAC900C33721 /* StringEncodingEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEncodingEx.swift; sourceTree = "<group>"; };
+		9259CDDD2844C22A00C33721 /* SUWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUWebView.swift; sourceTree = "<group>"; };
 		927019F3283DC2FB00295028 /* MyFetchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFetchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927019F6283DC2FB00295028 /* MyFetchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFetchApp.swift; sourceTree = "<group>"; };
 		927019FA283DC2FC00295028 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				9298009D2840C75B00FC19D2 /* TabPageView.swift */,
+				9259CDDD2844C22A00C33721 /* SUWebView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				9298009B2840B69F00FC19D2 /* DispatchQueueEx.swift in Sources */,
 				9201FA6D283F4C4A004482F0 /* DYTTView.swift in Sources */,
 				92701A05283DC3E400295028 /* AppDelegate.swift in Sources */,
+				9259CDDE2844C22A00C33721 /* SUWebView.swift in Sources */,
 				92701A1D283E077700295028 /* MainView.swift in Sources */,
 				92701A21283E084C00295028 /* AppState.swift in Sources */,
 				92701A23283E097E00295028 /* AppAction.swift in Sources */,
