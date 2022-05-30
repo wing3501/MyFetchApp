@@ -10,6 +10,8 @@ import Combine
 
 /// 状态管理
 struct AppState {
+    var name: String = ""
+    var age:Int = 10
     var mainView = MainView()
 }
 

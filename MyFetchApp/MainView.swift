@@ -7,19 +7,21 @@
 
 import SwiftUI
 
+enum MainTabIndex: Hashable {
+    case home,account
+}
+
 struct MainView: View {
-    @StateObject var store = Store()
     
-    var mainViewState: AppState.MainView {
-        store.appState.mainView
-    }
+    @StateObject var store: Store
+    @State var selection: MainTabIndex = .home
     
-    var mainViewBinding: Binding<AppState.MainView> {
-        $store.appState.mainView
+    init() {
+        _store = StateObject(wrappedValue: Store())
     }
     
     var body: some View {
-        TabView(selection: mainViewBinding.selection) {
+        TabView(selection: $selection) {
             HomeView()
                 .tabItem {
                     Label("首页", systemImage: "house")

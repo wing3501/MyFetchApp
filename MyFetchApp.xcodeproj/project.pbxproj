@@ -13,6 +13,7 @@
 		9259CDD128446D6000C33721 /* DateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD028446D6000C33721 /* DateEx.swift */; };
 		9259CDD328446EEC00C33721 /* ArrayEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD228446EEC00C33721 /* ArrayEx.swift */; };
 		9259CDD628446FD600C33721 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD528446FD600C33721 /* Defaults.swift */; };
+		9259CDD82844A46000C33721 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD72844A46000C33721 /* Environment.swift */; };
 		927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927019F6283DC2FB00295028 /* MyFetchApp.swift */; };
 		927019FB283DC2FC00295028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FA283DC2FC00295028 /* Assets.xcassets */; };
 		927019FE283DC2FC00295028 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FD283DC2FC00295028 /* Preview Assets.xcassets */; };
@@ -24,7 +25,6 @@
 		92701A1F283E07C700295028 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A1E283E07C700295028 /* Store.swift */; };
 		92701A21283E084C00295028 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A20283E084C00295028 /* AppState.swift */; };
 		92701A23283E097E00295028 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A22283E097E00295028 /* AppAction.swift */; };
-		92701A25283E0BDD00295028 /* AppCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A24283E0BDC00295028 /* AppCommand.swift */; };
 		92701A2E283E54E300295028 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92701A2D283E54E300295028 /* HttpHelper.swift */; };
 		92701A30283E54FF00295028 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A2F283E54FF00295028 /* Alamofire */; };
 		92701A32283E550200295028 /* Fuzi in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A31283E550200295028 /* Fuzi */; };
@@ -41,6 +41,7 @@
 		9259CDD028446D6000C33721 /* DateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEx.swift; sourceTree = "<group>"; };
 		9259CDD228446EEC00C33721 /* ArrayEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEx.swift; sourceTree = "<group>"; };
 		9259CDD528446FD600C33721 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		9259CDD72844A46000C33721 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		927019F3283DC2FB00295028 /* MyFetchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFetchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927019F6283DC2FB00295028 /* MyFetchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFetchApp.swift; sourceTree = "<group>"; };
 		927019FA283DC2FC00295028 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		92701A1E283E07C700295028 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		92701A20283E084C00295028 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		92701A22283E097E00295028 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
-		92701A24283E0BDC00295028 /* AppCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommand.swift; sourceTree = "<group>"; };
 		92701A2D283E54E300295028 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
 		929800982840A08000FC19D2 /* BindingEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingEx.swift; sourceTree = "<group>"; };
 		9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 			children = (
 				92701A1E283E07C700295028 /* Store.swift */,
 				92701A20283E084C00295028 /* AppState.swift */,
+				9259CDD72844A46000C33721 /* Environment.swift */,
 				92701A22283E097E00295028 /* AppAction.swift */,
-				92701A24283E0BDC00295028 /* AppCommand.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -323,9 +323,9 @@
 				9201FEDC283F75A0004482F0 /* ColorEx.swift in Sources */,
 				9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */,
 				9259CDD328446EEC00C33721 /* ArrayEx.swift in Sources */,
+				9259CDD82844A46000C33721 /* Environment.swift in Sources */,
 				927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */,
 				92701A1B283E061800295028 /* AccountView.swift in Sources */,
-				92701A25283E0BDD00295028 /* AppCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

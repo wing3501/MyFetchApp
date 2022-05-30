@@ -7,12 +7,9 @@
 
 import Foundation
 
-protocol AppAction {}
+enum AppAction {
+    case empty
+    case setName(name:String)
+    case setAge(age:Int)
+}
 
-//每个业务模块触发状态变更的action
-enum MainAction: AppAction {
-    case logon
-}
-enum AccountActon: AppAction {
-    
-}

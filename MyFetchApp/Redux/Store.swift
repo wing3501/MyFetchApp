@@ -8,8 +8,10 @@
 import Foundation
 import Combine
 
-class Store: ObservableObject {
-    @Published var appState = AppState()
+@MainActor
+final class Store: ObservableObject {
+    @Published private(set) var appState = AppState()
+    private let environment = Environment()
     
     var disposeBag = Set<AnyCancellable>()
     
@@ -28,27 +30,35 @@ class Store: ObservableObject {
         //...
     }
     
-    func dispatch(_ action: AppAction) {
-        #if DEBUG
-        print("[ACTION]: \(action)")
-        #endif
-        
-        
+    @discardableResult
+    func dispatch(_ action: AppAction) -> Task<Void, Never>? {
+        Task {
+            if let task = reducer(state: &appState, action: action, environment: environment) {
+                do {
+                    let action = try await task.value
+                    dispatch(action)
+                } catch {
+                    print(error)
+                }
+            }
+        }
     }
     
-    /// Reducer 的唯一职责是计算新的 State
-    /// - Parameters:
-    ///   - state: 原来的状态
-    ///   - action: 触发状态变更的操作
-    /// - Returns: 新的状态和副作用
-    static func reduce(state: AppState,action: AppAction) -> (AppState,AppCommand?) {
-        var appState = state
-        var appCommand: AppCommand?
-        
-        if action is MainAction {
-            
+    func reducer(state: inout AppState, action: AppAction, environment: Environment) -> Task<AppAction, Error>? {
+        switch action {
+        case .empty:
+            break
+        case .setAge(let age):
+            state.age = age
+            return Task {
+                await environment.setAge(age: 100)
+            }
+        case .setName(let name):
+            state.name = name
+            return Task {
+                await environment.setName(name: name)
+            }
         }
-        
-        return (appState,appCommand)
+        return nil
     }
 }

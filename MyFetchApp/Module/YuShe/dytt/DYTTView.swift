@@ -11,9 +11,6 @@ import Combine
 struct DYTTView: View {
     @State var selectedTabIndex: Int = 0
     
-    let cells = (0...20).map { value in
-        Text("标题\(value)")
-    }
     
     var body: some View {
         print("body create")
@@ -23,6 +20,7 @@ struct DYTTView: View {
             
             
         }
+        
     }
 }
 
