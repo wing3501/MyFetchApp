@@ -48,16 +48,6 @@ final class Store: ObservableObject {
         switch action {
         case .empty:
             break
-        case .setAge(let age):
-            state.age = age
-            return Task {
-                await environment.setAge(age: 100)
-            }
-        case .setName(let name):
-            state.name = name
-            return Task {
-                await environment.setName(name: name)
-            }
         case .loadDyttData:
             return Task {
                 await environment.loadDyttData()
@@ -66,8 +56,12 @@ final class Store: ObservableObject {
             print("请求到数据-----")
             print(dataString)
         case .test(let param):
-            WebviewDataFetchManager.shared.dataString(with: "https://www.ygdy8.com/index.html") { string in
-                print("看看===\(string)")
+            return Task {
+                let string = await WebviewDataFetchManager.shared.dataString(with: "https://www.pcgs.com.cn/cert/80171408")
+                
+                print("钱币的数据-----\(string)")
+                
+                return .empty
             }
         }
         return nil

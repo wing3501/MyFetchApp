@@ -26,6 +26,14 @@ class WebviewDataFetchManager: NSObject {
             webView.load(URLRequest(url: url))
         }
     }
+    
+    func dataString(with url: String) async -> String {
+        await withCheckedContinuation { continuation in
+            dataString(with: url) { string in
+                continuation.resume(returning: string)
+            }
+        }
+    }
 }
 
 extension WebviewDataFetchManager: WKNavigationDelegate {

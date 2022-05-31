@@ -11,8 +11,5 @@ enum AppAction {
     case empty
     case loadDyttData
     case updateDyttMainPage(data: String)
-    case setName(name: String)
-    case setAge(age: Int)
-    case test(param: String)
 }
 
