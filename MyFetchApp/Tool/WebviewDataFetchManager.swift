@@ -8,17 +8,17 @@
 import UIKit
 import WebKit
 
+@MainActor
 class WebviewDataFetchManager: NSObject {
     public static let shared = WebviewDataFetchManager()
-    let webView: WKWebView
-    var completionHandler: ((String) -> Void)?
     
-    override init() {
+    var completionHandler: ((String) -> Void)?
+    @MainActor lazy var webView: WKWebView = {
         let config = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: config)
-        super.init()
-        webView.navigationDelegate = self
-    }
+        var view = WKWebView(frame: .zero, configuration: config)
+        view.navigationDelegate = self
+        return view
+    }()
     
     func dataString(with url: String,completionHandler: @escaping (String) -> Void) {
         self.completionHandler = completionHandler

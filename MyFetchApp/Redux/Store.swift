@@ -55,14 +55,6 @@ final class Store: ObservableObject {
         case .updateDyttMainPage(let dataString):
             print("请求到数据-----")
             print(dataString)
-        case .test(let param):
-            return Task {
-                let string = await WebviewDataFetchManager.shared.dataString(with: "https://www.pcgs.com.cn/cert/80171408")
-                
-                print("钱币的数据-----\(string)")
-                
-                return .empty
-            }
         }
         return nil
     }

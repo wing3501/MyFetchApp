@@ -36,6 +36,7 @@
 		929800992840A08100FC19D2 /* BindingEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929800982840A08000FC19D2 /* BindingEx.swift */; };
 		9298009B2840B69F00FC19D2 /* DispatchQueueEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */; };
 		9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009D2840C75B00FC19D2 /* TabPageView.swift */; };
+		92CD498B284747EC008B2C80 /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498A284747EC008B2C80 /* StringEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		929800982840A08000FC19D2 /* BindingEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingEx.swift; sourceTree = "<group>"; };
 		9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
 		9298009D2840C75B00FC19D2 /* TabPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPageView.swift; sourceTree = "<group>"; };
+		92CD498A284747EC008B2C80 /* StringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,8 @@
 		9201FA6B283F4C17004482F0 /* dytt */ = {
 			isa = PBXGroup;
 			children = (
-				9201FA6C283F4C4A004482F0 /* DYTTView.swift */,
+				928569272845EED4000424DD /* View */,
+				928569262845EECD000424DD /* Model */,
 			);
 			path = dytt;
 			sourceTree = "<group>";
@@ -112,6 +115,7 @@
 				9259CDD028446D6000C33721 /* DateEx.swift */,
 				9259CDD228446EEC00C33721 /* ArrayEx.swift */,
 				9259CDDB2844BAC900C33721 /* StringEncodingEx.swift */,
+				92CD498A284747EC008B2C80 /* StringEx.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -234,6 +238,21 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		928569262845EECD000424DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		928569272845EED4000424DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9201FA6C283F4C4A004482F0 /* DYTTView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9298009C2840BB5000FC19D2 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +356,7 @@
 				9201FEDC283F75A0004482F0 /* ColorEx.swift in Sources */,
 				9259CDDA2844AF0400C33721 /* DyttRequest.swift in Sources */,
 				9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */,
+				92CD498B284747EC008B2C80 /* StringEx.swift in Sources */,
 				9259CDD328446EEC00C33721 /* ArrayEx.swift in Sources */,
 				9259CDD82844A46000C33721 /* Environment.swift in Sources */,
 				927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */,

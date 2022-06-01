@@ -17,4 +17,8 @@ extension DispatchQueue {
             }
         }
     }
+    
+    static func mainAsync(after seconds: Double,_ work: @escaping () -> Void) {
+        main.asyncAfter(deadline: DispatchTime.now() + seconds, execute: work)
+    }
 }
