@@ -29,12 +29,15 @@ final class Store: ObservableObject {
         //...
     }
     
+    /// 派发action
+    /// - Parameter action: 更改状态的动作
+    /// - Returns: 副作用任务
     @discardableResult
     func dispatch(_ action: AppAction) -> Task<Void, Never>? {
         Task {
             if let task = reducer(state: &appState, action: action, environment: environment) {
                 do {
-                    //副作用产生的新action
+                    //副作用产生的新action，继续派发
                     let action = try await task.value
                     dispatch(action)
                 } catch {
@@ -44,6 +47,12 @@ final class Store: ObservableObject {
         }
     }
     
+    ///  action处理state,所有对state的修改都在这里
+    /// - Parameters:
+    ///   - state: 状态
+    ///   - action: 更改状态的动作
+    ///   - environment: 处理具体任务，并返回副作用
+    /// - Returns: 副作用
     func reducer(state: inout AppState, action: AppAction, environment: Environment) -> Task<AppAction, Error>? {
         switch action {
         case .empty:
@@ -52,9 +61,8 @@ final class Store: ObservableObject {
             return Task {
                 await environment.loadDyttData()
             }
-        case .updateDyttMainPage(let dataString):
-            print("请求到数据-----")
-            print(dataString)
+        case .updateDyttMainPage(let categoryData):
+            state.dytt.categoryData = categoryData
         }
         return nil
     }

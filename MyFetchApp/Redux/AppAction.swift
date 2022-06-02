@@ -10,6 +10,6 @@ import Foundation
 enum AppAction {
     case empty
     case loadDyttData
-    case updateDyttMainPage(data: String)
+    case updateDyttMainPage(dataArray: [DyttCategoryModel])
 }
 

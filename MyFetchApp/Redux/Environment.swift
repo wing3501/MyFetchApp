@@ -13,35 +13,29 @@ final class Environment {
     
     func loadDyttData() async -> AppAction {
         let html = await DyttRequest.loadMainHtml()
-        analyzingDyttData(html)
-        return .updateDyttMainPage(data: html)
+        let categoryModelArray = analyzingDyttData(html)
+        return .updateDyttMainPage(dataArray: categoryModelArray)
     }
     
-    func analyzingDyttData(_ html: String) {
+    func analyzingDyttData(_ html: String) -> [DyttCategoryModel] {
         print("开始解析-------")
+        var resultArray: [DyttCategoryModel] = []
         do {
             let doc = try HTMLDocument(string: html, encoding: .utf8)
             if let elementById = doc.firstChild(css: "#menu") {
-                let lis = elementById.xpath("//div/ul/li/a")
-                for li in lis {
-                    print(li.rawXML)
-                    print("\(li.stringValue) + \(li["href"])" )
+                let aTags = elementById.xpath("//div/ul/li/a").prefix(13).map { aTag in
+                    DyttCategoryModel(aTag.stringValue, aTag["href"] ?? "")
                 }
-                
-//
+                resultArray.append(contentsOf: aTags)
 //                for aTag in aTags {
 //                    print(aTag.rawXML)
+//                    print("\(aTag.stringValue) + \(aTag["href"]!)" )
 //                }
             }
-            
-            
-//            <div id="menu"><div class="contain"><ul>
-//                        <li>
-//    <a href="/html/gndy/dyzz/index.html">最新影片</a></li><li>
-            
         } catch let error {
             print("解析失败：\(error.localizedDescription)")
         }
+        return resultArray
     }
 }
 

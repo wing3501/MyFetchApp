@@ -12,15 +12,12 @@ import Combine
 struct AppState {
     var name: String = ""
     var age:Int = 10
-    var mainView = MainView()
+    var dytt = DyttState()
 }
 
 extension AppState {
-    struct MainView {
-        enum Index: Hashable {
-            case home,account
-        }
-        
-        var selection: Index = .home
+    struct DyttState {
+        let host = "https://www.ygdy8.com"
+        var categoryData: [DyttCategoryModel] = []
     }
 }
