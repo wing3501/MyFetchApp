@@ -14,8 +14,9 @@ struct DYTTView: View {
     
     
     var body: some View {
+        TabPageView(
          VStack {
-            SUWebView("https://www.pcgs.com.cn/cert/80171408")
+            
             
 
         }

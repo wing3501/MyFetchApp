@@ -33,6 +33,8 @@ struct TabPageView<Tab,Page>: View where Tab: View, Page: View {
         self.sliderHeight = sliderHeight
     }
     
+    
+    
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
