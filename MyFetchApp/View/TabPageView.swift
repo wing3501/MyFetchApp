@@ -37,7 +37,7 @@ struct TabPageView<Content,Data>: View where Data : RandomAccessCollection, Data
     
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 0) {
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
                     TabContentView(dataArray: dataArray, tab: tab, tabSpacing: tabSpacing, selectedTabIndex: selectedIndexBinding)
@@ -53,7 +53,7 @@ struct TabPageView<Content,Data>: View where Data : RandomAccessCollection, Data
                     }
                 }
             }
-            .background(.yellow)
+//            .background(.random)
             .frame(height: tabHeight)
             
             PageContentView(dataArray: dataArray, page: page, selectedTabIndex: selectedIndexBinding)
@@ -83,7 +83,7 @@ struct TabContentView<Content,Data>: View where Data : RandomAccessCollection,Da
                     .anchorPreference(key: AnchorBoundsKey.self, value: .bounds, transform: { anchorValue in
                         selectedTabIndex == index ? anchorValue : nil
                     })
-                    .background(.random)
+//                    .background(.random)
                     .id(index)
             }
         }

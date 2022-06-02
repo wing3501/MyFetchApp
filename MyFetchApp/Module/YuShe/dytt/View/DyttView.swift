@@ -1,5 +1,5 @@
 //
-//  DYTTView.swift
+//  DyttView.swift
 //  MyFetchApp
 //
 //  Created by styf on 2022/5/26.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct DYTTView: View {
+struct DyttView: View {
     @EnvironmentObject var store: Store
     @State var selectedTabIndex: Int = 0
     
@@ -25,9 +25,9 @@ struct DYTTView: View {
     }
 }
 
-struct DYTTView_Previews: PreviewProvider {
+struct DyttView_Previews: PreviewProvider {
     static var previews: some View {
-        DYTTView().environmentObject(Store())
+        DyttView().environmentObject(Store())
     }
 }
 
