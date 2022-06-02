@@ -14,7 +14,7 @@ struct DYTTView: View {
     
     
     var body: some View {
-        TabPageView(
+        
          VStack {
             
             

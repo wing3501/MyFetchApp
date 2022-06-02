@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct TabPageView<Tab,Page>: View where Tab: View, Page: View {
-    
-    let tabs: [Tab]
-    let pages: [Page]
+struct TabPageView<Content,Data>: View where Data : RandomAccessCollection, Data.Index == Int ,Content : View {
+    let dataArray: Data
+    let tab: (Data.Element) -> Content
+    let page: (Data.Element) -> Content
     let tabHeight: CGFloat
     let pageHeight: CGFloat?
     let tabSpacing: CGFloat?
@@ -23,9 +23,10 @@ struct TabPageView<Tab,Page>: View where Tab: View, Page: View {
         selectedTabIndex ?? $selectedTabIndexInside
     }
     
-    init(tabs: [Tab],pages: [Page],selectedTabIndex: Binding<Int>? = nil,tabHeight: CGFloat? = 50,pageHeight: CGFloat? = nil,tabSpacing: CGFloat? = nil,sliderHeight: CGFloat? = nil) {
-        self.tabs = tabs
-        self.pages = pages
+    init(@ViewBuilder tab: @escaping (Data.Element) -> Content,@ViewBuilder page: @escaping (Data.Element) -> Content,dataArray: Data,selectedTabIndex: Binding<Int>? = nil,tabHeight: CGFloat? = 50,pageHeight: CGFloat? = nil,tabSpacing: CGFloat? = nil,sliderHeight: CGFloat? = nil) {
+        self.tab = tab
+        self.page = page
+        self.dataArray = dataArray
         self.selectedTabIndex = selectedTabIndex
         self.tabHeight = tabHeight ?? 50
         self.pageHeight = pageHeight
@@ -39,7 +40,7 @@ struct TabPageView<Tab,Page>: View where Tab: View, Page: View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
-                    TabContentView(views: tabs, tabSpacing: tabSpacing, selectedTabIndex: selectedIndexBinding)
+                    TabContentView(dataArray: dataArray, tab: tab, tabSpacing: tabSpacing, selectedTabIndex: selectedIndexBinding)
                     .overlayPreferenceValue(AnchorBoundsKey.self) { anchorValue in
                         if let sliderHeight = sliderHeight {
                             TabSlider(anchor: anchorValue,sliderHeight: sliderHeight)
@@ -55,7 +56,7 @@ struct TabPageView<Tab,Page>: View where Tab: View, Page: View {
             .background(.yellow)
             .frame(height: tabHeight)
             
-            PageContentView(views: pages, selectedTabIndex: selectedIndexBinding)
+            PageContentView(dataArray: dataArray, page: page, selectedTabIndex: selectedIndexBinding)
                 .frame(height: pageHeight)
             Spacer()
         }
@@ -63,15 +64,17 @@ struct TabPageView<Tab,Page>: View where Tab: View, Page: View {
 }
 
 /// 分段选择器
-struct TabContentView<Content>: View where Content: View {
-    let views: [Content]
+struct TabContentView<Content,Data>: View where Data : RandomAccessCollection,Data.Index == Int ,Content : View {
+    let dataArray: Data
+    let tab: (Data.Element) -> Content
     let tabSpacing: CGFloat?
     @Binding var selectedTabIndex: Int
     
     var body: some View {
         LazyHStack(spacing: tabSpacing) {
-            ForEach(0..<views.count, id: \.self) { index in
-                views[index]
+            
+            ForEach(0..<dataArray.count, id: \.self) { index in
+                tab(dataArray[index])
                     .onTapGesture {
                         withAnimation {
                             selectedTabIndex = index
@@ -105,14 +108,15 @@ struct TabSlider: View {
 }
 
 /// 滚动page页
-struct PageContentView<Page>: View where Page: View {
-    let views: [Page]
+struct PageContentView<Content,Data>: View where Data : RandomAccessCollection,Data.Index == Int ,Content : View {
+    let dataArray: Data
+    let page: (Data.Element) -> Content
     @Binding var selectedTabIndex: Int
     
     var body: some View {
         TabView(selection: $selectedTabIndex.animation(.default)) {
-            ForEach(0..<views.count, id: \.self) { index in
-                views[index]
+            ForEach(0..<dataArray.count, id: \.self) { index in
+                page(dataArray[index])
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
@@ -143,6 +147,7 @@ struct TabPageView_Previews_TempView: View {
     }
     var body: some View {
 //        TabPageView(tabs: tabs, pages: pages,selectedTabIndex: $selectedTabIndex)
-        TabPageView(tabs: tabs, pages: pages)
+//        TabPageView(tabs: tabs, pages: pages)
+        EmptyView()
     }
 }

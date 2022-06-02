@@ -26,12 +26,12 @@ struct MainView: View {
                 .tabItem {
                     Label("首页", systemImage: "house")
                 }
-                .tag(AppState.MainView.Index.home)
+                .tag(MainTabIndex.home)
             AccountView()
                 .tabItem {
                     Label("我的", systemImage: "person")
                 }
-                .tag(AppState.MainView.Index.account)
+                .tag(MainTabIndex.account)
         }
         .edgesIgnoringSafeArea(.top)
         .environmentObject(store)
