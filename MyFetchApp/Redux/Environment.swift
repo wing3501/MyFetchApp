@@ -23,7 +23,9 @@ final class Environment {
         do {
             let doc = try HTMLDocument(string: html, encoding: .utf8)
             if let elementById = doc.firstChild(css: "#menu") {
-                let aTags = elementById.xpath("//div/ul/li/a").prefix(13).map { aTag in
+                let aTags = elementById.xpath("//div/ul/li/a").filter({ aTag in
+                    aTag.stringValue != "经典影片"
+                }).prefix(13).map { aTag in
                     DyttCategoryModel(aTag.stringValue, aTag["href"] ?? "")
                 }
                 resultArray.append(contentsOf: aTags)
