@@ -14,12 +14,11 @@ struct DYTTView: View {
     
     
     var body: some View {
-        
-         VStack {
-            
-            
-
-        }
+        TabPageView(tab: { data in
+            Text(data.title)
+        }, page: { data in
+            Text("page:\(data.title)")
+        }, dataArray: store.appState.dytt.categoryData,sliderHeight: 4)
         .task {
             store.dispatch(.loadDyttData)
         }
@@ -28,7 +27,7 @@ struct DYTTView: View {
 
 struct DYTTView_Previews: PreviewProvider {
     static var previews: some View {
-        DYTTView()
+        DYTTView().environmentObject(Store())
     }
 }
 

@@ -42,7 +42,7 @@ struct TabPageView<Content,Data>: View where Data : RandomAccessCollection, Data
                 ScrollViewReader { proxy in
                     TabContentView(dataArray: dataArray, tab: tab, tabSpacing: tabSpacing, selectedTabIndex: selectedIndexBinding)
                     .overlayPreferenceValue(AnchorBoundsKey.self) { anchorValue in
-                        if let sliderHeight = sliderHeight {
+                        if let sliderHeight = sliderHeight,let anchorValue = anchorValue {
                             TabSlider(anchor: anchorValue,sliderHeight: sliderHeight)
                         }
                     }
@@ -99,7 +99,7 @@ struct TabSlider: View {
         return GeometryReader { proxy in
             Rectangle()
                 .fill(.blue)
-                .frame(width: proxy[anchor!].width, height: 2)
+                .frame(width: proxy[anchor!].width, height: sliderHeight)
                 .offset(x: proxy[anchor!].minX)
                 .frame(width: proxy.size.width, height: proxy.size.height, alignment: .bottomLeading)
                 .animation(.default, value: anchor)
@@ -139,15 +139,18 @@ struct TabPageView_Previews: PreviewProvider {
 
 struct TabPageView_Previews_TempView: View {
     @State var selectedTabIndex: Int = 3
-    let tabs = (0...20).map { value in
-        Text("标题\(value)")
-    }
-    let pages = (0...20).map { value in
-        Text("内容\(value)")
-    }
+    var dataArray:[Int] = []
     var body: some View {
-//        TabPageView(tabs: tabs, pages: pages,selectedTabIndex: $selectedTabIndex)
-//        TabPageView(tabs: tabs, pages: pages)
-        EmptyView()
+//        TabPageView(tab: { value in
+//            Text("标题\(value)")
+//        }, page: { value in
+//            Text("内容\(value)")
+//        }, dataArray: (0...20).map({$0}))
+
+        TabPageView(tab: { value in
+            Text("标题\(value)")
+        }, page: { value in
+            Text("内容\(value)")
+        }, dataArray: dataArray)
     }
 }
