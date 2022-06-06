@@ -12,7 +12,7 @@ class DyttCategoryModel: HandyJSON {
     let title: String
     let href: String
     var dataArray: [DyttItemModel] = []
-    var leftPageHrefs: [String] = []
+    var leftPageHrefs: [(Int,String)] = []
     
     required init() {
         title = ""

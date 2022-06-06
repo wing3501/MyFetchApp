@@ -31,6 +31,10 @@ extension String {
     func index(_ index: Int) -> String.Index {
         self.index(self.startIndex, offsetBy: index)
     }
+    
+    subscript(_ closeRange: ClosedRange<Int>) -> String.SubSequence {
+        substring(closeRange.lowerBound, closeRange.upperBound)
+    }
 }
 
 

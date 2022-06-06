@@ -48,8 +48,8 @@ final class Environment {
         return .updateDyttCategoryPage(category: category, items: items, leftPageHrefs: leftPageHrefs)
     }
     
-    func analyzingDyttItems(_ html: String) -> ([String],[DyttItemModel]) {
-        var leftPageHrefs: [String] = []
+    func analyzingDyttItems(_ html: String) -> ([(Int,String)],[DyttItemModel]) {
+        var leftPageHrefs: [(Int,String)] = []
         var items: [DyttItemModel] = []
         do {
             let doc = try HTMLDocument(string: html, encoding: .utf8)
@@ -74,8 +74,14 @@ final class Environment {
                     items.append(DyttItemModel(title: title, subTitle: subTitle, desc: desc, href: href))
                 }
             }
-            
             //剩余的页
+            let pageAtags = doc.xpath("//div[@class='co_content8']//div[@class='x']//a")
+            for pageAtag in pageAtags {
+                let (title,href) = pageAtag.atag()
+                if title.hasPrefix("["),let page = Int(title[1...(title.count-2)]) {
+                    leftPageHrefs.append((page, href))
+                }
+            }
             
         } catch let error {
             print("解析失败：\(error.localizedDescription)")
