@@ -9,8 +9,7 @@ import Foundation
 import Alamofire
 
 struct DyttRequest {
-    static let mainPage = "https://www.ygdy8.com/index.html"
-    static func loadMainPage() async -> String {
+    static func loadMainPage(_ mainPage: String) async -> String {
         do {
             let data = try await AF.request(mainPage).serializingData().value
             guard let result = String(data: data, encoding: .gbk) else { return "" }
@@ -19,9 +18,5 @@ struct DyttRequest {
             print(error)
         }
         return ""
-    }
-    
-    static func loadMainHtml() async -> String {
-        await WebviewDataFetchManager.shared.dataString(with: mainPage)
     }
 }

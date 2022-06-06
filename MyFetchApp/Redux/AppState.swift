@@ -18,6 +18,7 @@ struct AppState {
 extension AppState {
     struct DyttState {
         let host = "https://www.ygdy8.com"
+        let mainPage = "https://www.ygdy8.com/index.html"
         var categoryData: [DyttCategoryModel] = []
     }
 }

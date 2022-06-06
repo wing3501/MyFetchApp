@@ -8,11 +8,13 @@
 import Foundation
 import HandyJSON
 
-struct DyttCategoryModel: HandyJSON {
+class DyttCategoryModel: HandyJSON {
     let title: String
     let href: String
+    var dataArray: [DyttItemModel] = []
+    var leftHrefs: [String] = []
     
-    init() {
+    required init() {
         title = ""
         href = ""
     }
@@ -21,5 +23,5 @@ struct DyttCategoryModel: HandyJSON {
         self.title = title
         self.href = href
     }
-    
 }
+

@@ -11,6 +11,8 @@
 		9201FEDC283F75A0004482F0 /* ColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201FEDB283F75A0004482F0 /* ColorEx.swift */; };
 		9201FEDF283F7B87004482F0 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 9201FEDE283F7B87004482F0 /* SwiftUIX */; };
 		924120C82848893700446FD9 /* DyttCategoryPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120C72848893700446FD9 /* DyttCategoryPageView.swift */; };
+		924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120C9284890C400446FD9 /* DyttItemModel.swift */; };
+		924120CC2848924400446FD9 /* DyttItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120CB2848924400446FD9 /* DyttItemRow.swift */; };
 		9259CDD128446D6000C33721 /* DateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD028446D6000C33721 /* DateEx.swift */; };
 		9259CDD328446EEC00C33721 /* ArrayEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD228446EEC00C33721 /* ArrayEx.swift */; };
 		9259CDD628446FD600C33721 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD528446FD600C33721 /* Defaults.swift */; };
@@ -46,6 +48,8 @@
 		9201FEDB283F75A0004482F0 /* ColorEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEx.swift; sourceTree = "<group>"; };
 		9201FEDD283F7B7C004482F0 /* SwiftUIX-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "SwiftUIX-master"; path = "SPM/SwiftUIX-master"; sourceTree = "<group>"; };
 		924120C72848893700446FD9 /* DyttCategoryPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryPageView.swift; sourceTree = "<group>"; };
+		924120C9284890C400446FD9 /* DyttItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttItemModel.swift; sourceTree = "<group>"; };
+		924120CB2848924400446FD9 /* DyttItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttItemRow.swift; sourceTree = "<group>"; };
 		9259CDD028446D6000C33721 /* DateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEx.swift; sourceTree = "<group>"; };
 		9259CDD228446EEC00C33721 /* ArrayEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEx.swift; sourceTree = "<group>"; };
 		9259CDD528446FD600C33721 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */,
+				924120C9284890C400446FD9 /* DyttItemModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			children = (
 				9201FA6C283F4C4A004482F0 /* DyttView.swift */,
 				924120C72848893700446FD9 /* DyttCategoryPageView.swift */,
+				924120CB2848924400446FD9 /* DyttItemRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,10 +364,12 @@
 				924120C82848893700446FD9 /* DyttCategoryPageView.swift in Sources */,
 				92701A21283E084C00295028 /* AppState.swift in Sources */,
 				92701A23283E097E00295028 /* AppAction.swift in Sources */,
+				924120CC2848924400446FD9 /* DyttItemRow.swift in Sources */,
 				9259CDD628446FD600C33721 /* Defaults.swift in Sources */,
 				929800992840A08100FC19D2 /* BindingEx.swift in Sources */,
 				92701A19283E060100295028 /* HomeView.swift in Sources */,
 				9201FEDC283F75A0004482F0 /* ColorEx.swift in Sources */,
+				924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */,
 				9259CDDA2844AF0400C33721 /* DyttRequest.swift in Sources */,
 				9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */,
 				92CD498B284747EC008B2C80 /* StringEx.swift in Sources */,

@@ -57,12 +57,19 @@ final class Store: ObservableObject {
         switch action {
         case .empty:
             break
-        case .loadDyttData:
+        case .loadDyttCategories:
+            let url = state.dytt.mainPage
             return Task {
-                await environment.loadDyttData()
+                await environment.loadDyttCategories(url)
             }
-        case .updateDyttMainPage(let categoryData):
+        case .updateDyttCategories(let categoryData):
             state.dytt.categoryData = categoryData
+        case .loadDyttCategoryPage(let category):
+            let host = state.dytt.host
+            let href = category.href
+            return Task {
+                await environment.loadDyttCategoryPage(host, href)
+            }
         }
         return nil
     }

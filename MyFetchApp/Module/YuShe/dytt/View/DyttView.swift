@@ -20,7 +20,7 @@ struct DyttView: View {
             Text("page:\(data.title)")
         }, dataArray: store.appState.dytt.categoryData,sliderHeight: 4)
         .task {
-            store.dispatch(.loadDyttData)
+            store.dispatch(.loadDyttCategories)
         }
     }
 }

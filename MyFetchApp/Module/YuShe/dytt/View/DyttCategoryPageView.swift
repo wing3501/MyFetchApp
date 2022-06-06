@@ -9,15 +9,21 @@ import SwiftUI
 
 struct DyttCategoryPageView: View {
     @EnvironmentObject var store: Store
-    let model:DyttCategoryModel
+    let category: DyttCategoryModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(category.dataArray) { item in
+            DyttItemRow(itemModel: item)
+        }
+        .task {
+            store.dispatch(.loadDyttCategoryPage(category: category))
+        }
     }
 }
 
 struct DyttCategoryPageView_Previews: PreviewProvider {
     static var previews: some View {
-        DyttCategoryPageView(model: DyttCategoryModel())
+        DyttCategoryPageView(category: DyttCategoryModel())
     }
 }
+

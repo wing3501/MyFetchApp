@@ -9,7 +9,8 @@ import Foundation
 
 enum AppAction {
     case empty
-    case loadDyttData
-    case updateDyttMainPage(dataArray: [DyttCategoryModel])
+    case loadDyttCategories
+    case updateDyttCategories(dataArray: [DyttCategoryModel])
+    case loadDyttCategoryPage(category: DyttCategoryModel)
 }
 
