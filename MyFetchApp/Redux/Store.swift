@@ -66,10 +66,12 @@ final class Store: ObservableObject {
             state.dytt.categoryData = categoryData
         case .loadDyttCategoryPage(let category):
             let host = state.dytt.host
-            let href = category.href
             return Task {
-                await environment.loadDyttCategoryPage(host, href)
+                await environment.loadDyttCategoryPage(host,category)
             }
+        case .updateDyttCategoryPage(let category, let items, let leftPageHrefs):
+            category.dataArray = items
+            category.leftPageHrefs = leftPageHrefs
         }
         return nil
     }

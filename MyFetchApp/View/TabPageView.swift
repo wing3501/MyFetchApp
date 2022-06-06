@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct TabPageView<Content,Data>: View where Data : RandomAccessCollection, Data.Index == Int ,Content : View {
+struct TabPageView<TabContent,PageContent,Data>: View where Data : RandomAccessCollection, Data.Index == Int ,TabContent : View,PageContent: View {
     let dataArray: Data
-    let tab: (Data.Element) -> Content
-    let page: (Data.Element) -> Content
+    let tab: (Data.Element) -> TabContent
+    let page: (Data.Element) -> PageContent
     let tabHeight: CGFloat
     let pageHeight: CGFloat?
     let tabSpacing: CGFloat?
@@ -23,7 +23,7 @@ struct TabPageView<Content,Data>: View where Data : RandomAccessCollection, Data
         selectedTabIndex ?? $selectedTabIndexInside
     }
     
-    init(@ViewBuilder tab: @escaping (Data.Element) -> Content,@ViewBuilder page: @escaping (Data.Element) -> Content,dataArray: Data,selectedTabIndex: Binding<Int>? = nil,tabHeight: CGFloat? = 50,pageHeight: CGFloat? = nil,tabSpacing: CGFloat? = nil,sliderHeight: CGFloat? = nil) {
+    init(@ViewBuilder tab: @escaping (Data.Element) -> TabContent,@ViewBuilder page: @escaping (Data.Element) -> PageContent,dataArray: Data,selectedTabIndex: Binding<Int>? = nil,tabHeight: CGFloat? = 50,pageHeight: CGFloat? = nil,tabSpacing: CGFloat? = nil,sliderHeight: CGFloat? = nil) {
         self.tab = tab
         self.page = page
         self.dataArray = dataArray

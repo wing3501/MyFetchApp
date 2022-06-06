@@ -17,7 +17,7 @@ struct DyttView: View {
         TabPageView(tab: { data in
             Text(data.title)
         }, page: { data in
-            Text("page:\(data.title)")
+            DyttCategoryPageView(category: data)
         }, dataArray: store.appState.dytt.categoryData,sliderHeight: 4)
         .task {
             store.dispatch(.loadDyttCategories)

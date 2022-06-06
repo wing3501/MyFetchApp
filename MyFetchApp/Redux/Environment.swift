@@ -40,44 +40,47 @@ final class Environment {
         return resultArray
     }
     
-    func loadDyttCategoryPage(_ host: String,_ href: String) async -> AppAction {
+    func loadDyttCategoryPage(_ host: String,_ category: DyttCategoryModel) async -> AppAction {
+        let href = category.href
         let url = href.hasPrefix("/") ? (host + href) : (host + "/" + href)
         let html = await WebviewDataFetchManager.shared.dataString(with: url)
-        let (hrefs,items) = analyzingDyttItems(html)
-        return .empty
+        let (leftPageHrefs,items) = analyzingDyttItems(html)
+        return .updateDyttCategoryPage(category: category, items: items, leftPageHrefs: leftPageHrefs)
     }
     
     func analyzingDyttItems(_ html: String) -> ([String],[DyttItemModel]) {
-        var hrefs: [String] = []
+        var leftPageHrefs: [String] = []
         var items: [DyttItemModel] = []
         do {
             let doc = try HTMLDocument(string: html, encoding: .utf8)
             let tables = doc.xpath("//div[@class='co_content8']//table")
             for table in tables {
-                let trs = table.xpath("//tbody/tr")
+                let trs = table.xpath("./tbody/tr")
                 if trs.count > 3 {
                     let titleTr = trs[1]
                     let subTitleTr = trs[2]
                     let descTr = trs[3]
                     
-                    var title = ""
-                    var href = ""
-                    let titleAtag = titleTr.xpath("//a")
-                    if !titleAtag.isEmpty {
-                        let aTag = titleAtag[0]
-                        title = aTag.stringValue
-                        href = aTag["href"] ?? ""
-                    }
                     
+                    let titleAtag = titleTr.xpath(".//a")
+                    let (title,href) = titleAtag.atag()
                     
+                    let subTitleFont = subTitleTr.xpath(".//font")
+                    let subTitle = !subTitleFont.isEmpty ? subTitleFont.first!.stringValue : ""
+                    
+                    let descTd = descTr.xpath(".//td")
+                    let desc = !descTd.isEmpty ? descTd.first!.stringValue : ""
+                    
+                    items.append(DyttItemModel(title: title, subTitle: subTitle, desc: desc, href: href))
                 }
             }
             
-
+            //剩余的页
+            
         } catch let error {
             print("解析失败：\(error.localizedDescription)")
         }
-        return (hrefs,items)
+        return (leftPageHrefs,items)
     }
 }
 
