@@ -13,6 +13,6 @@ enum AppAction {
     case updateDyttCategories(dataArray: [DyttCategoryModel])
     case loadDyttCategoryPage(category: DyttCategoryModel)
     case updateDyttCategoryPage(category: DyttCategoryModel,items: [DyttItemModel],pageHrefs: [(Int,String)])
-    
+    case dyttCategoryPageLoadMore(category: DyttCategoryModel)
 }
 

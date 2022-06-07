@@ -10,7 +10,8 @@ import Combine
 
 @MainActor
 final class Store: ObservableObject {
-    @Published private(set) var appState = AppState()
+//    @Published private(set) var appState = AppState() //有些第三方组件需要修改状态
+    @Published var appState = AppState()
     private let environment = Environment()
     private var disposeBag = Set<AnyCancellable>()
     
@@ -72,6 +73,8 @@ final class Store: ObservableObject {
         case .updateDyttCategoryPage(let category, let items, let pageHrefs):
             category.dataArray = items
             category.pageHrefs = pageHrefs
+        case .dyttCategoryPageLoadMore(let category):
+            category.footerRefreshing = true
         }
         return nil
     }

@@ -15,6 +15,9 @@ class DyttCategoryModel: HandyJSON {
     var dataArray: [DyttItemModel] = []
     var pageHrefs: [(Int,String)] = []
     
+    var footerRefreshing: Bool = false
+    var noMore: Bool = false
+    
     required init() {
         title = ""
         href = ""

@@ -10,9 +10,7 @@ import Refresh
 
 struct DyttCategoryPageView: View {
     @EnvironmentObject var store: Store
-    @State private var footerRefreshing: Bool = false
-    @State private var noMore: Bool = false
-    let category: DyttCategoryModel
+    @Binding var category: DyttCategoryModel
     
     var body: some View {
         ScrollView {
@@ -21,10 +19,10 @@ struct DyttCategoryPageView: View {
             }
             
             if category.dataArray.count > 0 {
-                RefreshFooter(refreshing: $footerRefreshing, action: {
+                RefreshFooter(refreshing: $category.footerRefreshing, action: {
                     self.loadMore()
                 }) {
-                    if self.noMore {
+                    if category.noMore {
                         Text("No more data !")
                             .foregroundColor(.secondary)
                             .padding()
@@ -33,7 +31,7 @@ struct DyttCategoryPageView: View {
                             .padding()
                     }
                 }
-                .noMore(noMore)
+                .noMore(category.noMore)
                 .preload(offset: 50)
             }
         }
@@ -44,17 +42,14 @@ struct DyttCategoryPageView: View {
     }
     
     func loadMore() {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.items += SimpleList.generateItems(count: 10)
-//            self.footerRefreshing = false
-//            self.noMore = self.items.count > 50
-//        }
+        store.dispatch(.dyttCategoryPageLoadMore(category: category))
     }
 }
 
 struct DyttCategoryPageView_Previews: PreviewProvider {
     static var previews: some View {
-        DyttCategoryPageView(category: DyttCategoryModel())
+//        DyttCategoryPageView(category: DyttCategoryModel())
+        EmptyView()
     }
 }
 

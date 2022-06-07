@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TabPageView<TabContent,PageContent,Data>: View where Data : RandomAccessCollection, Data.Index == Int ,TabContent : View,PageContent: View {
     let dataArray: Data
-    let tab: (Data.Element) -> TabContent
-    let page: (Data.Element) -> PageContent
+    let tab: (Data.Element,Int) -> TabContent
+    let page: (Data.Element,Int) -> PageContent
     let tabHeight: CGFloat
     let pageHeight: CGFloat?
     let tabSpacing: CGFloat?
@@ -23,7 +23,7 @@ struct TabPageView<TabContent,PageContent,Data>: View where Data : RandomAccessC
         selectedTabIndex ?? $selectedTabIndexInside
     }
     
-    init(@ViewBuilder tab: @escaping (Data.Element) -> TabContent,@ViewBuilder page: @escaping (Data.Element) -> PageContent,dataArray: Data,selectedTabIndex: Binding<Int>? = nil,tabHeight: CGFloat? = 50,pageHeight: CGFloat? = nil,tabSpacing: CGFloat? = nil,sliderHeight: CGFloat? = nil) {
+    init(@ViewBuilder tab: @escaping (Data.Element,Int) -> TabContent,@ViewBuilder page: @escaping (Data.Element,Int) -> PageContent,dataArray: Data,selectedTabIndex: Binding<Int>? = nil,tabHeight: CGFloat? = 50,pageHeight: CGFloat? = nil,tabSpacing: CGFloat? = nil,sliderHeight: CGFloat? = nil) {
         self.tab = tab
         self.page = page
         self.dataArray = dataArray
@@ -66,7 +66,7 @@ struct TabPageView<TabContent,PageContent,Data>: View where Data : RandomAccessC
 /// 分段选择器
 struct TabContentView<Content,Data>: View where Data : RandomAccessCollection,Data.Index == Int ,Content : View {
     let dataArray: Data
-    let tab: (Data.Element) -> Content
+    let tab: (Data.Element,Int) -> Content
     let tabSpacing: CGFloat?
     @Binding var selectedTabIndex: Int
     
@@ -74,7 +74,7 @@ struct TabContentView<Content,Data>: View where Data : RandomAccessCollection,Da
         LazyHStack(spacing: tabSpacing) {
             
             ForEach(0..<dataArray.count, id: \.self) { index in
-                tab(dataArray[index])
+                tab(dataArray[index],index)
                     .onTapGesture {
                         withAnimation {
                             selectedTabIndex = index
@@ -110,13 +110,13 @@ struct TabSlider: View {
 /// 滚动page页
 struct PageContentView<Content,Data>: View where Data : RandomAccessCollection,Data.Index == Int ,Content : View {
     let dataArray: Data
-    let page: (Data.Element) -> Content
+    let page: (Data.Element,Int) -> Content
     @Binding var selectedTabIndex: Int
     
     var body: some View {
         TabView(selection: $selectedTabIndex.animation(.default)) {
             ForEach(0..<dataArray.count, id: \.self) { index in
-                page(dataArray[index])
+                page(dataArray[index],index)
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
@@ -147,9 +147,9 @@ struct TabPageView_Previews_TempView: View {
 //            Text("内容\(value)")
 //        }, dataArray: (0...20).map({$0}))
 
-        TabPageView(tab: { value in
+        TabPageView(tab: { value,index in
             Text("标题\(value)")
-        }, page: { value in
+        }, page: { value,index in
             Text("内容\(value)")
         }, dataArray: dataArray)
     }

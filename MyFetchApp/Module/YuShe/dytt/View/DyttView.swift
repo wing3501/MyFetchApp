@@ -14,10 +14,10 @@ struct DyttView: View {
     
     
     var body: some View {
-        TabPageView(tab: { data in
+        TabPageView(tab: { data,index in
             Text(data.title)
-        }, page: { data in
-            DyttCategoryPageView(category: data)
+        }, page: { data,index in
+            DyttCategoryPageView(category: $store.appState.dytt.categoryData[index])
         }, dataArray: store.appState.dytt.categoryData,sliderHeight: 4)
         .task {
             store.dispatch(.loadDyttCategories)
