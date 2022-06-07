@@ -19,7 +19,9 @@ struct DyttView: View {
             DyttCategoryPageView(category: $store.appState.dytt.categoryData[index])
         }, dataArray: store.appState.dytt.categoryData,sliderHeight: 4)
         .task {
-            store.dispatch(.loadDyttCategories)
+            if store.appState.dytt.categoryData.isEmpty {
+                store.dispatch(.loadDyttCategories)
+            }
         }
     }
 }
