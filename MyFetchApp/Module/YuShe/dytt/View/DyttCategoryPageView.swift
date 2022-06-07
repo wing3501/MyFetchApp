@@ -37,7 +37,9 @@ struct DyttCategoryPageView: View {
         }
         .enableRefresh()
         .task {
-            store.dispatch(.loadDyttCategoryPage(category: category))
+            if category.dataArray.isEmpty {
+                store.dispatch(.loadDyttCategoryPage(category: category))
+            }
         }
     }
     
