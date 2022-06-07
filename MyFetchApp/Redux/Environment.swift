@@ -90,8 +90,14 @@ final class Environment {
     }
     
     func dyttCategoryPageLoadMore(_ host: String,_ category: DyttCategoryModel) async -> AppAction {
-        let nextHref = category.pageHrefs[category.currentPage - 1].1
-        let url = nextHref.hasPrefix("/") ? (host + nextHref) : (host + "/" + nextHref)
+//    https://www.ygdy8.com/html/gndy/china/index.html
+//    https://www.ygdy8.com/html/gndy/china/list_4_2.html
+        let indexHref = category.href
+        let indexUrl = indexHref.hasPrefix("/") ? (host + indexHref) : (host + "/" + indexHref)
+        let baseUrl = String(indexUrl[indexUrl.startIndex..<indexUrl.lastIndex(of: "/")!])
+        let nextHref = category.pageHrefs[category.currentPage - 1].1//list_4_2.html
+        let url = nextHref.hasPrefix("/") ? (baseUrl + nextHref) : (baseUrl + "/" + nextHref)
+        print(url)
         let html = await WebviewDataFetchManager.shared.dataString(with: url)
         let (pageHrefs,items) = analyzingDyttItems(html)
         var needAddHrefs: [(Int, String)] = []
