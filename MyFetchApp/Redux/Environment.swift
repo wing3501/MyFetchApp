@@ -44,12 +44,12 @@ final class Environment {
         let href = category.href
         let url = href.hasPrefix("/") ? (host + href) : (host + "/" + href)
         let html = await WebviewDataFetchManager.shared.dataString(with: url)
-        let (leftPageHrefs,items) = analyzingDyttItems(html)
-        return .updateDyttCategoryPage(category: category, items: items, leftPageHrefs: leftPageHrefs)
+        let (pageHrefs,items) = analyzingDyttItems(html)
+        return .updateDyttCategoryPage(category: category, items: items, pageHrefs: [(1,href)] + pageHrefs)
     }
     
     func analyzingDyttItems(_ html: String) -> ([(Int,String)],[DyttItemModel]) {
-        var leftPageHrefs: [(Int,String)] = []
+        var pageHrefs: [(Int,String)] = []
         var items: [DyttItemModel] = []
         do {
             let doc = try HTMLDocument(string: html, encoding: .utf8)
@@ -79,14 +79,14 @@ final class Environment {
             for pageAtag in pageAtags {
                 let (title,href) = pageAtag.atag()
                 if title.hasPrefix("["),let page = Int(title[1...(title.count-2)]) {
-                    leftPageHrefs.append((page, href))
+                    pageHrefs.append((page, href))
                 }
             }
             
         } catch let error {
             print("解析失败：\(error.localizedDescription)")
         }
-        return (leftPageHrefs,items)
+        return (pageHrefs,items)
     }
 }
 

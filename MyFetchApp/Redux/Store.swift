@@ -69,9 +69,9 @@ final class Store: ObservableObject {
             return Task {
                 await environment.loadDyttCategoryPage(host,category)
             }
-        case .updateDyttCategoryPage(let category, let items, let leftPageHrefs):
+        case .updateDyttCategoryPage(let category, let items, let pageHrefs):
             category.dataArray = items
-            category.leftPageHrefs = leftPageHrefs
+            category.pageHrefs = pageHrefs
         }
         return nil
     }
