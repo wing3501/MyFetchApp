@@ -12,7 +12,6 @@ struct DyttView: View {
     @EnvironmentObject var store: Store
     @State var selectedTabIndex: Int = 0
     
-    
     var body: some View {
         TabPageView(tab: { data,index in
             Text(data.title)

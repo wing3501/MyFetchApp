@@ -88,6 +88,18 @@ final class Environment {
         }
         return (pageHrefs,items)
     }
+    
+    func dyttCategoryPageLoadMore(_ host: String,_ category: DyttCategoryModel) async -> AppAction {
+        let nextHref = category.pageHrefs[category.currentPage - 1].1
+        let url = nextHref.hasPrefix("/") ? (host + nextHref) : (host + "/" + nextHref)
+        let html = await WebviewDataFetchManager.shared.dataString(with: url)
+        let (pageHrefs,items) = analyzingDyttItems(html)
+        var needAddHrefs: [(Int, String)] = []
+        if let last = category.pageHrefs.last,let newLast = pageHrefs.last,newLast.0 > last.0 {
+            needAddHrefs = pageHrefs.filter({ $0.0 > last.0})
+        }
+        return .updateDyttCategoryPageLoadMore(category: category, items: items, pageHrefs: needAddHrefs)
+    }
 }
 
 extension NodeSet {

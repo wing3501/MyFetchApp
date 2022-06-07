@@ -74,7 +74,19 @@ final class Store: ObservableObject {
             category.dataArray = items
             category.pageHrefs = pageHrefs
         case .dyttCategoryPageLoadMore(let category):
+            print("加载更多--------开始")
             category.footerRefreshing = true
+            category.currentPage += 1
+            let host = state.dytt.host
+            return Task {
+                await environment.dyttCategoryPageLoadMore(host,category)
+            }
+        case .updateDyttCategoryPageLoadMore(let category, let items, let pageHrefs):
+            print("加载更多--------结束")
+            category.dataArray = category.dataArray + items
+            category.pageHrefs = category.pageHrefs + pageHrefs
+            category.footerRefreshing = false
+            category.noMore = category.currentPage == category.pageHrefs.count
         }
         return nil
     }

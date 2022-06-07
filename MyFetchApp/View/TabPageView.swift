@@ -120,7 +120,7 @@ struct PageContentView<Content,Data>: View where Data : RandomAccessCollection,D
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        .background(.random)
+//        .background(.random)
     }
 }
 
