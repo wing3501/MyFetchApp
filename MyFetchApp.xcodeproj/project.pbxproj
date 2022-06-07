@@ -13,6 +13,7 @@
 		924120C82848893700446FD9 /* DyttCategoryPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120C72848893700446FD9 /* DyttCategoryPageView.swift */; };
 		924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120C9284890C400446FD9 /* DyttItemModel.swift */; };
 		924120CC2848924400446FD9 /* DyttItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120CB2848924400446FD9 /* DyttItemRow.swift */; };
+		9253AD6D284EF6980014B2A0 /* Refresh in Frameworks */ = {isa = PBXBuildFile; productRef = 9253AD6C284EF6980014B2A0 /* Refresh */; };
 		9259CDD128446D6000C33721 /* DateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD028446D6000C33721 /* DateEx.swift */; };
 		9259CDD328446EEC00C33721 /* ArrayEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD228446EEC00C33721 /* ArrayEx.swift */; };
 		9259CDD628446FD600C33721 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD528446FD600C33721 /* Defaults.swift */; };
@@ -50,6 +51,7 @@
 		924120C72848893700446FD9 /* DyttCategoryPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryPageView.swift; sourceTree = "<group>"; };
 		924120C9284890C400446FD9 /* DyttItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttItemModel.swift; sourceTree = "<group>"; };
 		924120CB2848924400446FD9 /* DyttItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttItemRow.swift; sourceTree = "<group>"; };
+		9253AD6B284EF68C0014B2A0 /* Refresh-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Refresh-master"; path = "SPM/Refresh-master"; sourceTree = "<group>"; };
 		9259CDD028446D6000C33721 /* DateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEx.swift; sourceTree = "<group>"; };
 		9259CDD228446EEC00C33721 /* ArrayEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEx.swift; sourceTree = "<group>"; };
 		9259CDD528446FD600C33721 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9253AD6D284EF6980014B2A0 /* Refresh in Frameworks */,
 				92701A32283E550200295028 /* Fuzi in Frameworks */,
 				92701A0E283DC94C00295028 /* Kingfisher in Frameworks */,
 				92701A30283E54FF00295028 /* Alamofire in Frameworks */,
@@ -189,6 +192,7 @@
 				92701A10283DCDF200295028 /* HandyJSON-5.0.4-beta */,
 				92701A11283DCE0300295028 /* Alamofire-5.6.1 */,
 				9201FEDD283F7B7C004482F0 /* SwiftUIX-master */,
+				9253AD6B284EF68C0014B2A0 /* Refresh-master */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -296,6 +300,7 @@
 				92701A31283E550200295028 /* Fuzi */,
 				92701A33283E550600295028 /* HandyJSON */,
 				9201FEDE283F7B87004482F0 /* SwiftUIX */,
+				9253AD6C284EF6980014B2A0 /* Refresh */,
 			);
 			productName = MyFetchApp;
 			productReference = 927019F3283DC2FB00295028 /* MyFetchApp.app */;
@@ -583,6 +588,10 @@
 		9201FEDE283F7B87004482F0 /* SwiftUIX */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftUIX;
+		};
+		9253AD6C284EF6980014B2A0 /* Refresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Refresh;
 		};
 		92701A0D283DC94C00295028 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
