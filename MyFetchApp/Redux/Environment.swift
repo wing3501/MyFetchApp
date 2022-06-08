@@ -18,13 +18,12 @@ final class Environment {
     }
     
     func analyzingDyttCategories(_ html: String) -> [DyttCategoryModel] {
-        print("开始解析-------")
         var resultArray: [DyttCategoryModel] = []
         do {
             let doc = try HTMLDocument(string: html, encoding: .utf8)
             if let elementById = doc.firstChild(css: "#menu") {
                 let aTags = elementById.xpath("//div/ul/li/a").filter({ aTag in
-                    aTag.stringValue != "经典影片"
+                    !["经典影片","高分经典","收藏本站","APP下载"].contains(aTag.stringValue)
                 }).prefix(13).map { aTag in
                     DyttCategoryModel(aTag.stringValue, aTag["href"] ?? "")
                 }
@@ -63,7 +62,9 @@ final class Environment {
                     
                     
                     let titleAtag = titleTr.xpath(".//a")
-                    let (title,href) = titleAtag.atag()
+                    let titleAtagValues = titleAtag.atag()
+                    let title = titleAtagValues[titleAtagValues.count > 1 ? 1 : 0].0
+                    let href = titleAtagValues[titleAtagValues.count > 1 ? 1 : 0].1
                     
                     let subTitleFont = subTitleTr.xpath(".//font")
                     let subTitle = !subTitleFont.isEmpty ? subTitleFont.first!.stringValue : ""
@@ -109,11 +110,15 @@ final class Environment {
 }
 
 extension NodeSet {
-    func atag() -> (String,String) {
-        if let first = self.first {
-            return first.atag()
+    func atag() -> [(String,String)] {
+        var atags: [(String,String)] = []
+        for element in self {
+            let value = element.atag()
+            if !value.1.isEmpty {
+                atags.append(value)
+            }
         }
-        return ("","")
+        return atags
     }
 }
 
