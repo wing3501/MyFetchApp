@@ -13,6 +13,7 @@
 		924120C82848893700446FD9 /* DyttCategoryPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120C72848893700446FD9 /* DyttCategoryPageView.swift */; };
 		924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120C9284890C400446FD9 /* DyttItemModel.swift */; };
 		924120CC2848924400446FD9 /* DyttItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120CB2848924400446FD9 /* DyttItemRow.swift */; };
+		92538D9628533BC1007B32A3 /* MovieSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92538D9528533BC1007B32A3 /* MovieSearchView.swift */; };
 		9253AD6D284EF6980014B2A0 /* Refresh in Frameworks */ = {isa = PBXBuildFile; productRef = 9253AD6C284EF6980014B2A0 /* Refresh */; };
 		9253AD70284EFA0C0014B2A0 /* BundleEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253AD6F284EFA0C0014B2A0 /* BundleEx.swift */; };
 		9253AD72284F00D10014B2A0 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253AD71284F00D10014B2A0 /* ActivityIndicatorView.swift */; };
@@ -39,6 +40,7 @@
 		92701A30283E54FF00295028 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A2F283E54FF00295028 /* Alamofire */; };
 		92701A32283E550200295028 /* Fuzi in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A31283E550200295028 /* Fuzi */; };
 		92701A34283E550600295028 /* HandyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A33283E550600295028 /* HandyJSON */; };
+		927503A72850D2330045320E /* 豆瓣资源下载大师.js in Resources */ = {isa = PBXBuildFile; fileRef = 927503A62850D2330045320E /* 豆瓣资源下载大师.js */; };
 		929800992840A08100FC19D2 /* BindingEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929800982840A08000FC19D2 /* BindingEx.swift */; };
 		9298009B2840B69F00FC19D2 /* DispatchQueueEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */; };
 		9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009D2840C75B00FC19D2 /* TabPageView.swift */; };
@@ -53,6 +55,7 @@
 		924120C72848893700446FD9 /* DyttCategoryPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryPageView.swift; sourceTree = "<group>"; };
 		924120C9284890C400446FD9 /* DyttItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttItemModel.swift; sourceTree = "<group>"; };
 		924120CB2848924400446FD9 /* DyttItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttItemRow.swift; sourceTree = "<group>"; };
+		92538D9528533BC1007B32A3 /* MovieSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchView.swift; sourceTree = "<group>"; };
 		9253AD6B284EF68C0014B2A0 /* Refresh-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Refresh-master"; path = "SPM/Refresh-master"; sourceTree = "<group>"; };
 		9253AD6F284EFA0C0014B2A0 /* BundleEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleEx.swift; sourceTree = "<group>"; };
 		9253AD71284F00D10014B2A0 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		92701A20283E084C00295028 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		92701A22283E097E00295028 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		92701A2D283E54E300295028 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
+		927503A62850D2330045320E /* 豆瓣资源下载大师.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "豆瓣资源下载大师.js"; sourceTree = "<group>"; };
 		929800982840A08000FC19D2 /* BindingEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingEx.swift; sourceTree = "<group>"; };
 		9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
 		9298009D2840C75B00FC19D2 /* TabPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPageView.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 		9201FA6A283F4C0C004482F0 /* YuShe */ = {
 			isa = PBXGroup;
 			children = (
+				927503A42850D17B0045320E /* MovieSearch */,
 				9201FA6B283F4C17004482F0 /* dytt */,
 			);
 			path = YuShe;
@@ -265,6 +270,15 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		927503A42850D17B0045320E /* MovieSearch */ = {
+			isa = PBXGroup;
+			children = (
+				927503A62850D2330045320E /* 豆瓣资源下载大师.js */,
+				92538D9528533BC1007B32A3 /* MovieSearchView.swift */,
+			);
+			path = MovieSearch;
+			sourceTree = "<group>";
+		};
 		928569262845EECD000424DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				927019FE283DC2FC00295028 /* Preview Assets.xcassets in Resources */,
+				927503A72850D2330045320E /* 豆瓣资源下载大师.js in Resources */,
 				927019FB283DC2FC00295028 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +400,7 @@
 				92701A23283E097E00295028 /* AppAction.swift in Sources */,
 				924120CC2848924400446FD9 /* DyttItemRow.swift in Sources */,
 				9259CDD628446FD600C33721 /* Defaults.swift in Sources */,
+				92538D9628533BC1007B32A3 /* MovieSearchView.swift in Sources */,
 				929800992840A08100FC19D2 /* BindingEx.swift in Sources */,
 				92701A19283E060100295028 /* HomeView.swift in Sources */,
 				9201FEDC283F75A0004482F0 /* ColorEx.swift in Sources */,

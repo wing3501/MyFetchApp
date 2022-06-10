@@ -10,6 +10,7 @@ import Alamofire
 
 struct DyttRequest {
     static func loadMainPage(_ mainPage: String) async -> String {
+        
         do {
             let data = try await AF.request(mainPage).serializingData().value
             guard let result = String(data: data, encoding: .gbk) else { return "" }

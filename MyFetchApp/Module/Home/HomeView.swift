@@ -16,6 +16,9 @@ struct HomeView: View {
                     NavigationLink(destination: DyttView().navigationBarTitle("电影天堂", displayMode: .inline)) {
                         HomeViewListRow(logoUrl: "https://www.ygdy8.com/images/logo.gif", SFIcon: "play.rectangle")
                     }
+                    NavigationLink(destination: MovieSearchView().navigationBarTitle("电影资源搜索", displayMode: .inline)) {
+                        HomeViewListRow(websiteName: "电影资源搜索", SFIcon: "film")
+                    }
                 } header: {
                     Text("预设网站抓取")
                 }
