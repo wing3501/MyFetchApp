@@ -11,9 +11,9 @@ import HandyJSON
 struct MovieSearchWebSite: HandyJSON {
     let name: String
     let searchUrl: String
-    var searchText: String {
-        return name
-    }
+//    var searchText: String {
+//        return name
+//    }
     
     init() {
         name = ""

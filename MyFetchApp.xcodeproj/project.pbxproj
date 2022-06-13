@@ -48,6 +48,7 @@
 		92CD498B284747EC008B2C80 /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498A284747EC008B2C80 /* StringEx.swift */; };
 		92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */; };
 		92E8A3492857095F009D3690 /* MovieSearchWebsites.json in Resources */ = {isa = PBXBuildFile; fileRef = 92538D9B285343B6007B32A3 /* MovieSearchWebsites.json */; };
+		92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34A28571667009D3690 /* MovieSearchRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		9298009D2840C75B00FC19D2 /* TabPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPageView.swift; sourceTree = "<group>"; };
 		92CD498A284747EC008B2C80 /* StringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
 		92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryModel.swift; sourceTree = "<group>"; };
+		92E8A34A28571667009D3690 /* MovieSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 			children = (
 				92701A2D283E54E300295028 /* HttpHelper.swift */,
 				9259CDD92844AF0400C33721 /* DyttRequest.swift */,
+				92E8A34A28571667009D3690 /* MovieSearchRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				92538D9628533BC1007B32A3 /* MovieSearchView.swift in Sources */,
 				929800992840A08100FC19D2 /* BindingEx.swift in Sources */,
 				92701A19283E060100295028 /* HomeView.swift in Sources */,
+				92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */,
 				9201FEDC283F75A0004482F0 /* ColorEx.swift in Sources */,
 				92538D9A28534309007B32A3 /* MovieSearchWebSite.swift in Sources */,
 				924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */,

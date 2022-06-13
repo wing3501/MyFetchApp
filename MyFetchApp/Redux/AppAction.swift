@@ -17,5 +17,6 @@ enum AppAction {
     case updateDyttCategoryPageLoadMore(category: DyttCategoryModel,items: [DyttItemModel],pageHrefs: [(Int,String)])
     case loadSearchSource
     case updateSearchSource(websites: [MovieSearchWebSite])
+    case searchMovie(searchText: String)
 }
 

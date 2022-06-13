@@ -111,8 +111,20 @@ final class Environment {
     func loadSearchSource() async -> AppAction {
         if let json = Bundle.main.string(from: "MovieSearchWebsites.json"),
            let dataArray = [MovieSearchWebSite].deserialize(from: json){
-             
+            let websites = dataArray.filter { website in
+                website != nil
+            }.map({ $0!})
+            return .updateSearchSource(websites: websites)
         }
+        return .empty
+    }
+    
+    func searchMovie(_ searchText: String,from websites: [MovieSearchWebSite]) async -> AppAction {
+        let website = websites[0]
+        let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText)
+        let result = await MovieSearchRequest.searchMovie(url)
+        print("搜索结果--------")
+        print(result)
         return .empty
     }
 }

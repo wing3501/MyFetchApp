@@ -10,12 +10,27 @@ import SwiftUI
 struct MovieSearchView: View {
     
     @EnvironmentObject var store: Store
+    @State var searchText = ""
+    @FocusState var isFocused: Bool
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .task {
-                store.dispatch(.loadSearchSource)
+        List {
+            HStack {
+                TextField("输入名称", text: $searchText)
+                    .textFieldStyle(.roundedBorder)
+                    .focused($isFocused)
+                    .padding()
+                Button("搜索") {
+                    isFocused = false
+                    store.dispatch(.searchMovie(searchText: searchText))
+                }
+                .background(.yellow)
+                .buttonStyle(BorderlessButtonStyle())
             }
+        }
+        .task {
+            store.dispatch(.loadSearchSource)
+        }
     }
 }
 
