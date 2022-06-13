@@ -49,6 +49,7 @@
 		92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */; };
 		92E8A3492857095F009D3690 /* MovieSearchWebsites.json in Resources */ = {isa = PBXBuildFile; fileRef = 92538D9B285343B6007B32A3 /* MovieSearchWebsites.json */; };
 		92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34A28571667009D3690 /* MovieSearchRequest.swift */; };
+		92E8A34E28573D09009D3690 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34D28573D09009D3690 /* Print.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		92CD498A284747EC008B2C80 /* StringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
 		92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryModel.swift; sourceTree = "<group>"; };
 		92E8A34A28571667009D3690 /* MovieSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchRequest.swift; sourceTree = "<group>"; };
+		92E8A34D28573D09009D3690 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				9259CDD528446FD600C33721 /* Defaults.swift */,
 				9259CDDF2844E33100C33721 /* WebviewDataFetchManager.swift */,
+				92E8A34D28573D09009D3690 /* Print.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				9298009B2840B69F00FC19D2 /* DispatchQueueEx.swift in Sources */,
 				9201FA6D283F4C4A004482F0 /* DyttView.swift in Sources */,
 				92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */,
+				92E8A34E28573D09009D3690 /* Print.swift in Sources */,
 				92701A05283DC3E400295028 /* AppDelegate.swift in Sources */,
 				9259CDDE2844C22A00C33721 /* SUWebView.swift in Sources */,
 				92701A1D283E077700295028 /* MainView.swift in Sources */,

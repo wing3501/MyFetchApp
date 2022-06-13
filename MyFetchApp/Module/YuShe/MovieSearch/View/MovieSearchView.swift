@@ -22,7 +22,9 @@ struct MovieSearchView: View {
                     .padding()
                 Button("搜索") {
                     isFocused = false
-                    store.dispatch(.searchMovie(searchText: searchText))
+                    if !searchText.isEmpty {
+                        store.dispatch(.searchMovie(searchText: searchText))
+                    }
                 }
                 .background(.yellow)
                 .buttonStyle(BorderlessButtonStyle())

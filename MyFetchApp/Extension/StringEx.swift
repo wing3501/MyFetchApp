@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 extension String {
     var rangeOfAll: NSRange {
@@ -34,6 +35,18 @@ extension String {
     
     subscript(_ closeRange: ClosedRange<Int>) -> String.SubSequence {
         substring(closeRange.lowerBound, closeRange.upperBound)
+    }
+    
+    // MARK: - 编码
+    
+    func URLEncode() -> String {
+        guard let encoded = addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed) else { return "" }
+        return encoded
+    }
+    
+    func URLDecode() -> String {
+        guard let decoded = removingPercentEncoding else { return "" }
+        return decoded
     }
 }
 

@@ -120,11 +120,51 @@ final class Environment {
     }
     
     func searchMovie(_ searchText: String,from websites: [MovieSearchWebSite]) async -> AppAction {
-        let website = websites[0]
-        let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText)
-        let result = await MovieSearchRequest.searchMovie(url)
-        print("搜索结果--------")
-        print(result)
+        if !websites.isEmpty && !searchText.isEmpty {
+            let website = websites[0]
+            let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode())
+            let result = await MovieSearchRequest.searchMovie(url)
+            print("搜索结果--------")
+            print(result)
+//            <div class='col-xs-6 col-sm-4 yskd'>
+//                <a href='/4K5524' title='楚门的世界 (The Truman Show)英语' >
+//                <span class='douban'>豆瓣评分:9.3</span>
+//                <span class='imdb'>IMDB评分:8.1</span>
+//                <span class='bluray'>4K超清</span>
+//                <div class='pic'>     <img  data-echo='/upimg/01/20220117103047.jpg'>     </div>
+//                <div class='txt'>
+//                        <h1><span>[1998]</span>楚门的世界 (The Truman Show)英语</h1>
+//                        <p>  <span class='pull-left'><i class='fa fa-calendar-o'></i> 2022年01月17日</span>
+//                            <span class='pull-right'><i class='fa fa-hand-o-up'></i> 1292</span>
+//                        </p>
+//                </div>
+//                </a>
+//            </div>
+            
+            
+//            <div class='col-xs-6 col-sm-4 yskd'>
+//            <a href='/4K1435' title='百变侏罗纪(Tammy and the T-Rex)英语' >
+//            <span class='douban'>豆瓣评分:5.9</span>
+//            <span class='imdb'>IMDB评分:4.0</span>
+//            <span class='bluray'>4K超清</span>
+//            <div class='pic'>     <img  data-echo='/upimg/01/20191231153617.jpg'>     </div>
+//            <div class='txt'>               <h1><span>[1994]</span>百变侏罗纪(Tammy and the T-Rex)英语</h1>           <p>  <span class='pull-left'><i class='fa fa-calendar-o'></i> 2020年01月03日</span>    <span class='pull-right'><i class='fa fa-hand-o-up'></i> 2071</span>                       </p>                </div>
+//            </a>
+//            </div>
+//            
+//            <div class='col-xs-6 col-sm-4 yskd'>  <a href='/4K446' title='侏罗纪公园(Jurassic Park)英语/西班牙语' > <span class='douban'>豆瓣评分:8.0</span>  <span class='imdb'>IMDB评分:8.1</span>     <span class='bluray'>4K超清</span>    <div class='pic'>     <img  data-echo='/upimg/01/20180711092539.jpg'>     </div>  <div class='txt'>               <h1><span>[2013]</span>侏罗纪公园(Jurassic Park)英语/西班牙语</h1>           <p>  <span class='pull-left'><i class='fa fa-calendar-o'></i> 2018年07月12日</span>    <span class='pull-right'><i class='fa fa-hand-o-up'></i> 2744</span>                       </p>                </div> </a>
+//            </div>
+//            
+//            <div class='col-xs-6 col-sm-4 yskd'>  <a href='/4K445' title='侏罗纪世界2(Jurassic World: Fallen Kingdom)英语' > <span class='douban'>豆瓣评分:6.9</span>  <span class='imdb'>IMDB评分:6.6</span>     <span class='bluray'>4K超清</span>    <div class='pic'>     <img  data-echo='/upimg/01/20180711092234.jpg'>     </div>  <div class='txt'>               <h1><span>[2018]</span>侏罗纪世界2(Jurassic World: Fallen Kingdom)英语</h1>           <p>  <span class='pull-left'><i class='fa fa-calendar-o'></i> 2018年07月12日</span>    <span class='pull-right'><i class='fa fa-hand-o-up'></i> 4770</span>                       </p>                </div> </a>
+//            </div>
+//            
+//            <div class='col-xs-6 col-sm-4 yskd'>  <a href='/4K444' title='侏罗纪公园3(Jurassic Park 3)英语' > <span class='douban'>豆瓣评分:7.0</span>  <span class='imdb'>IMDB评分:5.9</span>     <span class='bluray'>4K超清</span>    <div class='pic'>     <img  data-echo='/upimg/01/20180711090651.jpg'>     </div>  <div class='txt'>               <h1><span>[2002]</span>侏罗纪公园3(Jurassic Park 3)英语</h1>           <p>  <span class='pull-left'><i class='fa fa-calendar-o'></i> 2018年07月12日</span>    <span class='pull-right'><i class='fa fa-hand-o-up'></i> 2057</span>                       </p>                </div> </a>
+//            </div>
+//            
+//            
+//            <div class='col-xs-6 col-sm-4 yskd'>  <a href='/4K427' title='侏罗纪世界(Jurassic World)英语' > <span class='douban'>豆瓣评分:7.6</span>  <span class='imdb'>IMDB评分:7.0</span>     <span class='bluray'>4K超清</span>    <div class='pic'>     <img  data-echo='/upimg/01/20180704210653.jpg'>     </div>  <div class='txt'>               <h1><span>[2015]</span>侏罗纪世界(Jurassic World)英语</h1>           <p>  <span class='pull-left'><i class='fa fa-calendar-o'></i> 2018年07月05日</span>    <span class='pull-right'><i class='fa fa-hand-o-up'></i> 4936</span>                       </p>                </div> </a>
+//            </div>
+        }
         return .empty
     }
 }
