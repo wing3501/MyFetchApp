@@ -10,9 +10,8 @@ import Combine
 
 /// 状态管理
 struct AppState {
-    var name: String = ""
-    var age:Int = 10
     var dytt = DyttState()
+    var ms = MovieSearchState()
 }
 
 extension AppState {
@@ -20,5 +19,8 @@ extension AppState {
         let host = "https://www.ygdy8.com"
         let mainPage = "https://www.ygdy8.com/index.html"
         var categoryData: [DyttCategoryModel] = []
+    }
+    struct MovieSearchState {
+        var websites: [MovieSearchWebSite] = []
     }
 }

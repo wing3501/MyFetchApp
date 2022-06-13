@@ -28,5 +28,17 @@ extension Bundle {
 
         return loaded
     }
+    
+    /// 读取Bundle中的文件为字符串
+    /// - Parameter file: 文件名
+    /// - Returns: 文件内容
+    func string(from file: String) -> String? {
+        if let fileUrl = url(forResource: file, withExtension: nil),
+           let data = try? Data(contentsOf: fileUrl),
+           let fileString = String(data: data, encoding: .utf8) {
+            return fileString
+        }
+        return nil
+    }
 }
 

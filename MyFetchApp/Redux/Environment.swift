@@ -107,6 +107,14 @@ final class Environment {
         }
         return .updateDyttCategoryPageLoadMore(category: category, items: items, pageHrefs: needAddHrefs)
     }
+    
+    func loadSearchSource() async -> AppAction {
+        if let json = Bundle.main.string(from: "MovieSearchWebsites.json"),
+           let dataArray = [MovieSearchWebSite].deserialize(from: json){
+             
+        }
+        return .empty
+    }
 }
 
 extension NodeSet {

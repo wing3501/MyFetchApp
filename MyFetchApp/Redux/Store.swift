@@ -87,6 +87,12 @@ final class Store: ObservableObject {
             category.pageHrefs = category.pageHrefs + pageHrefs
             category.footerRefreshing = false
             category.noMore = category.currentPage == category.pageHrefs.count
+        case .loadSearchSource:
+            return Task {
+                await environment.loadSearchSource()
+            }
+        case .updateSearchSource(let websites):
+            appState.ms.websites = websites
         }
         return nil
     }
