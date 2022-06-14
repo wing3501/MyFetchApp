@@ -18,7 +18,6 @@ struct MainView: View {
     
     init() {
         _store = StateObject(wrappedValue: Store())
-        
     }
     
     var body: some View {

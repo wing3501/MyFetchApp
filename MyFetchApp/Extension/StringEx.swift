@@ -48,6 +48,13 @@ extension String {
         guard let decoded = removingPercentEncoding else { return "" }
         return decoded
     }
+    
+    // MARK: - 正则
+    var isNumberText: Bool {
+        let regex = "^[0-9]*$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        return predicate.evaluate(with: self)
+    }
 }
 
 
