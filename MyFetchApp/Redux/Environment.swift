@@ -124,6 +124,7 @@ final class Environment {
             let website = websites[0]
             let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode())
             let result = await MovieSearchRequest.searchMovie(url)
+            
             print("搜索结果--------")
             print(result)
 //            <div class='col-xs-6 col-sm-4 yskd'>

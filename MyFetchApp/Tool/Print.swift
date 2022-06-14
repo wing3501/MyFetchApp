@@ -24,7 +24,7 @@ private class PrintHelper {
 func NSLog<T>(_ message: T, file: String = #file, function: String = #function, lineNumber: Int = #line) {
     #if DEBUG
     let fileName = (file as NSString).lastPathComponent.split(separator: ".").first!
-    print("\(PrintHelper.shared.now) \(fileName):\(lineNumber) funciton:\(function) - \(message)")
+    print("\(PrintHelper.shared.now) \(fileName):\(lineNumber) \(function) - \(message)")
     #endif
 }
 

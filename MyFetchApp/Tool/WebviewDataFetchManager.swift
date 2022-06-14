@@ -56,6 +56,15 @@ class WebviewDataFetchManager: NSObject {
 }
 
 extension WebviewDataFetchManager: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if let url = navigationAction.request.url,let _ = url.absoluteString.range(of: "google") {
+            decisionHandler(.cancel)
+        }else {
+            decisionHandler(.allow)
+        }
+    }
+    
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         if let handler = completionHandler {
             handler("")
