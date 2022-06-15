@@ -29,10 +29,18 @@ struct MovieSearchView: View {
                 .background(.yellow)
                 .buttonStyle(BorderlessButtonStyle())
             }
+            
+            ForEach(webSitesHasResult) { webSite in
+                MovieWebSiteRow(website: webSite)
+            }
         }
         .task {
             store.dispatch(.loadSearchSource)
         }
+    }
+    
+    var webSitesHasResult: [MovieSearchWebSite] {
+        store.appState.ms.websites.filter({!$0.searchResult.isEmpty})
     }
 }
 

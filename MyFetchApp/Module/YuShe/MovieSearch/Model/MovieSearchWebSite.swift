@@ -8,15 +8,21 @@
 import Foundation
 import HandyJSON
 
-struct MovieSearchWebSite: HandyJSON {
+struct MovieSearchWebSite: HandyJSON,Identifiable {
     let name: String
+    let icon: String
     let baseUrl: String
     let searchUrl: String
     let resultXpath: MovieResultXpath? = nil
     var searchResult: [MovieResult] = []
     
+    var id: String {
+        name + baseUrl
+    }
+    
     init() {
         name = ""
+        icon = ""
         baseUrl = ""
         searchUrl = ""
     }
@@ -34,8 +40,12 @@ struct HtmlTag: HandyJSON {
     let key = ""
 }
 
-struct MovieResult {
+struct MovieResult: Identifiable {
     let title: String
     let href: String
     let image: String
+    
+    var id: String {
+        title + href
+    }
 }

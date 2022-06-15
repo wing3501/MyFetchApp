@@ -144,14 +144,14 @@ final class Environment {
                         href = website.baseUrl + hrefEle.attr(hrefTag.key)
                     }
                     var image = ""
-                    if let imgEle = item.xpath(".//img").first {
+                    if let imgEle = item.xpath(imageTag.xpath).first {
                         image = imgEle.attr(imageTag.key)
                     }
                     resultArray.append(MovieResult(title: title, href: href, image: image))
                 }
                 website.searchResult = resultArray
                 websiteArray[0] = website
-                return
+                return .updateSearchSource(websites: websiteArray)
             }
             
 //            print("搜索结果--------")
