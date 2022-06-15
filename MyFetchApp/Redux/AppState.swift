@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+let stringValueTagKey = "stringValue"
+
 /// 状态管理
 struct AppState {
     var dytt = DyttState()

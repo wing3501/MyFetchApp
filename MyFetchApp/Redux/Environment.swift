@@ -60,11 +60,9 @@ final class Environment {
                     let subTitleTr = trs[2]
                     let descTr = trs[3]
                     
-                    
-                    let titleAtag = titleTr.xpath(".//a")
-                    let titleAtagValues = titleAtag.atag()
-                    let title = titleAtagValues[titleAtagValues.count > 1 ? 1 : 0].0
-                    let href = titleAtagValues[titleAtagValues.count > 1 ? 1 : 0].1
+                    let titleAtags = titleTr.xpath(".//a")
+                    let title = titleAtags[titleAtags.count > 1 ? 1 : 0].stringValue
+                    let href = titleAtags[titleAtags.count > 1 ? 1 : 0]["href"]
                     
                     let subTitleFont = subTitleTr.xpath(".//font")
                     let subTitle = !subTitleFont.isEmpty ? subTitleFont.first!.stringValue : ""
@@ -72,13 +70,14 @@ final class Environment {
                     let descTd = descTr.xpath(".//td")
                     let desc = !descTd.isEmpty ? descTd.first!.stringValue : ""
                     
-                    items.append(DyttItemModel(title: title, subTitle: subTitle, desc: desc, href: href))
+                    items.append(DyttItemModel(title: title, subTitle: subTitle, desc: desc, href: href ?? ""))
                 }
             }
             //剩余的页
             let pageAtags = doc.xpath("//div[@class='co_content8']//div[@class='x']//a")
             for pageAtag in pageAtags {
-                let (title,href) = pageAtag.atag()
+                let title = pageAtag.stringValue
+                let href = pageAtag["href"] ?? ""
                 if title.hasPrefix("["),let page = Int(title[1...(title.count-2)]) {
                     pageHrefs.append((page, href))
                 }
@@ -121,12 +120,42 @@ final class Environment {
     
     func searchMovie(_ searchText: String,from websites: [MovieSearchWebSite]) async -> AppAction {
         if !websites.isEmpty && !searchText.isEmpty {
-            let website = websites[0]
+            var websiteArray = websites
+            var website = websiteArray[0]
             let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode())
             let result = await MovieSearchRequest.searchMovie(url)
             
-            print("搜索结果--------")
-            print(result)
+            if let doc = try? HTMLDocument(string: result, encoding: .utf8),
+               let resultXpath = website.resultXpath,
+               let titleTag = resultXpath.title,
+               let hrefTag = resultXpath.href,
+               let imageTag = resultXpath.image {
+            
+                var resultArray: [MovieResult] = []
+                
+                let arr = doc.xpath(resultXpath.xpath)
+                for item in arr {
+                    var title = ""
+                    if let titleEle = item.xpath(titleTag.xpath).first {
+                        title = titleEle.attr(titleTag.key)
+                    }
+                    var href = ""
+                    if let hrefEle = item.xpath(hrefTag.xpath).first {
+                        href = website.baseUrl + hrefEle.attr(hrefTag.key)
+                    }
+                    var image = ""
+                    if let imgEle = item.xpath(".//img").first {
+                        image = imgEle.attr(imageTag.key)
+                    }
+                    resultArray.append(MovieResult(title: title, href: href, image: image))
+                }
+                website.searchResult = resultArray
+                websiteArray[0] = website
+                return
+            }
+            
+//            print("搜索结果--------")
+//            print(result)
 //            <div class='col-xs-6 col-sm-4 yskd'>
 //                <a href='/4K5524' title='楚门的世界 (The Truman Show)英语' >
 //                <span class='douban'>豆瓣评分:9.3</span>
@@ -170,24 +199,8 @@ final class Environment {
     }
 }
 
-extension NodeSet {
-    func atag() -> [(String,String)] {
-        var atags: [(String,String)] = []
-        for element in self {
-            let value = element.atag()
-            if !value.1.isEmpty {
-                atags.append(value)
-            }
-        }
-        return atags
-    }
-}
-
 extension XMLElement {
-    func atag() -> (String,String) {
-        if let tag = self.tag,tag == "a" {
-            return (self.stringValue,self["href"] ?? "")
-        }
-        return ("","")
+    func attr(_ key: String) -> String {
+        return key == stringValueTagKey ? self.stringValue : (self[key] ?? "")
     }
 }

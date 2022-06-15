@@ -1,7 +1,22 @@
 [
     {   "name":"4K电影",
-        "baseUrl":"https://4k-m.com"
-        "searchUrl": "https://4k-m.com/m/s.aspx?s={searchText}"
+        "baseUrl":"https://4k-m.com",
+        "searchUrl": "https://4k-m.com/m/s.aspx?s={searchText}",
+        "resultXpath": {
+                "xpath": "//div[@class='col-xs-6 col-sm-4 yskd']",
+                "title": {
+                    "xpath":".//a",
+                    "key":"title"
+                },
+                "href": {
+                    "xpath":".//a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": ".//img",
+                    "key":"data-echo"
+                }
+        }
     }
 ]
 
