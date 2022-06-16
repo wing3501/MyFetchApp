@@ -33,6 +33,7 @@ struct MovieResultXpath: HandyJSON {
     let title: HtmlTag? = nil
     let href: HtmlTag? = nil
     let image: HtmlTag? = nil
+    let other: [HtmlTag]? = nil
 }
 
 struct HtmlTag: HandyJSON {
@@ -44,8 +45,11 @@ struct MovieResult: Identifiable {
     let title: String
     let href: String
     let image: String
+    let other: [String]
     
     var id: String {
         title + href
     }
+    
+    static let example = MovieResult(title: "这是名字这是名字这是名字", href: "", image: "https://4k-m.com/upimg/01/20220614204346.jpg", other: ["豆瓣评分:5.9", "IMDB评分:4.0", "4K超清"])
 }

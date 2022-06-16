@@ -16,8 +16,21 @@
                 "image": {
                     "xpath": ".//img",
                     "key":"data-echo"
-                }
+                },
+                "other":[
+                    {
+                        "xpath": ".//span[1]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//span[2]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//span[3]",
+                        "key":""
+                    }
+                ]
         }
     }
 ]
-

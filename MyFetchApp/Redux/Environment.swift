@@ -147,7 +147,16 @@ final class Environment {
                     if let imgEle = item.xpath(imageTag.xpath).first {
                         image = imgEle.attr(imageTag.key)
                     }
-                    resultArray.append(MovieResult(title: title, href: href, image: image))
+                    var other: [String] = []
+                    if let otherXpaths = resultXpath.other,!otherXpaths.isEmpty {
+                        for htmlTag in otherXpaths {
+                            if let ele = item.xpath(htmlTag.xpath).first {
+                                other.append(ele.attr(htmlTag.key))
+                            }
+                        }
+                    }
+                    
+                    resultArray.append(MovieResult(title: title, href: href, image: image,other: other))
                 }
                 website.searchResult = resultArray
                 websiteArray[0] = website
@@ -201,6 +210,6 @@ final class Environment {
 
 extension XMLElement {
     func attr(_ key: String) -> String {
-        return key == stringValueTagKey ? self.stringValue : (self[key] ?? "")
+        return key.isEmpty ? self.stringValue : (self[key] ?? "")
     }
 }

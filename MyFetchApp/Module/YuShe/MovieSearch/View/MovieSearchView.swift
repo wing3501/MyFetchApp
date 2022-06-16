@@ -29,9 +29,10 @@ struct MovieSearchView: View {
                 .background(.yellow)
                 .buttonStyle(BorderlessButtonStyle())
             }
-            
             ForEach(webSitesHasResult) { webSite in
-                MovieWebSiteRow(website: webSite)
+                NavigationLink(destination: MovieListView(movies: webSite.searchResult)) {
+                    MovieWebSiteRow(website: webSite)
+                }
             }
         }
         .task {

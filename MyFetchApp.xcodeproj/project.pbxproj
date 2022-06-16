@@ -26,6 +26,7 @@
 		9259CDDC2844BAC900C33721 /* StringEncodingEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDDB2844BAC900C33721 /* StringEncodingEx.swift */; };
 		9259CDDE2844C22A00C33721 /* SUWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDDD2844C22A00C33721 /* SUWebView.swift */; };
 		9259CDE02844E33100C33721 /* WebviewDataFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDDF2844E33100C33721 /* WebviewDataFetchManager.swift */; };
+		92658B312859DDC20000041D /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92658B302859DDC20000041D /* MovieListView.swift */; };
 		927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927019F6283DC2FB00295028 /* MyFetchApp.swift */; };
 		927019FB283DC2FC00295028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FA283DC2FC00295028 /* Assets.xcassets */; };
 		927019FE283DC2FC00295028 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FD283DC2FC00295028 /* Preview Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		929800992840A08100FC19D2 /* BindingEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929800982840A08000FC19D2 /* BindingEx.swift */; };
 		9298009B2840B69F00FC19D2 /* DispatchQueueEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */; };
 		9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009D2840C75B00FC19D2 /* TabPageView.swift */; };
+		929A6E01285AD462004C89FC /* ToastUI in Frameworks */ = {isa = PBXBuildFile; productRef = 929A6E00285AD462004C89FC /* ToastUI */; };
 		92CD498B284747EC008B2C80 /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498A284747EC008B2C80 /* StringEx.swift */; };
 		92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */; };
 		92DC3FA82859C2250092875F /* MovieWebSiteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */; };
@@ -74,6 +76,7 @@
 		9259CDDB2844BAC900C33721 /* StringEncodingEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEncodingEx.swift; sourceTree = "<group>"; };
 		9259CDDD2844C22A00C33721 /* SUWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUWebView.swift; sourceTree = "<group>"; };
 		9259CDDF2844E33100C33721 /* WebviewDataFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewDataFetchManager.swift; sourceTree = "<group>"; };
+		92658B302859DDC20000041D /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		927019F3283DC2FB00295028 /* MyFetchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFetchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927019F6283DC2FB00295028 /* MyFetchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFetchApp.swift; sourceTree = "<group>"; };
 		927019FA283DC2FC00295028 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 		929800982840A08000FC19D2 /* BindingEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingEx.swift; sourceTree = "<group>"; };
 		9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
 		9298009D2840C75B00FC19D2 /* TabPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPageView.swift; sourceTree = "<group>"; };
+		929A6DFF285AD454004C89FC /* ToastUI-3.0.0 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ToastUI-3.0.0"; path = "SPM/ToastUI-3.0.0"; sourceTree = "<group>"; };
 		92CD498A284747EC008B2C80 /* StringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
 		92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryModel.swift; sourceTree = "<group>"; };
 		92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWebSiteRow.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				92701A30283E54FF00295028 /* Alamofire in Frameworks */,
 				9201FEDF283F7B87004482F0 /* SwiftUIX in Frameworks */,
 				92701A34283E550600295028 /* HandyJSON in Frameworks */,
+				929A6E01285AD462004C89FC /* ToastUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +161,7 @@
 			children = (
 				92538D9528533BC1007B32A3 /* MovieSearchView.swift */,
 				92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */,
+				92658B302859DDC20000041D /* MovieListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 				92701A11283DCE0300295028 /* Alamofire-5.6.1 */,
 				9201FEDD283F7B7C004482F0 /* SwiftUIX-master */,
 				9253AD6B284EF68C0014B2A0 /* Refresh-master */,
+				929A6DFF285AD454004C89FC /* ToastUI-3.0.0 */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -360,6 +367,7 @@
 				92701A33283E550600295028 /* HandyJSON */,
 				9201FEDE283F7B87004482F0 /* SwiftUIX */,
 				9253AD6C284EF6980014B2A0 /* Refresh */,
+				929A6E00285AD462004C89FC /* ToastUI */,
 			);
 			productName = MyFetchApp;
 			productReference = 927019F3283DC2FB00295028 /* MyFetchApp.app */;
@@ -439,6 +447,7 @@
 				92701A19283E060100295028 /* HomeView.swift in Sources */,
 				92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */,
 				9201FEDC283F75A0004482F0 /* ColorEx.swift in Sources */,
+				92658B312859DDC20000041D /* MovieListView.swift in Sources */,
 				92538D9A28534309007B32A3 /* MovieSearchWebSite.swift in Sources */,
 				924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */,
 				9259CDDA2844AF0400C33721 /* DyttRequest.swift in Sources */,
@@ -676,6 +685,10 @@
 		92701A33283E550600295028 /* HandyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HandyJSON;
+		};
+		929A6E00285AD462004C89FC /* ToastUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ToastUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
