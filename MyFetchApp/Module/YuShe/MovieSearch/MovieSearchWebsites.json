@@ -32,5 +32,39 @@
                     }
                 ]
         }
+    },
+    {   "name":"19影视",
+        "icon":"https://www.19kan.com/template/vfed2/asset/img/logo.png",
+        "baseUrl":"https://www.19kan.com",
+        "searchUrl": "https://www.19kan.com/vodsearch.html?wd={searchText}",
+        "resultXpath": {
+                "xpath": "//dl[@class='fed-deta-info fed-deta-padding fed-line-top fed-margin fed-part-rows fed-part-over']",
+                "title": {
+                    "xpath":".//h1[@class='fed-part-eone fed-font-xvi']/a",
+                    "key":""
+                },
+                "href": {
+                    "xpath":".//h1[@class='fed-part-eone fed-font-xvi']/a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": ".//a[@class='fed-list-pics fed-lazy fed-part-2by3']",
+                    "key":"data-original"
+                },
+                "other":[
+                    {
+                        "xpath": ".//ul[class='fed-part-rows']/li[1]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//ul[class='fed-part-rows']/li[2]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//ul[class='fed-part-rows']/li[5]",
+                        "key":""
+                    }
+                ]
+        }
     }
 ]
