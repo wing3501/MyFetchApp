@@ -141,11 +141,17 @@ final class Environment {
                     }
                     var href = ""
                     if let hrefEle = item.xpath(hrefTag.xpath).first {
-                        href = website.baseUrl + hrefEle.attr(hrefTag.key)
+                        href = hrefEle.attr(hrefTag.key)
+                        if !href.hasPrefix("http") {
+                            href = website.baseUrl + href
+                        }
                     }
                     var image = ""
                     if let imgEle = item.xpath(imageTag.xpath).first {
-                        image = website.baseUrl + imgEle.attr(imageTag.key)
+                        image = imgEle.attr(imageTag.key)
+                        if !image.hasPrefix("http") {
+                            image = website.baseUrl + image
+                        }
                     }
                     var other: [String] = []
                     if let otherXpaths = resultXpath.other,!otherXpaths.isEmpty {

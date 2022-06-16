@@ -53,15 +53,15 @@
                 },
                 "other":[
                     {
-                        "xpath": ".//ul[class='fed-part-rows']/li[1]",
+                        "xpath": ".//ul[@class='fed-part-rows']/li[1]",
                         "key":""
                     },
                     {
-                        "xpath": ".//ul[class='fed-part-rows']/li[2]",
+                        "xpath": ".//ul[@class='fed-part-rows']/li[2]",
                         "key":""
                     },
                     {
-                        "xpath": ".//ul[class='fed-part-rows']/li[5]",
+                        "xpath": ".//ul[@class='fed-part-rows']/li[5]",
                         "key":""
                     }
                 ]
