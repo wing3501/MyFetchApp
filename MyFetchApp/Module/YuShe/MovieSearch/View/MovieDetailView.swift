@@ -12,7 +12,7 @@ struct MovieDetailView: View {
     let url: String
     var body: some View {
         WebView(url: url) {
-            Text("详情加载中~")
+            Text("\(url)\n详情加载中~")
         }
     }
 }
