@@ -9,8 +9,8 @@ import Foundation
 import Alamofire
 
 struct MovieSearchRequest {
-    static func searchMovie(_ searchUrl: String) async -> String {
-        if let data = try? await AF.request(searchUrl).serializingData().value,
+    static func searchMovie(_ searchUrl: String,method: HTTPMethod,parameters: Parameters?) async -> String {
+        if let data = try? await AF.request(searchUrl,method: method,parameters: parameters).serializingData().value,
            let resultString = String(data: data, encoding: .utf8){
             return resultString
         }

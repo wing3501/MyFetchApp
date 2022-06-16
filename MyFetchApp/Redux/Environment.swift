@@ -123,7 +123,7 @@ final class Environment {
             var websiteArray = websites
             var website = websiteArray[0]
             let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode())
-            let result = await MovieSearchRequest.searchMovie(url)
+            let result = await MovieSearchRequest.searchMovie(url, method: .get, parameters: nil)
             
             if let doc = try? HTMLDocument(string: result, encoding: .utf8),
                let resultXpath = website.resultXpath,
