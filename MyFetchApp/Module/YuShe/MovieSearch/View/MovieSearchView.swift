@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ToastUI
 
 struct MovieSearchView: View {
     
@@ -35,9 +36,14 @@ struct MovieSearchView: View {
                 }
             }
         }
+        .toast(isPresented: $store.appState.ms.isRequestLoading, content: {
+            ToastView("Loading...")
+                .toastViewStyle(.indeterminate)
+        })
         .task {
             store.dispatch(.loadSearchSource)
         }
+        
     }
     
     var webSitesHasResult: [MovieSearchWebSite] {

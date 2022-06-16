@@ -21,6 +21,7 @@ extension AppState {
         var categoryData: [DyttCategoryModel] = []
     }
     struct MovieSearchState {
+        var isRequestLoading = false
         var websites: [MovieSearchWebSite] = []
     }
 }

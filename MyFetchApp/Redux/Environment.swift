@@ -145,7 +145,7 @@ final class Environment {
                     }
                     var image = ""
                     if let imgEle = item.xpath(imageTag.xpath).first {
-                        image = imgEle.attr(imageTag.key)
+                        image = website.baseUrl + imgEle.attr(imageTag.key)
                     }
                     var other: [String] = []
                     if let otherXpaths = resultXpath.other,!otherXpaths.isEmpty {

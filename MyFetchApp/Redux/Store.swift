@@ -92,8 +92,10 @@ final class Store: ObservableObject {
                 await environment.loadSearchSource()
             }
         case .updateSearchSource(let websites):
+            state.ms.isRequestLoading = false
             state.ms.websites = websites
         case .searchMovie(let searchText):
+            state.ms.isRequestLoading = true
             return Task {
                 await environment.searchMovie(searchText,from: appState.ms.websites)
             }
