@@ -13,7 +13,7 @@ struct DyttRequest {
         
         do {
             let data = try await AF.request(mainPage).serializingData().value
-            guard let result = String(data: data, encoding: .gbk) else { return "" }
+            guard let result = String(data: data, encoding: .gb2312) else { return "" }
             return result
         }catch {
             print(error)

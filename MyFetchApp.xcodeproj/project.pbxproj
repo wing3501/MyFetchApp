@@ -13,6 +13,7 @@
 		924120C82848893700446FD9 /* DyttCategoryPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120C72848893700446FD9 /* DyttCategoryPageView.swift */; };
 		924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120C9284890C400446FD9 /* DyttItemModel.swift */; };
 		924120CC2848924400446FD9 /* DyttItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120CB2848924400446FD9 /* DyttItemRow.swift */; };
+		924A6D1B285B1FD600D52EE8 /* encodeToGb2312.js in Resources */ = {isa = PBXBuildFile; fileRef = 924A6D1A285B1FD600D52EE8 /* encodeToGb2312.js */; };
 		92538D9628533BC1007B32A3 /* MovieSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92538D9528533BC1007B32A3 /* MovieSearchView.swift */; };
 		92538D9A28534309007B32A3 /* MovieSearchWebSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92538D9928534309007B32A3 /* MovieSearchWebSite.swift */; };
 		9253AD6D284EF6980014B2A0 /* Refresh in Frameworks */ = {isa = PBXBuildFile; productRef = 9253AD6C284EF6980014B2A0 /* Refresh */; };
@@ -63,6 +64,7 @@
 		924120C72848893700446FD9 /* DyttCategoryPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryPageView.swift; sourceTree = "<group>"; };
 		924120C9284890C400446FD9 /* DyttItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttItemModel.swift; sourceTree = "<group>"; };
 		924120CB2848924400446FD9 /* DyttItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttItemRow.swift; sourceTree = "<group>"; };
+		924A6D1A285B1FD600D52EE8 /* encodeToGb2312.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = encodeToGb2312.js; sourceTree = "<group>"; };
 		92538D9528533BC1007B32A3 /* MovieSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchView.swift; sourceTree = "<group>"; };
 		92538D9928534309007B32A3 /* MovieSearchWebSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchWebSite.swift; sourceTree = "<group>"; };
 		92538D9B285343B6007B32A3 /* MovieSearchWebsites.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MovieSearchWebsites.json; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				92538D98285342D8007B32A3 /* Model */,
 				92538D97285342D3007B32A3 /* View */,
 				927503A62850D2330045320E /* 豆瓣资源下载大师.js */,
+				924A6D1A285B1FD600D52EE8 /* encodeToGb2312.js */,
 				92538D9B285343B6007B32A3 /* MovieSearchWebsites.json */,
 			);
 			path = MovieSearch;
@@ -418,6 +421,7 @@
 				927019FE283DC2FC00295028 /* Preview Assets.xcassets in Resources */,
 				927503A72850D2330045320E /* 豆瓣资源下载大师.js in Resources */,
 				927019FB283DC2FC00295028 /* Assets.xcassets in Resources */,
+				924A6D1B285B1FD600D52EE8 /* encodeToGb2312.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

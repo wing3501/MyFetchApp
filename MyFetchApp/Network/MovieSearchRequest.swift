@@ -10,9 +10,14 @@ import Alamofire
 
 struct MovieSearchRequest {
     static func searchMovie(_ searchUrl: String,method: HTTPMethod,parameters: Parameters?) async -> String {
-        if let data = try? await AF.request(searchUrl,method: method,parameters: parameters).serializingData().value,
-           let resultString = String(data: data, encoding: .utf8){
-            return resultString
+        
+        do {
+            let data = try await AF.request(searchUrl,method: method,parameters: parameters).serializingData().value
+            if let resultString = String(data: data, encoding: .utf8){
+                return resultString
+            }
+        } catch {
+            print("searchMovie error: \(error)")
         }
         return ""
     }
