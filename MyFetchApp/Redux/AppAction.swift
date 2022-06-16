@@ -18,5 +18,6 @@ enum AppAction {
     case loadSearchSource
     case updateSearchSource(websites: [MovieSearchWebSite])
     case searchMovie(searchText: String)
+    case dissmissLoading
 }
 

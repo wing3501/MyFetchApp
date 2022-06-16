@@ -160,11 +160,12 @@ final class Environment {
                 }
                 website.searchResult = resultArray
                 websiteArray[0] = website
+//                print(result)
                 return .updateSearchSource(websites: websiteArray)
             }
             
 //            print("搜索结果--------")
-//            print(result)
+            
 //            <div class='col-xs-6 col-sm-4 yskd'>
 //                <a href='/4K5524' title='楚门的世界 (The Truman Show)英语' >
 //                <span class='douban'>豆瓣评分:9.3</span>

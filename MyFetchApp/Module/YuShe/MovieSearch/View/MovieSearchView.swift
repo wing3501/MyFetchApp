@@ -27,6 +27,7 @@ struct MovieSearchView: View {
                         store.dispatch(.searchMovie(searchText: searchText))
                     }
                 }
+                .padding()
                 .background(.yellow)
                 .buttonStyle(BorderlessButtonStyle())
             }
@@ -41,7 +42,9 @@ struct MovieSearchView: View {
                 .toastViewStyle(.indeterminate)
         })
         .task {
-            store.dispatch(.loadSearchSource)
+            if store.appState.ms.websites.isEmpty {
+                store.dispatch(.loadSearchSource)
+            }
         }
         
     }

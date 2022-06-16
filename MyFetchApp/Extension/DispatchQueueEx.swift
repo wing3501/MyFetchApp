@@ -7,6 +7,10 @@
 
 import Foundation
 
+func delay(_ time: Double,_ block: @escaping () -> Void) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + time) { block() }
+}
+
 extension DispatchQueue {
     static func mainAsyncOrExecute(_ work: @escaping () -> Void) {
         if Thread.current.isMainThread {

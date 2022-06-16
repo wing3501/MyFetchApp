@@ -14,27 +14,39 @@ struct MovieListView: View {
     
     var body: some View {
         List(movies) { movie in
-            HStack(alignment: .center, spacing: 8) {
-                KFImage(URL(string: movie.image))
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 150, height: 150)
-                    .cornerRadius(10)
-                    .clipped()
-                VStack(alignment: .leading, spacing: 5, content: {
-                    Text(movie.title)
-                        .font(.system(size: 22))
-                        .fontWeight(.bold)
-                        .foregroundColor(.green)
-                    ForEach(movie.other, id: \.self) { desc in
-                        Text(desc)
-                    }
-                })
-//                .background(.random)
+            NavigationLink {
+                MovieDetailView(url: movie.href)
+            } label: {
+                MovieListRow(movie: movie)
             }
-            .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-            .listRowSeparator(.hidden)
         }
+    }
+}
+
+struct MovieListRow: View {
+    let movie: MovieResult
+    
+    var body: some View {
+        HStack(alignment: .center, spacing: 8) {
+            KFImage(URL(string: movie.image))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 150)
+                .cornerRadius(10)
+                .clipped()
+            VStack(alignment: .leading, spacing: 5, content: {
+                Text(movie.title)
+                    .font(.system(size: 22))
+                    .fontWeight(.bold)
+                    .foregroundColor(.green)
+                ForEach(movie.other, id: \.self) { desc in
+                    Text(desc)
+                }
+            })
+//                .background(.random)
+        }
+        .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+        .listRowSeparator(.hidden)
     }
 }
 
