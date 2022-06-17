@@ -1,4 +1,41 @@
 [
+    {   "name":"6v电影网",
+        "icon":"http://www.6vhao.tv/pic/logo.png",
+        "baseUrl":"",
+        "searchUrl": "http://www.6vhao.tv/e/search/index.php",
+        "method":"post",
+        "data":"show=title,smalltext&tempid=1&tbname=Article&keyboard={searchText}&submit=",
+        "resultXpath": {
+                "xpath": "//li[@onmouseover=\"this.className='over'\"]",
+                "title": {
+                    "xpath":".//div[@class='listInfo']//a",
+                    "key":""
+                },
+                "href": {
+                    "xpath":".//div[@class='listInfo']//a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": ".//div[@class='listimg']//img",
+                    "key":"src"
+                },
+                "other":[
+                    {
+                        "xpath": ".//div[@class='listInfo']//p[1]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='listInfo']//p[2]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='listInfo']//p[3]",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"66影视网",
         "icon":"https://www.66e.cc/pic/logo.png",
         "baseUrl":"",

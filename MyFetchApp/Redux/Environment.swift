@@ -124,7 +124,7 @@ final class Environment {
             let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode)
             result = await MovieSearchRequest.searchMovie(url, method: .get, parameters: nil)
         }
-        
+        print("接口返回----\(result)")
         if let doc = try? HTMLDocument(string: result, encoding: .utf8),
            let resultXpath = website.resultXpath,
            let titleTag = resultXpath.title,
