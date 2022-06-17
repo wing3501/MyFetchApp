@@ -36,7 +36,9 @@ final class Store: ObservableObject {
     @discardableResult
     func dispatch(_ action: AppAction) -> Task<Void, Never>? {
         Task {
-            if let task = reducer(state: &appState, action: action, environment: environment) {
+            // 一个action可能产生多个副作用，且副作用task之间非结构化，所以用了task数组
+            let tasks = reducer(state: &appState, action: action, environment: environment)
+            for task in tasks {
                 do {
                     //副作用产生的新action，继续派发
                     let action = try await task.value
@@ -54,22 +56,22 @@ final class Store: ObservableObject {
     ///   - action: 更改状态的动作
     ///   - environment: 处理具体任务，并返回副作用
     /// - Returns: 副作用
-    func reducer(state: inout AppState, action: AppAction, environment: Environment) -> Task<AppAction, Error>? {
+    func reducer(state: inout AppState, action: AppAction, environment: Environment) -> [Task<AppAction, Error>] {
         switch action {
         case .empty:
             break
         case .loadDyttCategories:
             let url = state.dytt.mainPage
-            return Task {
+            return [Task {
                 await environment.loadDyttCategories(url)
-            }
+            }]
         case .updateDyttCategories(let categoryData):
             state.dytt.categoryData = categoryData
         case .loadDyttCategoryPage(let category):
             let host = state.dytt.host
-            return Task {
+            return [Task {
                 await environment.loadDyttCategoryPage(host,category)
-            }
+            }]
         case .updateDyttCategoryPage(let category, let items, let pageHrefs):
             category.dataArray = items
             category.pageHrefs = pageHrefs
@@ -78,9 +80,9 @@ final class Store: ObservableObject {
             category.footerRefreshing = true
             category.currentPage += 1
             let host = state.dytt.host
-            return Task {
+            return [Task {
                 await environment.dyttCategoryPageLoadMore(host,category)
-            }
+            }]
         case .updateDyttCategoryPageLoadMore(let category, let items, let pageHrefs):
             print("加载更多--------结束")
             category.dataArray = category.dataArray + items
@@ -88,23 +90,32 @@ final class Store: ObservableObject {
             category.footerRefreshing = false
             category.noMore = category.currentPage == category.pageHrefs.count
         case .loadSearchSource:
-            return Task {
+            return [Task {
                 await environment.loadSearchSource()
-            }
+            }]
         case .updateSearchSource(let websites):
             state.ms.websites = websites
-            return Task {
-                try? await Task.sleep(nanoseconds: 1_000_000_000)
+            return [Task {
+//                try? await Task.sleep(nanoseconds: 1_000_000_000)
                 return .dissmissLoading
-            }
+            }]
+        case .updateWebsite(let website,let index):
+            state.ms.websites[index] = website
         case .searchMovie(let searchText):
             state.ms.isRequestLoading = true
-            return Task {
-                await environment.searchMovie(searchText,from: appState.ms.websites)
+            var tasks: [Task<AppAction, Error>] = []
+            
+            for i in 0..<appState.ms.websites.count {
+                let website = appState.ms.websites[i]
+                tasks.append(Task { () -> AppAction in
+                    let newWebsite = await environment.searchMovie(searchText, from: website)
+                    return .updateWebsite(website: newWebsite, index: i)
+                })
             }
+            return tasks
         case .dissmissLoading:
             state.ms.isRequestLoading = false
         }
-        return nil
+        return []
     }
 }

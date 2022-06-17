@@ -4,7 +4,7 @@
 //
 //  Created by styf on 2022/5/30.
 //
-// 
+//
 import Foundation
 import Fuzi
 
@@ -114,65 +114,61 @@ final class Environment {
         return .empty
     }
     
-    func searchMovie(_ searchText: String,from websites: [MovieSearchWebSite]) async -> AppAction {
-        if !websites.isEmpty && !searchText.isEmpty {
-            var websiteArray = websites
-            var website = websiteArray[0]
-            
-            var result = ""
-            if website.method == "post" {
-                let paramString = website.data.replacingOccurrences(of: "{searchText}", with: searchText)
-                result = await MovieSearchRequest.searchMovie(website.searchUrl, method: .post, parameters: paramString)
-            }else {
-                let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode)
-                result = await MovieSearchRequest.searchMovie(url, method: .get, parameters: nil)
-            }
-            
-            if let doc = try? HTMLDocument(string: result, encoding: .utf8),
-               let resultXpath = website.resultXpath,
-               let titleTag = resultXpath.title,
-               let hrefTag = resultXpath.href,
-               let imageTag = resultXpath.image {
-            
-                var resultArray: [MovieResult] = []
-                
-                let arr = doc.xpath(resultXpath.xpath)
-                for item in arr {
-                    var title = ""
-                    if let titleEle = item.xpath(titleTag.xpath).first {
-                        title = titleEle.attr(titleTag.key)
-                    }
-                    var href = ""
-                    if let hrefEle = item.xpath(hrefTag.xpath).first {
-                        href = hrefEle.attr(hrefTag.key)
-                        if !href.hasPrefix("http") {
-                            href = website.baseUrl + href
-                        }
-                    }
-                    var image = ""
-                    if let imgEle = item.xpath(imageTag.xpath).first {
-                        image = imgEle.attr(imageTag.key)
-                        if !image.hasPrefix("http") {
-                            image = website.baseUrl + image
-                        }
-                    }
-                    var other: [String] = []
-                    if let otherXpaths = resultXpath.other,!otherXpaths.isEmpty {
-                        for htmlTag in otherXpaths {
-                            if let ele = item.xpath(htmlTag.xpath).first {
-                                other.append(ele.attr(htmlTag.key))
-                            }
-                        }
-                    }
-                    
-                    resultArray.append(MovieResult(title: title, href: href, image: image,other: other))
-                }
-                website.searchResult = resultArray
-                websiteArray[0] = website
-                return .updateSearchSource(websites: websiteArray)
-            }
+    func searchMovie(_ searchText: String,from website: MovieSearchWebSite) async -> MovieSearchWebSite {
+        guard !searchText.isEmpty else { return website }
+        var result = ""
+        if website.method == "post" {
+            let paramString = website.data.replacingOccurrences(of: "{searchText}", with: searchText)
+            result = await MovieSearchRequest.searchMovie(website.searchUrl, method: .post, parameters: paramString)
+        }else {
+            let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode)
+            result = await MovieSearchRequest.searchMovie(url, method: .get, parameters: nil)
         }
-        return .empty
+        
+        if let doc = try? HTMLDocument(string: result, encoding: .utf8),
+           let resultXpath = website.resultXpath,
+           let titleTag = resultXpath.title,
+           let hrefTag = resultXpath.href,
+           let imageTag = resultXpath.image {
+        
+            var resultArray: [MovieResult] = []
+            
+            let arr = doc.xpath(resultXpath.xpath)
+            for item in arr {
+                var title = ""
+                if let titleEle = item.xpath(titleTag.xpath).first {
+                    title = titleEle.attr(titleTag.key)
+                }
+                var href = ""
+                if let hrefEle = item.xpath(hrefTag.xpath).first {
+                    href = hrefEle.attr(hrefTag.key)
+                    if !href.hasPrefix("http") {
+                        href = website.baseUrl + href
+                    }
+                }
+                var image = ""
+                if let imgEle = item.xpath(imageTag.xpath).first {
+                    image = imgEle.attr(imageTag.key)
+                    if !image.hasPrefix("http") {
+                        image = website.baseUrl + image
+                    }
+                }
+                var other: [String] = []
+                if let otherXpaths = resultXpath.other,!otherXpaths.isEmpty {
+                    for htmlTag in otherXpaths {
+                        if let ele = item.xpath(htmlTag.xpath).first {
+                            other.append(ele.attr(htmlTag.key))
+                        }
+                    }
+                }
+                
+                resultArray.append(MovieResult(title: title, href: href, image: image,other: other))
+            }
+            var newWebsite = website
+            newWebsite.searchResult = resultArray
+            return newWebsite
+        }
+        return website
     }
 }
 

@@ -37,10 +37,10 @@ struct MovieSearchView: View {
                 }
             }
         }
-        .toast(isPresented: $store.appState.ms.isRequestLoading, content: {
-            ToastView("Loading...")
-                .toastViewStyle(.indeterminate)
-        })
+//        .toast(isPresented: $store.appState.ms.isRequestLoading, content: {
+//            ToastView("Loading...")
+//                .toastViewStyle(.indeterminate)
+//        })
         .task {
             if store.appState.ms.websites.isEmpty {
                 store.dispatch(.loadSearchSource)
