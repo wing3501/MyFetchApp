@@ -49,6 +49,11 @@ extension String {
         return decoded
     }
     
+    var gb2312: Data {
+        guard let data = self.data(using: .gb2312) else { return Data() }
+        return data
+    }
+    
     // MARK: - 正则
     var isNumberText: Bool {
         let regex = "^[0-9]*$"
