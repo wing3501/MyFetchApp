@@ -4,6 +4,8 @@
 //
 //  Created by styf on 2022/5/25.
 //
+//https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#using-alamofire
+//https://github.com/Alamofire/Alamofire/blob/master/Documentation/AdvancedUsage.md
 
 import Foundation
 import Alamofire
