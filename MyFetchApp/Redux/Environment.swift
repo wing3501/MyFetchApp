@@ -122,9 +122,16 @@ final class Environment {
         if !websites.isEmpty && !searchText.isEmpty {
             var websiteArray = websites
             var website = websiteArray[0]
-            let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode())
-            let result = await MovieSearchRequest.searchMovie(url, method: .get, parameters: nil)
             
+            var result = ""
+            if website.method == "post" {
+                let paramString = website.data.replacingOccurrences(of: "{searchText}", with: searchText)
+                result = await MovieSearchRequest.searchMovie(website.searchUrl, method: .post, parameters: paramString)
+            }else {
+                let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode)
+                result = await MovieSearchRequest.searchMovie(url, method: .get, parameters: nil)
+            }
+            print("请求结果----\(result)")
             if let doc = try? HTMLDocument(string: result, encoding: .utf8),
                let resultXpath = website.resultXpath,
                let titleTag = resultXpath.title,

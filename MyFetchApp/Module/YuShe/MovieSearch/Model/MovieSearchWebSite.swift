@@ -13,6 +13,8 @@ struct MovieSearchWebSite: HandyJSON,Identifiable {
     let icon: String
     let baseUrl: String
     let searchUrl: String
+    let method: String
+    let data: String
     let resultXpath: MovieResultXpath? = nil
     var searchResult: [MovieResult] = []
     
@@ -25,6 +27,8 @@ struct MovieSearchWebSite: HandyJSON,Identifiable {
         icon = ""
         baseUrl = ""
         searchUrl = ""
+        data = ""
+        method = ""
     }
 }
 

@@ -39,12 +39,12 @@ extension String {
     
     // MARK: - 编码
     
-    func URLEncode() -> String {
+    var URLEncode: String {
         guard let encoded = addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed) else { return "" }
         return encoded
     }
     
-    func URLDecode() -> String {
+    var URLDecode: String {
         guard let decoded = removingPercentEncoding else { return "" }
         return decoded
     }

@@ -1,4 +1,41 @@
 [
+    {   "name":"66影视网",
+        "icon":"https://www.66e.cc/pic/logo.png",
+        "baseUrl":"",
+        "searchUrl": "https://www.66e.cc/e/search/index.php",
+        "method":"post",
+        "data":"show=title,smalltext&tempid=1&tbname=Article&keyboard={searchText}&submit=",
+        "resultXpath": {
+                "xpath": "//li[@onmouseover=\"this.className='over'\"]",
+                "title": {
+                    "xpath":".//div[@class='listInfo']//a",
+                    "key":""
+                },
+                "href": {
+                    "xpath":".//div[@class='listInfo']//a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": ".//div[@class='listimg']//img",
+                    "key":"src"
+                },
+                "other":[
+                    {
+                        "xpath": ".//div[@class='listInfo']//p[1]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='listInfo']//p[2]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='listInfo']//p[3]",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"4K电影",
         "icon":"https://4k-m.com/img/logo.png",
         "baseUrl":"https://4k-m.com",
@@ -32,7 +69,8 @@
                     }
                 ]
         }
-    },
+    }
+    ,
     {   "name":"19影视",
         "icon":"https://www.19kan.com/template/vfed2/asset/img/logo.png",
         "baseUrl":"https://www.19kan.com",

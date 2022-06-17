@@ -25,3 +25,12 @@ extension Array: RawRepresentable where Element: Codable {
         return result
     }
 }
+
+extension Array {
+    var second: Element? {
+        if self.count > 1 {
+            return self[1]
+        }
+        return nil
+    }
+}
