@@ -1,4 +1,39 @@
 [
+    {   "name":"MP4电影",
+        "icon":"https://www.domp4.cc/Style/2020/images/logo.gif",
+        "baseUrl":"https://www.domp4.cc",
+        "searchUrl": "http://www.domp4.cc/search/{searchText}-1.html",
+        "resultXpath": {
+                "xpath": "//div[@id='list_all']/ul/li",
+                "title": {
+                    "xpath":".//div[@class='text_info']/h2",
+                    "key":""
+                },
+                "href": {
+                    "xpath":"./a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": "./a/img",
+                    "key":"data-original"
+                },
+                "other":[
+                    {
+                        "xpath": ".//div[@class='text_info']/p[1]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='text_info']/p[3]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='text_info']/p[4]",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"6v电影网",
         "icon":"http://www.6vhao.tv/pic/logo.png",
         "baseUrl":"",
