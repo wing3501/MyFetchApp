@@ -14,6 +14,14 @@ struct MovieDetailView: View {
         WebView(url: url) {
             Text("\(url)\n详情加载中~")
         }
+        .toolbar {
+            if let URL = URL(string: url) {
+                Link(destination: URL) {
+                    Image(systemName: "link.circle.fill")
+                        .font(.largeTitle)
+                }
+            }
+        }
     }
 }
 
