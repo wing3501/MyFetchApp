@@ -1,4 +1,42 @@
 [
+    {   "name":"迅播影院",
+        "icon":"https://www.22tu.org/template/aoo/images/logo.png",
+        "baseUrl":"https://www.22tu.org",
+        "searchUrl": "https://www.22tu.org/vodsearch/-------------/",
+        "method":"post",
+        "data":"submit=搜 索&wd={searchText}",
+        "dataEncode":"utf8",
+        "resultPath": {
+                "xpath": "//ul[@class='mlist']/li",
+                "title": {
+                    "xpath":".//div[@class='info']/h2",
+                    "key":""
+                },
+                "href": {
+                    "xpath":"./a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": "./a/img",
+                    "key":"src"
+                },
+                "other":[
+                    {
+                        "xpath": ".//div[@class='info']/p[1]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='info']/p[2]",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='info']/p[3]",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"新版6v电影",
         "icon":"https://www.66s.cc/skin/66scc/images/logo.png",
         "baseUrl":"https://www.66s.cc",
