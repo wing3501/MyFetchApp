@@ -1,4 +1,42 @@
 [
+    {   "name":"新版6v电影",
+        "icon":"https://www.66s.cc/skin/66scc/images/logo.png",
+        "baseUrl":"https://www.66s.cc",
+        "searchUrl": "https://www.66s.cc/e/search/index.php",
+        "method":"post",
+        "data":"show=title&tempid=1&tbname=article&mid=1&dopost=search&submit=&keyboard={searchText}",
+        "dataEncode":"utf8",
+        "resultPath": {
+                "xpath": "//ul[@id='post_container']/li",
+                "title": {
+                    "xpath":".//div[@class='article']/h2",
+                    "key":""
+                },
+                "href": {
+                    "xpath":".//div[@class='thumbnail']/a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": ".//div[@class='thumbnail']/a/img",
+                    "key":"src"
+                },
+                "other":[
+                    {
+                        "xpath": ".//div[@class='article']//div[@class='entry_post']/p",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='info']//span[@class='info_date info_ico']",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='info']//span[@class='info_category info_ico']",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"皮皮虾资源",
         "icon":"https://img30.360buyimg.com/pop/jfs/t1/217416/12/7976/42667/61bca287E1096a487/7822c34194fb8df6.png",
         "baseUrl":"",
