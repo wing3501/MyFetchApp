@@ -121,10 +121,14 @@ final class Environment {
             let paramString = website.data.replacingOccurrences(of: "{searchText}", with: searchText)
             result = await MovieSearchRequest.searchMovie(website.searchUrl, method: .post, parameters: paramString,encode: website.dataEncode)
         }else {
-            let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode)
+            var searchKey = searchText.URLEncode
+            if let replace = website.searchKeyReplace {
+                searchKey = searchKey.replacingOccurrences(of: replace.org, with: replace.new)
+            }
+            let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchKey)
             result = await MovieSearchRequest.searchMovie(url, method: .get, parameters: nil)
         }
-        print("接口返回----\(result)")
+//        print("接口返回----\(result)")
         
         var resultArray: [MovieResult] = []
         if let jsonPath = website.resultPath?.jsonPath,!jsonPath.isEmpty {
@@ -169,7 +173,7 @@ final class Environment {
                             image = image.replacingOccurrences(of: valueReplace.org, with: valueReplace.new)
                         }
                     }
-                    print("图片-----\(image)")
+//                    print("图片-----\(image)")
                     var other: [String] = []
                     if let otherPaths = resultPath.other,!otherPaths.isEmpty {
                         for tag in otherPaths {
@@ -203,7 +207,7 @@ final class Environment {
                 if let hrefTag = resultPath.href, let hrefEle = item.xpath(hrefTag.xpath).first {
                     href = hrefEle.attr(hrefTag.key)
                     if !href.hasPrefix("http") {
-                        href = website.baseUrl + href
+                        href = website.baseUrl + (href.hasPrefix("/") ? "" : "/") + href
                     }
                 }
                 var image = ""
@@ -219,7 +223,7 @@ final class Environment {
                         image = website.baseUrl + image
                     }
                 }
-                print("图片-----\(image)")
+//                print("图片-----\(image)")
                 var other: [String] = []
                 if let otherXpaths = resultPath.other,!otherXpaths.isEmpty {
                     for htmlTag in otherXpaths {

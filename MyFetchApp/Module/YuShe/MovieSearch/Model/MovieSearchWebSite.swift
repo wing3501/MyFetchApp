@@ -13,6 +13,9 @@ struct MovieSearchWebSite: HandyJSON,Identifiable {
     let icon: String
     let baseUrl: String
     let searchUrl: String
+    
+    /// 搜索词url编码后再特殊处理  悠悠mp4 使用
+    let searchKeyReplace: ValueReplace?
     let movieUrl: String
     let method: String
     let data: String
@@ -29,6 +32,7 @@ struct MovieSearchWebSite: HandyJSON,Identifiable {
         icon = ""
         baseUrl = ""
         searchUrl = ""
+        searchKeyReplace = nil
         movieUrl = ""
         data = ""
         dataEncode = "gb2312"
