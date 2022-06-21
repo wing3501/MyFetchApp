@@ -1,4 +1,31 @@
 [
+    {   "name":"两个BT",
+        "icon":"https://www.bttwoo.com/wp-content/themes/mibt/assets/img/logo.png",
+        "baseUrl":"",
+        "searchUrl": "https://www.bttwo.com/xssearch?q={searchText}",
+        "resultPath": {
+                "xpath": "//div[@class='bt_img mi_ne_kd search_list']/ul/li",
+                "title": {
+                    "xpath":".//h3",
+                    "key":""
+                },
+                "href": {
+                    "xpath":"./a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": "./a/img",
+                    "key":"data-original"
+                },
+                "other":[
+                    {
+                        "xpath": ".//p[@class='nostag']",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"好恐怖",
         "icon":"",
         "baseUrl":"",

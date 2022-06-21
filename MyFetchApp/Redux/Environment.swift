@@ -213,6 +213,7 @@ final class Environment {
                         image = website.baseUrl + image
                     }
                 }
+                print("图片-----\(image)")
                 var other: [String] = []
                 if let otherXpaths = resultPath.other,!otherXpaths.isEmpty {
                     for htmlTag in otherXpaths {

@@ -14,12 +14,13 @@ struct MovieSearchRequest {
             let data: Data
             if method == .post {
                 data = try await AF.upload(multipartFormData: { multipartFormData in
-                    let params = paramPair(parameters)
-                    for (key,value) in params {
-                        if let encode = encode,encode == "utf8" {
-                            multipartFormData.append(value.utf8Data, withName: key)
-                        }else {
-                            multipartFormData.append(value.gb2312, withName: key)
+                    if let params = paramPair(parameters) {
+                        for (key,value) in params {
+                            if let encode = encode,encode == "utf8" {
+                                multipartFormData.append(value.utf8Data, withName: key)
+                            }else {
+                                multipartFormData.append(value.gb2312, withName: key)
+                            }
                         }
                     }
                 }, to: searchUrl).serializingData().value
@@ -39,8 +40,8 @@ struct MovieSearchRequest {
         return ""
     }
     
-    static func paramPair(_ paramString: String?) -> [String: String] {
-        guard let parameters = paramString else { return [:] }
+    static func paramPair(_ paramString: String?) -> [String: String]? {
+        guard let parameters = paramString else { return nil }
         var params: [String: String] = [:]
         let paramPairs = parameters.split(separator: "&")
         for pair in paramPairs {
