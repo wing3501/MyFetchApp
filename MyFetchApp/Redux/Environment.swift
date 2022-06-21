@@ -125,15 +125,77 @@ final class Environment {
             result = await MovieSearchRequest.searchMovie(url, method: .get, parameters: nil)
         }
         print("接口返回----\(result)")
-        if let doc = try? HTMLDocument(string: result, encoding: .utf8),
-           let resultXpath = website.resultXpath,
-           let titleTag = resultXpath.title,
-           let hrefTag = resultXpath.href,
-           let imageTag = resultXpath.image {
+        
+        var resultArray: [MovieResult] = []
+        if let _ = website.resultPath?.jsonPath {
+            //把结果当做json解析
+            resultArray = parseData(result, byJsonPath: website)
+        }else {
+            //把结果当做html进行解析
+            resultArray = parseData(result, byXpath: website)
+        }
+        if !resultArray.isEmpty {
+            var newWebsite = website
+            newWebsite.searchResult = resultArray
+            return newWebsite
+        }
+        return website
+    }
+    
+    func parseData(_ result:String,byJsonPath website: MovieSearchWebSite) -> [MovieResult] {
+        if let _ = website.resultPath?.jsonPath,
+           let dic = result.toDictionary,
+           let resultPath = website.resultPath {
+        
+            var resultArray: [MovieResult] = []
+            if let array = dic[resultPath.jsonPath] as? Array<Dictionary<String,Any>>, !array.isEmpty {
+                for item in array {
+                    var title = ""
+                    if let titleTag = resultPath.title,let val = item[titleTag.jsonPath] as? String {
+                        title = val
+                    }
+                    
+                    var href = ""
+                    if !website.movieUrl.isEmpty,let movieIdTag = resultPath.movieId, let val = item[movieIdTag.jsonPath] {
+                        href = website.movieUrl.replacingOccurrences(of: "{movieId}", with: "\(val)")
+                    }else if let hrefTag = resultPath.href, let val = item[hrefTag.jsonPath] as? String {
+                        href = val
+                    }
+                    
+                    var image = ""
+                    if let imageTag = resultPath.image,let val = item[imageTag.jsonPath] as? String {
+                        image = val
+                        if let valueReplace = imageTag.valueReplace {
+                            image = image.replacingOccurrences(of: valueReplace.org, with: valueReplace.new)
+                        }
+                    }
+                    print("图片-----\(image)")
+                    var other: [String] = []
+                    if let otherPaths = resultPath.other,!otherPaths.isEmpty {
+                        for tag in otherPaths {
+                            other.append(item[tag.jsonPath] as? String ?? "")
+                        }
+                    }
+                    resultArray.append(MovieResult(title: title, href: href, image: image,other: other))
+                }
+            }
+            
+            return resultArray
+        }
+        return []
+    }
+    
+    func parseData(_ result:String,byXpath website: MovieSearchWebSite) -> [MovieResult] {
+        if let _ = website.resultPath?.xpath,
+           let doc = try? HTMLDocument(string: result, encoding: .utf8),
+           let resultPath = website.resultPath,
+           let titleTag = resultPath.title,
+           let hrefTag = resultPath.href,
+           let imageTag = resultPath.image {
         
             var resultArray: [MovieResult] = []
             
-            let arr = doc.xpath(resultXpath.xpath)
+            let arr = doc.xpath(resultPath.xpath)
             for item in arr {
                 var title = ""
                 if let titleEle = item.xpath(titleTag.xpath).first {
@@ -154,7 +216,7 @@ final class Environment {
                     }
                 }
                 var other: [String] = []
-                if let otherXpaths = resultXpath.other,!otherXpaths.isEmpty {
+                if let otherXpaths = resultPath.other,!otherXpaths.isEmpty {
                     for htmlTag in otherXpaths {
                         if let ele = item.xpath(htmlTag.xpath).first {
                             other.append(ele.attr(htmlTag.key))
@@ -164,12 +226,11 @@ final class Environment {
                 
                 resultArray.append(MovieResult(title: title, href: href, image: image,other: other))
             }
-            var newWebsite = website
-            newWebsite.searchResult = resultArray
-            return newWebsite
+            return resultArray
         }
-        return website
+        return []
     }
+    
 }
 
 extension XMLElement {

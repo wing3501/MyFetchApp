@@ -13,9 +13,10 @@ struct MovieSearchWebSite: HandyJSON,Identifiable {
     let icon: String
     let baseUrl: String
     let searchUrl: String
+    let movieUrl: String
     let method: String
     let data: String
-    let resultXpath: MovieResultXpath? = nil
+    let resultPath: MovieResultPath? = nil
     var searchResult: [MovieResult] = []
     
     var id: String {
@@ -27,22 +28,33 @@ struct MovieSearchWebSite: HandyJSON,Identifiable {
         icon = ""
         baseUrl = ""
         searchUrl = ""
+        movieUrl = ""
         data = ""
         method = ""
     }
 }
 
-struct MovieResultXpath: HandyJSON {
+struct MovieResultPath: HandyJSON {
     let xpath = ""
-    let title: HtmlTag? = nil
-    let href: HtmlTag? = nil
-    let image: HtmlTag? = nil
-    let other: [HtmlTag]? = nil
+    let jsonPath = ""
+    let movieId: ContentPath? = nil
+    let title: ContentPath? = nil
+    let href: ContentPath? = nil
+    let image: ContentPath? = nil
+    let other: [ContentPath]? = nil
 }
 
-struct HtmlTag: HandyJSON {
+struct ContentPath: HandyJSON {
     let xpath = ""
     let key = ""
+    
+    let jsonPath = ""
+    let valueReplace: ValueReplace? = nil
+}
+
+struct ValueReplace: HandyJSON {
+    let org = ""
+    let new = ""
 }
 
 struct MovieResult: Identifiable {

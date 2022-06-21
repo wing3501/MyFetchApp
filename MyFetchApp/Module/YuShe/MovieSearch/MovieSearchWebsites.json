@@ -1,9 +1,46 @@
 [
+    {   "name":"SOZMZ",
+        "icon":"",
+        "baseUrl":"https://v.dsb.ink",
+        "searchUrl": "https://v.dsb.ink/getinfo.php?search={searchText}&page=1",
+        "movieUrl": "https://v.dsb.ink/resource.html?id={movieId}",
+        "resultPath": {
+                "jsonPath": "info",
+                "movieId": {
+                    "jsonPath":"mid",
+                },
+                "title": {
+                    "jsonPath":"title",
+                },
+                "href": {
+                    "jsonPath":"url",
+                },
+                "image": {
+                    "jsonPath":"imgurl",
+                    "valueReplace": {
+                        "org":"http://image.jstucdn.com/ftp",
+                        "new":"https://v.dsb.ink/img"
+                    }
+                },
+                "other":[
+                    {
+                        "jsonPath":"type",
+                    },
+                    {
+                        "jsonPath":"language",
+                    },
+                    {
+                        "jsonPath":"introduction",
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"MP4电影",
         "icon":"https://www.domp4.cc/Style/2020/images/logo.gif",
         "baseUrl":"https://www.domp4.cc",
         "searchUrl": "http://www.domp4.cc/search/{searchText}-1.html",
-        "resultXpath": {
+        "resultPath": {
                 "xpath": "//div[@id='list_all']/ul/li",
                 "title": {
                     "xpath":".//div[@class='text_info']/h2",
@@ -40,7 +77,7 @@
         "searchUrl": "http://www.6vhao.tv/e/search/index.php",
         "method":"post",
         "data":"show=title,smalltext&tempid=1&tbname=Article&keyboard={searchText}&submit=",
-        "resultXpath": {
+        "resultPath": {
                 "xpath": "//li[@onmouseover=\"this.className='over'\"]",
                 "title": {
                     "xpath":".//div[@class='listInfo']//a",
@@ -77,7 +114,7 @@
         "searchUrl": "https://www.66e.cc/e/search/index.php",
         "method":"post",
         "data":"show=title,smalltext&tempid=1&tbname=Article&keyboard={searchText}&submit=",
-        "resultXpath": {
+        "resultPath": {
                 "xpath": "//li[@onmouseover=\"this.className='over'\"]",
                 "title": {
                     "xpath":".//div[@class='listInfo']//a",
@@ -112,7 +149,7 @@
         "icon":"https://4k-m.com/img/logo.png",
         "baseUrl":"https://4k-m.com",
         "searchUrl": "https://4k-m.com/m/s.aspx?s={searchText}",
-        "resultXpath": {
+        "resultPath": {
                 "xpath": "//div[@class='col-xs-6 col-sm-4 yskd']",
                 "title": {
                     "xpath":".//a",
@@ -147,7 +184,7 @@
         "icon":"https://www.19kan.com/template/vfed2/asset/img/logo.png",
         "baseUrl":"https://www.19kan.com",
         "searchUrl": "https://www.19kan.com/vodsearch.html?wd={searchText}",
-        "resultXpath": {
+        "resultPath": {
                 "xpath": "//dl[@class='fed-deta-info fed-deta-padding fed-line-top fed-margin fed-part-rows fed-part-over']",
                 "title": {
                     "xpath":".//h1[@class='fed-part-eone fed-font-xvi']/a",
