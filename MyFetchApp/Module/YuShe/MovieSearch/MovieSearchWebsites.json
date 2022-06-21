@@ -1,4 +1,31 @@
 [
+    {   "name":"高清888",
+        "icon":"",
+        "baseUrl":"",
+        "searchUrl": "https://www.gaoqing888.com/search?kw={searchText}",
+        "resultPath": {
+                "xpath": "//div[@class='video-row']",
+                "title": {
+                    "xpath":".//div[@class='video-summary']/a",
+                    "key":""
+                },
+                "href": {
+                    "xpath":"./a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": "./a/img",
+                    "key":"src"
+                },
+                "other":[
+                    {
+                        "xpath": ".//div[@class='video-summary']//div[@class='meta']",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"电影天堂",
         "icon":"https://www.dy2018.com/images/logo.gif",
         "baseUrl":"https://www.dy2018.com",
