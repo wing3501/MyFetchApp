@@ -1,4 +1,25 @@
 [
+    {   "name":"高清电台",
+        "icon":"",
+        "baseUrl":"",
+        "searchUrl": "https://gaoqing.fm/s.php?q={searchText}",
+        "resultPath": {
+                "xpath": "//ul[@id='result1']//div[@class='row']",
+                "title": {
+                    "xpath":"./div[2]/div/a/h4",
+                    "key":""
+                },
+                "href": {
+                    "xpath":"./div[1]/a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": "./div[1]/a//img",
+                    "key":"src"
+                }
+        }
+    }
+    ,
     {   "name":"高清888",
         "icon":"",
         "baseUrl":"",
