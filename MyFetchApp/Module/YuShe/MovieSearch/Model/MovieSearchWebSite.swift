@@ -52,6 +52,7 @@ struct ContentPath: HandyJSON {
     
     let jsonPath = ""
     let valueReplace: ValueReplace? = nil
+    let regex = ""
 }
 
 struct ValueReplace: HandyJSON {

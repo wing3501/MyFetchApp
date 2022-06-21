@@ -209,6 +209,12 @@ final class Environment {
                 var image = ""
                 if let imageTag = resultPath.image, let imgEle = item.xpath(imageTag.xpath).first {
                     image = imgEle.attr(imageTag.key)
+                    if !imageTag.regex.isEmpty {
+                        let array = image.subString(with: imageTag.regex)
+                        if !array.isEmpty {
+                            image = array[0]
+                        }
+                    }
                     if !image.isEmpty, !image.hasPrefix("http") {
                         image = website.baseUrl + image
                     }

@@ -1,4 +1,32 @@
 [
+    {   "name":"皮皮虾资源",
+        "icon":"https://img30.360buyimg.com/pop/jfs/t1/217416/12/7976/42667/61bca287E1096a487/7822c34194fb8df6.png",
+        "baseUrl":"",
+        "searchUrl": "https://ppxzy.cc/?s={searchText}",
+        "resultPath": {
+                "xpath": "//article[@class='col-md-6 col-lg-4 col-xl-3 grid-item']",
+                "title": {
+                    "xpath":".//h2[@class='entry-title']",
+                    "key":""
+                },
+                "href": {
+                    "xpath":".//a[@class='u-permalink']",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": "./div",
+                    "key":"style",
+                    "regex":"(https?://)(.*((png)|(jpg)|(webp)))"
+                },
+                "other":[
+                    {
+                        "xpath": ".//span[@class='count']",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"两个BT",
         "icon":"https://www.bttwoo.com/wp-content/themes/mibt/assets/img/logo.png",
         "baseUrl":"",

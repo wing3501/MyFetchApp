@@ -68,6 +68,20 @@ extension String {
         return predicate.evaluate(with: self)
     }
     
+    func subString(with regex: String) -> Array<String> {
+        var array: [String] = []
+        if let regularExpression = try? NSRegularExpression(pattern: regex, options: .caseInsensitive) {
+            let results = regularExpression.matches(in: self, range: rangeOfAll)
+            for item in results {
+                let subString = String(self.substring(item.range))
+                if !subString.isEmpty {
+                    array.append(subString)
+                }
+            }
+        }
+        return array
+    }
+    
     // MARK: - json
     
     /// json字符串转字典
