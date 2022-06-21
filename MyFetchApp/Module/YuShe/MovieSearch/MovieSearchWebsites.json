@@ -1,4 +1,37 @@
 [
+    {   "name":"电影港",
+        "icon":"https://www.dygang.tv/images/logo.gif",
+        "baseUrl":"https://www.dygang.tv",
+        "searchUrl": "https://www.dygang.tv/e/search/index.php",
+        "method":"post",
+        "data":"show=title,smalltext&tempid=1&tbname=article&keyboard={searchText}&Submit=",
+        "resultPath": {
+                "xpath": "//table[@border='0' and @cellspacing='2' and @cellpadding='0']",
+                "title": {
+                    "xpath":"./tr[1]/td[2]/a",
+                    "key":""
+                },
+                "href": {
+                    "xpath":"./tr[1]/td[2]/a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": "./tr[1]/td[1]/table[1]/tbody/tr/td/a/img",
+                    "key":"src"
+                },
+                "other":[
+                    {
+                        "xpath": "./tr[1]/td[1]/table[2]/tbody/tr/td",
+                        "key":""
+                    },
+                    {
+                        "xpath": "./tr[2]/td",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"SOZMZ",
         "icon":"",
         "baseUrl":"https://v.dsb.ink",

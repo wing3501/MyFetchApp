@@ -127,7 +127,7 @@ final class Environment {
         print("接口返回----\(result)")
         
         var resultArray: [MovieResult] = []
-        if let _ = website.resultPath?.jsonPath {
+        if let jsonPath = website.resultPath?.jsonPath,!jsonPath.isEmpty {
             //把结果当做json解析
             resultArray = parseData(result, byJsonPath: website)
         }else {
