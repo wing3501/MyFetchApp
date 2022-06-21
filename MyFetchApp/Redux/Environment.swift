@@ -119,7 +119,7 @@ final class Environment {
         var result = ""
         if website.method == "post" {
             let paramString = website.data.replacingOccurrences(of: "{searchText}", with: searchText)
-            result = await MovieSearchRequest.searchMovie(website.searchUrl, method: .post, parameters: paramString)
+            result = await MovieSearchRequest.searchMovie(website.searchUrl, method: .post, parameters: paramString,encode: website.dataEncode)
         }else {
             let url = website.searchUrl.replacingOccurrences(of: "{searchText}", with: searchText.URLEncode)
             result = await MovieSearchRequest.searchMovie(url, method: .get, parameters: nil)

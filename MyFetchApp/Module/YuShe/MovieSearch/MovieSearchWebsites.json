@@ -1,4 +1,34 @@
 [
+    {   "name":"好恐怖",
+        "icon":"",
+        "baseUrl":"",
+        "searchUrl": "https://s.haokongbu1.com/e/search/index.php",
+        "method":"post",
+        "data":"show=title,ftitle,actor&keyboard={searchText}",
+        "dataEncode":"utf8",
+        "resultPath": {
+                "xpath": "//div[@class='search-content']/ul/li",
+                "title": {
+                    "xpath":"./p[1]",
+                    "key":""
+                },
+                "href": {
+                    "xpath":"./a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": "./a/img",
+                    "key":"src"
+                },
+                "other":[
+                    {
+                        "xpath": "./p[2]",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"高清电台",
         "icon":"",
         "baseUrl":"",

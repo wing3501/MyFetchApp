@@ -9,14 +9,18 @@ import Foundation
 import Alamofire
 
 struct MovieSearchRequest {
-    static func searchMovie(_ searchUrl: String,method: HTTPMethod,parameters: String?) async -> String {
+    static func searchMovie(_ searchUrl: String,method: HTTPMethod,parameters: String?,encode: String? = "gb2312") async -> String {
         do {
             let data: Data
             if method == .post {
                 data = try await AF.upload(multipartFormData: { multipartFormData in
                     let params = paramPair(parameters)
                     for (key,value) in params {
-                        multipartFormData.append(value.gb2312, withName: key)
+                        if let encode = encode,encode == "utf8" {
+                            multipartFormData.append(value.utf8Data, withName: key)
+                        }else {
+                            multipartFormData.append(value.gb2312, withName: key)
+                        }
                     }
                 }, to: searchUrl).serializingData().value
             }else {

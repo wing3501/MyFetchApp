@@ -16,6 +16,7 @@ struct MovieSearchWebSite: HandyJSON,Identifiable {
     let movieUrl: String
     let method: String
     let data: String
+    let dataEncode: String
     let resultPath: MovieResultPath? = nil
     var searchResult: [MovieResult] = []
     
@@ -30,6 +31,7 @@ struct MovieSearchWebSite: HandyJSON,Identifiable {
         searchUrl = ""
         movieUrl = ""
         data = ""
+        dataEncode = "gb2312"
         method = ""
     }
 }
