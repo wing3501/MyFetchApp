@@ -1,4 +1,35 @@
 [
+    {   "name":"迅雷电影天堂",
+        "icon":"https://www.xl720.com/logo.png",
+        "baseUrl":"https://www.xl720.com",
+        "searchUrl": "https://www.xl720.com?s={searchText}",
+        "resultPath": {
+                "xpath": "//div[@class='post-grid clearfix']/div",
+                "title": {
+                    "xpath":".//h3[@class='entry-title  postli-1']",
+                    "key":""
+                },
+                "href": {
+                    "xpath":"./div/a",
+                    "key":"href"
+                },
+                "image": {
+                    "xpath": "./div/a/img",
+                    "key":"src",
+                },
+                "other":[
+                    {
+                        "xpath": ".//div[@class='entry-meta']",
+                        "key":""
+                    },
+                    {
+                        "xpath": ".//div[@class='entry-excerpt']",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"迅播影院",
         "icon":"https://www.22tu.org/template/aoo/images/logo.png",
         "baseUrl":"https://www.22tu.org",
