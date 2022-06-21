@@ -29,6 +29,12 @@ struct MovieListRow: View {
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
             KFImage(URL(string: movie.image))
+                .onSuccess({ r in
+                    print("KFImage Success \(r)")
+                })
+                .onFailure({ e in
+                    print("KFImage Failure \(e)")
+                })
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 150, height: 150)
