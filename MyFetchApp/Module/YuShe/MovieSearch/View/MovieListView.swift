@@ -30,7 +30,7 @@ struct MovieListRow: View {
         HStack(alignment: .center, spacing: 8) {
             KFImage(URL(string: movie.image))
                 .onSuccess({ r in
-                    print("KFImage Success \(r)")
+//                    print("KFImage Success \(r)")
                 })
                 .onFailure({ e in
                     print("KFImage Failure \(e)")

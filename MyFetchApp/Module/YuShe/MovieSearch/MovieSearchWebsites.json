@@ -1,4 +1,33 @@
 [
+    {   "name":"电影天堂",
+        "icon":"https://www.dy2018.com/images/logo.gif",
+        "baseUrl":"https://www.dy2018.com",
+        "searchUrl": "https://www.dy2018.com/e/search/index.php",
+        "method":"post",
+        "data":"show=title,smalltext&tempid=1&classid=0&keyboard={searchText}&Submit=立即搜索",
+        "resultPath": {
+                "xpath": "//table[@border='0' and @cellspacing='0' and @cellpadding='0' and @class='tbspan']",
+                "title": {
+                    "xpath":"./tr[2]/td[2]/b/a",
+                    "key":""
+                },
+                "href": {
+                    "xpath":"./tr[2]/td[2]/b/a",
+                    "key":"href"
+                },
+                "other":[
+                    {
+                        "xpath": "./tr[3]/td[2]/font",
+                        "key":""
+                    },
+                    {
+                        "xpath": "./tr[4]/td",
+                        "key":""
+                    }
+                ]
+        }
+    }
+    ,
     {   "name":"电影港",
         "icon":"https://www.dygang.tv/images/logo.gif",
         "baseUrl":"https://www.dygang.tv",

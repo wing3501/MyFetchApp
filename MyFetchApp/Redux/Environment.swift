@@ -188,30 +188,28 @@ final class Environment {
     func parseData(_ result:String,byXpath website: MovieSearchWebSite) -> [MovieResult] {
         if let _ = website.resultPath?.xpath,
            let doc = try? HTMLDocument(string: result, encoding: .utf8),
-           let resultPath = website.resultPath,
-           let titleTag = resultPath.title,
-           let hrefTag = resultPath.href,
-           let imageTag = resultPath.image {
+           let resultPath = website.resultPath {
         
             var resultArray: [MovieResult] = []
             
             let arr = doc.xpath(resultPath.xpath)
             for item in arr {
+                
                 var title = ""
-                if let titleEle = item.xpath(titleTag.xpath).first {
+                if let titleTag = resultPath.title,let titleEle = item.xpath(titleTag.xpath).first {
                     title = titleEle.attr(titleTag.key)
                 }
                 var href = ""
-                if let hrefEle = item.xpath(hrefTag.xpath).first {
+                if let hrefTag = resultPath.href, let hrefEle = item.xpath(hrefTag.xpath).first {
                     href = hrefEle.attr(hrefTag.key)
                     if !href.hasPrefix("http") {
                         href = website.baseUrl + href
                     }
                 }
                 var image = ""
-                if let imgEle = item.xpath(imageTag.xpath).first {
+                if let imageTag = resultPath.image, let imgEle = item.xpath(imageTag.xpath).first {
                     image = imgEle.attr(imageTag.key)
-                    if !image.hasPrefix("http") {
+                    if !image.isEmpty, !image.hasPrefix("http") {
                         image = website.baseUrl + image
                     }
                 }
