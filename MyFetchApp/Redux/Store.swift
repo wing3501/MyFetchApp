@@ -105,8 +105,9 @@ final class Store: ObservableObject {
             state.ms.isRequestLoading = true
             var tasks: [Task<AppAction, Error>] = []
             
-//            for i in 0..<appState.ms.websites.count {
-            for i in 0..<1 {
+            for i in 0..<appState.ms.websites.count {
+//            for i in 0..<1 {
+                appState.ms.websites[i].searchResult.removeAll()
                 let website = appState.ms.websites[i]
                 tasks.append(Task { () -> AppAction in
                     let newWebsite = await environment.searchMovie(searchText, from: website)

@@ -15,10 +15,10 @@ struct MovieWebSiteRow: View {
     var body: some View {
         HStack {
             if !website.icon.isEmpty {
-                KFImage(URL(string: website.icon)) //"https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"
+                KFImage(URL(string: website.icon)) 
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 150)
+                .frame(width: 150, height: 70)
                 .padding(.trailing ,20)
             }
             
