@@ -18,7 +18,7 @@ struct MovieDetailView: View {
             if let URL = URL(string: url) {
                 Link(destination: URL) {
                     Image(systemName: "link.circle.fill")
-                        .font(.largeTitle)
+                        .font(.title)
                 }
             }
         }

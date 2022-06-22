@@ -224,9 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				928D6BB8285C7C92003050C6 /* Info.plist */,
+				9298009C2840BB5000FC19D2 /* SwiftUI */,
 				9253AD6E284EF9CA0014B2A0 /* UIKit */,
 				9259CDD428446F6C00C33721 /* Tool */,
-				9298009C2840BB5000FC19D2 /* View */,
 				9201FEDA283F748D004482F0 /* Extension */,
 				92701A15283E05C500295028 /* Module */,
 				92701A14283E056F00295028 /* Redux */,
@@ -347,12 +347,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		9298009C2840BB5000FC19D2 /* View */ = {
+		9298009C2840BB5000FC19D2 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
 				9298009D2840C75B00FC19D2 /* TabPageView.swift */,
 			);
-			path = View;
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

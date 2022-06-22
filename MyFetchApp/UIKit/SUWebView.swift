@@ -11,16 +11,18 @@ import WebKit
 
 struct SUWebView: UIViewRepresentable {
     typealias UIViewType = WKWebView
-    var webView: WKWebView
-    var delegate: SUWebViewDelegate
     
-    init(_ url: String) {
-        let config = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: config)
-        delegate = SUWebViewDelegate()
-        webView.uiDelegate = delegate
-        webView.navigationDelegate = delegate
-        webView.load(URLRequest(url: URL(string: url)!))
+    var webView: WKWebView
+    
+    init(url: String? = nil,config: WKWebViewConfiguration? = nil,uiDelegate: WKUIDelegate? = nil,navigationDelegate: WKNavigationDelegate? = nil) {
+        let webviewVonfig = config ?? WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webviewVonfig)
+        let insideDelegate = SUWebViewDelegate()
+        webView.uiDelegate = uiDelegate ?? insideDelegate
+        webView.navigationDelegate = navigationDelegate ?? insideDelegate
+        if let url = url,let loadURL = URL(string: url) {
+            webView.load(URLRequest(url: loadURL))
+        }
     }
     
     func makeUIView(context: Context) -> WKWebView {
@@ -35,7 +37,7 @@ struct SUWebView: UIViewRepresentable {
     func evaluateJavaScript(_ javaScriptString: String) {
         webView.evaluateJavaScript(javaScriptString) { data, error in
             if let dataString = data as? String {
-                print("看看----\(dataString)")
+                print("js执行结果----\(dataString)")
             }
         }
     }
@@ -64,14 +66,18 @@ extension SUWebViewDelegate: WKNavigationDelegate {
 //        这里可以对域名进行判断，如果是站外域名，则可以提示用户是否进行跳转。
 //        如果是跳转其他App或商店的URL，则可以通过openURL进行跳转，并将这次请求拦截。
 //        包括cookie的处理也在此方法中完成，
-        .allow
+        if let url = navigationAction.request.url {
+            print("decidePolicyFor:\(url)")
+        }
+        return .allow
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        //开始加载页面，并请求服务器
+        print("开始加载页面，并请求服务器 didStartProvisionalNavigation")
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        print("页面加载失败 didFailProvisionalNavigation")
 //        当页面加载失败的时候，会回调此方法，包括timeout等错误。
 //        在这个页面可以展示错误页面，清空进度条，重置网络指示器等操作。
 //        需要注意的是，调用goBack时也会执行此方法，可以通过error的状态判断是否NSURLErrorCancelled来过滤掉。
@@ -79,12 +85,12 @@ extension SUWebViewDelegate: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 //        页面加载及渲染完成，会调用此方法，调用此方法时H5的dom已经解析并渲染完成，展示在屏幕上。
 //        所以在此方法中可以进行一些加载完成的操作，例如移除进度条，重置网络指示器等。
-        print("加载完成---\(webView.url != nil ? webView.url!.path : "")")
+        print("加载完成 didFinish ---\(webView.url?.absoluteString ?? "")")
         
-        webView.evaluateJavaScript("navigator.userAgent") { data, error in
-            if let dataString = data as? String {
-                print("看看----\(dataString)")
-            }
-        }
+//        webView.evaluateJavaScript("navigator.userAgent") { data, error in
+//            if let dataString = data as? String {
+//                print("看看----\(dataString)")
+//            }
+//        }
     }
 }

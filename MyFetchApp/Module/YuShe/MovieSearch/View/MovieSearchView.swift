@@ -28,7 +28,7 @@ struct MovieSearchView: View {
                     }
                 }
                 .padding()
-                .background(.yellow)
+//                .background(.yellow)
                 .buttonStyle(BorderlessButtonStyle())
             }
             ForEach(webSitesHasResult) { webSite in
