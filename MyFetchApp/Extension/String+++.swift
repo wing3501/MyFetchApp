@@ -1,5 +1,5 @@
 //
-//  StringEx.swift
+//  String+++.swift
 //  MyFetchApp
 //
 //  Created by styf on 2022/6/1.
@@ -7,6 +7,13 @@
 
 import Foundation
 import Alamofire
+
+extension String: Identifiable {
+    public typealias ID = String
+    public var id: String {
+        self
+    }
+}
 
 extension String {
     

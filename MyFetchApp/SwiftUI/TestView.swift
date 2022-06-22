@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import VisionKit
 
 struct TestView: View {
     @State var text: String = ""
@@ -16,6 +17,10 @@ struct TestView: View {
             .sideView(sideView: Image(systemName: "delete.left"), position: .trailing)
             .border(.red, cornerRadius: 8)
 
+    }
+    
+    func aaa() {
+        
     }
 }
 
