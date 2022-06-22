@@ -24,12 +24,17 @@ struct MainView: View {
         TabView(selection: $selection) {
             HomeView()
                 .tabItem {
-                    Label("首页", systemImage: "house")
+                    if !store.appState.hideTabView {
+                        Label("首页", systemImage: "house")
+                    }
+                    
                 }
                 .tag(MainTabIndex.home)
             AccountView()
                 .tabItem {
-                    Label("我的", systemImage: "person")
+                    if !store.appState.hideTabView {
+                        Label("我的", systemImage: "person")
+                    }
                 }
                 .tag(MainTabIndex.account)
         }

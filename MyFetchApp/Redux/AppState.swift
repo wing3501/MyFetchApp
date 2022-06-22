@@ -10,6 +10,9 @@ import Combine
 
 /// 状态管理
 struct AppState {
+    
+    /// 子View隐藏tabbar
+    var hideTabView = false
     var dytt = DyttState()
     var ms = MovieSearchState()
 }

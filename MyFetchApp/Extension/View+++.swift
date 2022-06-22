@@ -7,6 +7,28 @@
 
 import SwiftUI
 
+
+// MARK: - 隐藏Tabbar
+
+extension View {
+    func hideTabView(_ hideTabView: Binding<Bool>) -> some View {
+        self.modifier(HideTabViewModifier(hideTabView: hideTabView))
+    }
+}
+
+struct HideTabViewModifier: ViewModifier {
+    
+    @Binding var hideTabView: Bool
+    
+    func body(content: Content) -> some View {
+        content
+            .onAppear { hideTabView = true }
+            .onDisappear { hideTabView = false }
+    }
+}
+
+// MARK: - 给原视图的某一侧增加一个视图
+
 extension View {
     /// 给原视图的某一侧增加一个视图
     func sideView<V: View>(sideView: V,position: Edge.Set? = .leading,
@@ -18,8 +40,6 @@ extension View {
     }
     
 }
-
-
 
 /// 给原视图的某一侧增加一个视图
 struct SideViewModifier<V>: ViewModifier where V: View {
