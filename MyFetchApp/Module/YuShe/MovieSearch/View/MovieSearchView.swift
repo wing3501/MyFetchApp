@@ -18,9 +18,13 @@ struct MovieSearchView: View {
         List {
             HStack {
                 TextField("输入名称", text: $searchText)
-                    .textFieldStyle(.roundedBorder)
+//                    .textFieldStyle(.roundedBorder)
                     .focused($isFocused)
                     .padding()
+                    .sideView(sideView: Image(systemName: "delete.left"), position: .trailing) {
+                        searchText = ""
+                    }
+                    .border(.gray, width: 1, cornerRadius: 8, style: .continuous)
                 Button("搜索") {
                     isFocused = false
                     if !searchText.isEmpty {
