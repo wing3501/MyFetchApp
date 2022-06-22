@@ -20,7 +20,8 @@ struct MovieSearchView: View {
                 TextField("输入名称", text: $searchText)
 //                    .textFieldStyle(.roundedBorder)
                     .focused($isFocused)
-                    .padding()
+                    .padding(.vertical,8)
+                    .sideView(sideView: Image(systemName: "magnifyingglass"))
                     .sideView(sideView: Image(systemName: "delete.left"), position: .trailing) {
                         searchText = ""
                     }
