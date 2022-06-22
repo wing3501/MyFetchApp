@@ -95,6 +95,7 @@ final class Store: ObservableObject {
             }]
         case .updateSearchSource(let websites):
             state.ms.websites = websites
+            state.ms.isButtonDisabled = websites.isEmpty
             return [Task {
 //                try? await Task.sleep(nanoseconds: 1_000_000_000)
                 return .dissmissLoading

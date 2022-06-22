@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-enum MainTabIndex: Hashable {
-    case home,account
-}
-
 struct MainView: View {
+    
+    enum MainTabIndex: Hashable {
+        case home,account
+    }
     
     @StateObject var store: Store
     @State var selection: MainTabIndex = .home

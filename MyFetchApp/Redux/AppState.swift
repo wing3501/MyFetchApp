@@ -22,6 +22,7 @@ extension AppState {
     }
     struct MovieSearchState {
         var isRequestLoading = false
+        var isButtonDisabled = true
         var websites: [MovieSearchWebSite] = []
     }
 }

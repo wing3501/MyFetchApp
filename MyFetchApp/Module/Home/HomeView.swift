@@ -19,6 +19,9 @@ struct HomeView: View {
                     NavigationLink(destination: MovieSearchView().navigationBarTitle("电影资源搜索", displayMode: .inline)) {
                         HomeViewListRow(websiteName: "电影资源搜索", SFIcon: "film")
                     }
+                    NavigationLink(destination: MagnetView().navigationBarTitle("图片识别磁力链接", displayMode: .inline)) {
+                        HomeViewListRow(websiteName: "图片识别磁力链接", SFIcon: "photo")
+                    }
                 } header: {
                     Text("预设网站抓取")
                 }

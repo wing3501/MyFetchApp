@@ -35,6 +35,7 @@ struct MovieSearchView: View {
                 .padding()
 //                .background(.yellow)
                 .buttonStyle(BorderlessButtonStyle())
+                .disabled(store.appState.ms.isButtonDisabled)
             }
             ForEach(webSitesHasResult) { webSite in
                 NavigationLink(destination: MovieListView(movies: webSite.searchResult)) {

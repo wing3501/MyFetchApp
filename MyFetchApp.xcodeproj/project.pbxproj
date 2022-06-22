@@ -47,6 +47,7 @@
 		927503A72850D2330045320E /* 豆瓣资源下载大师.js in Resources */ = {isa = PBXBuildFile; fileRef = 927503A62850D2330045320E /* 豆瓣资源下载大师.js */; };
 		927BE31A2862B54300FD2AD8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE3192862B54300FD2AD8 /* TestView.swift */; };
 		927BE5522862F21200FD2AD8 /* View+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5512862F21200FD2AD8 /* View+++.swift */; };
+		927BE5552862FCC400FD2AD8 /* MagnetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5542862FCC400FD2AD8 /* MagnetView.swift */; };
 		929800992840A08100FC19D2 /* BindingEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929800982840A08000FC19D2 /* BindingEx.swift */; };
 		9298009B2840B69F00FC19D2 /* DispatchQueueEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */; };
 		9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009D2840C75B00FC19D2 /* TabPageView.swift */; };
@@ -103,6 +104,7 @@
 		927503A62850D2330045320E /* 豆瓣资源下载大师.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "豆瓣资源下载大师.js"; sourceTree = "<group>"; };
 		927BE3192862B54300FD2AD8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		927BE5512862F21200FD2AD8 /* View+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+++.swift"; sourceTree = "<group>"; };
+		927BE5542862FCC400FD2AD8 /* MagnetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnetView.swift; sourceTree = "<group>"; };
 		928D6BB8285C7C92003050C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		929800982840A08000FC19D2 /* BindingEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingEx.swift; sourceTree = "<group>"; };
 		9298009A2840B69F00FC19D2 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		9201FA6A283F4C0C004482F0 /* YuShe */ = {
 			isa = PBXGroup;
 			children = (
+				927BE5532862FC4900FD2AD8 /* Magnet */,
 				927503A42850D17B0045320E /* MovieSearch */,
 				9201FA6B283F4C17004482F0 /* dytt */,
 			);
@@ -333,6 +336,14 @@
 			path = MovieSearch;
 			sourceTree = "<group>";
 		};
+		927BE5532862FC4900FD2AD8 /* Magnet */ = {
+			isa = PBXGroup;
+			children = (
+				927BE5542862FCC400FD2AD8 /* MagnetView.swift */,
+			);
+			path = Magnet;
+			sourceTree = "<group>";
+		};
 		928569262845EECD000424DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +480,7 @@
 				9201FEDC283F75A0004482F0 /* ColorEx.swift in Sources */,
 				92658B312859DDC20000041D /* MovieListView.swift in Sources */,
 				92538D9A28534309007B32A3 /* MovieSearchWebSite.swift in Sources */,
+				927BE5552862FCC400FD2AD8 /* MagnetView.swift in Sources */,
 				924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */,
 				9259CDDA2844AF0400C33721 /* DyttRequest.swift in Sources */,
 				9253AD70284EFA0C0014B2A0 /* BundleEx.swift in Sources */,
