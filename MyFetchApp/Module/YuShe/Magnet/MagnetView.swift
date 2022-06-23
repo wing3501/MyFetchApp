@@ -11,11 +11,10 @@ import ToastUI
 
 struct MagnetView: View {
     
-//    @EnvironmentObject var store: Store
+    @EnvironmentObject var store: Store
     
     @State var isShowPhotoLibrary = false
     @State var image: UIImage?
-    @State var isShowToastString: String?
     
     var body: some View {
         VStack {
@@ -30,22 +29,20 @@ struct MagnetView: View {
 //                https://xiaozhuanlan.com/topic/6204139578
                     
 //                    等iOS16,直接用 DataScannerViewController
-                    isShowToastString = "别问，问就是等iOS16"
+                    store.dispatch(.updateToastMessage(message: "别问，问就是等iOS16"))
                 }
             }
             .padding()
             .padding(.top,80)
-            GroupBox("结果如下(点击可复制)：") {
+            GroupBox("可能的结果如下(点击可复制)：") {
                 VStack(alignment: .leading) {
-                    Text("Username: tswift89")
-                    Text("City: Nashville")
-                    GroupBox {
-                        if let _ = image {
-                            Text("图片有值")
-                        }else {
-                            Text("图片为空")
+                    VStack {
+                        ForEach(store.appState.magnetState.magnetLinks) { link in
+                            Text(link)
+                                .onTapGesture {
+                                    store.dispatch(.updatePasteboardText(content: link))
+                                }
                         }
-                        
                     }
                 }
             }
@@ -57,10 +54,19 @@ struct MagnetView: View {
                 print("取消了------")
             }
         }
-        .toast(item: $isShowToastString, dismissAfter: 2.0) { toastString in
+        .toast(item: $store.appState.toastMessage, dismissAfter: 1.5) { toastString in
             ToastView(toastString)
         }
-//            .hideTabView($store.appState.hideTabView)
+        .toast(isPresented: $store.appState.toastLoading, content: {
+            ToastView(store.appState.toastLoadingMessage)
+                .toastViewStyle(.indeterminate)
+        })
+        .onChange(of: image) { img in
+            if let img = img {
+                store.dispatch(.detectMagnet(image: img))
+            }
+        }
+        .hideTabView($store.appState.hideTabView)
     }
 }
 

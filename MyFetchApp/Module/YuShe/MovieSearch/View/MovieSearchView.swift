@@ -35,7 +35,7 @@ struct MovieSearchView: View {
                 .padding()
 //                .background(.yellow)
                 .buttonStyle(BorderlessButtonStyle())
-                .disabled(store.appState.ms.isButtonDisabled)
+                .disabled(store.appState.movieSearch.isButtonDisabled)
             }
             ForEach(webSitesHasResult) { webSite in
                 NavigationLink(destination: MovieListView(movies: webSite.searchResult)) {
@@ -43,12 +43,12 @@ struct MovieSearchView: View {
                 }
             }
         }
-//        .toast(isPresented: $store.appState.ms.isRequestLoading, content: {
-//            ToastView("Loading...")
+//        .toast(isPresented: $store.appState.toastLoading, content: {
+//            ToastView(store.appState.toastLoadingMessage)
 //                .toastViewStyle(.indeterminate)
 //        })
         .task {
-            if store.appState.ms.websites.isEmpty {
+            if store.appState.movieSearch.websites.isEmpty {
                 store.dispatch(.loadSearchSource)
             }
         }
@@ -56,7 +56,7 @@ struct MovieSearchView: View {
     }
     
     var webSitesHasResult: [MovieSearchWebSite] {
-        store.appState.ms.websites.filter({!$0.searchResult.isEmpty})
+        store.appState.movieSearch.websites.filter({!$0.searchResult.isEmpty})
     }
 }
 

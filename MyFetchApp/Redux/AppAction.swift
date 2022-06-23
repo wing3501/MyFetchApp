@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum AppAction {
     case empty
@@ -20,5 +21,9 @@ enum AppAction {
     case updateWebsite(website: MovieSearchWebSite,index: Int)
     case searchMovie(searchText: String)
     case dissmissLoading
+    case detectMagnet(image: UIImage)
+    case updateMagnetLinks(links: [String])
+    case updatePasteboardText(content: String)
+    case updateToastMessage(message: String)
 }
 

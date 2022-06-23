@@ -7,10 +7,15 @@
 //
 import Foundation
 import Fuzi
+import UIKit
 
 /// 副作用处理
 final class Environment {
     
+}
+// MARK: - 电影天堂业务
+
+extension Environment {
     func loadDyttCategories(_ mainPageUrl: String) async -> AppAction {
         let html = await WebviewDataFetchManager.shared.dataString(with: mainPageUrl)
         let categoryModelArray = analyzingDyttCategories(html)
@@ -102,7 +107,10 @@ final class Environment {
         }
         return .updateDyttCategoryPageLoadMore(category: category, items: items, pageHrefs: needAddHrefs)
     }
-    
+}
+
+// MARK: - 电影搜索业务
+extension Environment {
     func loadSearchSource() async -> AppAction {
         if let json = Bundle.main.string(from: "MovieSearchWebsites.json"),
            let dataArray = [MovieSearchWebSite].deserialize(from: json){
@@ -239,7 +247,41 @@ final class Environment {
         }
         return []
     }
+}
+
+extension Environment {
     
+    /// 在处理结果中查找链接
+    /// - Parameter results: 图片上识别出来的字符串结果集
+    /// - Returns: 副作用
+    func detectMagnet(_ results: [String]) -> AppAction {
+//    magnet:?xt=urn:btih:开头(20) + 40位HASH值
+//        ^(magnet:\?xt=urn:btih:)[0-9a-fA-F]{40}.*$/
+        var prefix: String?
+        var links: [String] = []
+        for result in results {
+            if result.hasPrefix("magnet:") {
+                prefix = result
+                if let link = magnetLink(from: result) {
+                    links.append(link)
+                }
+            }else if let prefix = prefix {
+                //只支持2行
+                if let link = magnetLink(from: prefix + result) {
+                    links.append(link)
+                }
+            }
+        }
+        return .updateMagnetLinks(links: links)
+    }
+    
+    func magnetLink(from string: String) -> String? {
+        print("\(string.count)    \(string)")
+        guard string.count >= 60 else {
+            return nil
+        }
+        return string.subString(with: "(magnet:\\?xt=urn:btih:)[0-9a-fA-F]{40}").first
+    }
 }
 
 extension XMLElement {

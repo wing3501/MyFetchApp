@@ -13,8 +13,16 @@ struct AppState {
     
     /// 子View隐藏tabbar
     var hideTabView = false
+    
+    /// 通用提示信息
+    var toastMessage: String?
+    /// 通用Loading
+    var toastLoadingMessage = "Loading..."
+    var toastLoading = false
+    
     var dytt = DyttState()
-    var ms = MovieSearchState()
+    var movieSearch = MovieSearchState()
+    var magnetState = MagnetState()
 }
 
 extension AppState {
@@ -24,8 +32,10 @@ extension AppState {
         var categoryData: [DyttCategoryModel] = []
     }
     struct MovieSearchState {
-        var isRequestLoading = false
         var isButtonDisabled = true
         var websites: [MovieSearchWebSite] = []
+    }
+    struct MagnetState {
+        var magnetLinks: [String] = []
     }
 }

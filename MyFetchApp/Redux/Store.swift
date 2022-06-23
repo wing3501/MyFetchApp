@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 @MainActor
 final class Store: ObservableObject {
@@ -94,22 +95,22 @@ final class Store: ObservableObject {
                 await environment.loadSearchSource()
             }]
         case .updateSearchSource(let websites):
-            state.ms.websites = websites
-            state.ms.isButtonDisabled = websites.isEmpty
+            state.movieSearch.websites = websites
+            state.movieSearch.isButtonDisabled = websites.isEmpty
             return [Task {
 //                try? await Task.sleep(nanoseconds: 1_000_000_000)
                 return .dissmissLoading
             }]
         case .updateWebsite(let website,let index):
-            state.ms.websites[index] = website
+            state.movieSearch.websites[index] = website
         case .searchMovie(let searchText):
-            state.ms.isRequestLoading = true
+            state.toastLoading = true
             var tasks: [Task<AppAction, Error>] = []
             
-            for i in 0..<appState.ms.websites.count {
+            for i in 0..<appState.movieSearch.websites.count {
 //            for i in 0..<1 {
-                appState.ms.websites[i].searchResult.removeAll()
-                let website = appState.ms.websites[i]
+                appState.movieSearch.websites[i].searchResult.removeAll()
+                let website = appState.movieSearch.websites[i]
                 tasks.append(Task { () -> AppAction in
                     let newWebsite = await environment.searchMovie(searchText, from: website)
                     return .updateWebsite(website: newWebsite, index: i)
@@ -117,7 +118,27 @@ final class Store: ObservableObject {
             }
             return tasks
         case .dissmissLoading:
-            state.ms.isRequestLoading = false
+            state.toastLoading = false
+        case .detectMagnet(let image):
+            print("开始识别图片")
+//            state.toastLoading = true
+            let results = VNDetectManager.shared.detectTextWithEn(from: image)
+            return [Task {
+                environment.detectMagnet(results)
+            }]
+        case .updateMagnetLinks(let links):
+            if links.isEmpty {
+                state.toastMessage = "未识别合适内容"
+            }
+//            state.toastLoading = false
+            state.magnetState.magnetLinks = links
+        case .updatePasteboardText(let text):
+            UIPasteboard.general.string = text
+            return [Task{
+                return .updateToastMessage(message: "已复制到粘贴板")
+            }]
+        case .updateToastMessage(let message):
+            state.toastMessage = message
         }
         return []
     }
