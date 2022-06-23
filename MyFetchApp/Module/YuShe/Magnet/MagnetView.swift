@@ -52,6 +52,7 @@ struct MagnetView: View {
         .sheet(isPresented: $isShowPhotoLibrary) {
             ImagePicker(image: $image, encoding: nil) {
                 print("取消了------")
+                isShowPhotoLibrary = false
             }
         }
         .toast(item: $store.appState.toastMessage, dismissAfter: 1.5) { toastString in

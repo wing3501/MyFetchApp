@@ -22,6 +22,9 @@ struct HomeView: View {
                     NavigationLink(destination: MagnetView().navigationBarTitle("图片识别磁力链接", displayMode: .inline)) {
                         HomeViewListRow(websiteName: "图片识别磁力链接", SFIcon: "photo")
                     }
+                    NavigationLink(destination: DocumentScanView().navigationBarTitle("扫描文档", displayMode: .inline)) {
+                        HomeViewListRow(websiteName: "扫描文档", SFIcon: "doc.text")
+                    }
                 } header: {
                     Text("预设网站抓取")
                 }
