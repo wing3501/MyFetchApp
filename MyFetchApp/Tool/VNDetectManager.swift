@@ -8,6 +8,7 @@
 import Foundation
 import Vision
 import UIKit
+import ImageIO
 
 class VNDetectManager {
     static let shared = VNDetectManager()
@@ -20,6 +21,34 @@ class VNDetectManager {
         detectText(from: image, with: "zh-Hans")
     }
     
+    func detectQrCode(from image: UIImage) -> [String] {
+        
+        guard let cgimage = image.cgImage else { return [] }
+        
+        let barcodesRequest = VNDetectBarcodesRequest()
+        barcodesRequest.revision = VNDetectBarcodesRequestRevision2
+        barcodesRequest.symbologies = [.qr]
+        
+        let requestHandler = VNImageRequestHandler(cgImage: cgimage, options: [:])
+        // 开始识别、检测
+        try? requestHandler.perform([barcodesRequest])
+        
+        var resultArray: [String] = []
+        if let results = barcodesRequest.results {
+            for observation in results {
+                if let payload = observation.payloadStringValue {
+                    resultArray.append(payload)
+                }
+            }
+        }
+        return resultArray
+    }
+    
+    /// 从图片上检测文字信息
+    /// - Parameters:
+    ///   - image: 图片
+    ///   - language: 语言
+    /// - Returns: 文字数据
     private func detectText(from image: UIImage, with language: String) -> [String] {
         var resultStringArray: [String] = []
         if let cgimage = image.cgImage {
@@ -51,5 +80,26 @@ class VNDetectManager {
             }
         }
         return resultStringArray
+    }
+    
+    /// 识别图片上的文档区域
+    /// - Parameter image: 图片
+    /// - Returns: 结果
+    func recognize(image: UIImage) -> VNRectangleObservation? {
+        guard let ciImage = image.ciImage ?? CIImage(image: image) else {
+            print("创建ciimage失败!")
+            return nil
+        }
+                
+        let documentSegmentationHandler = VNImageRequestHandler(ciImage: ciImage, orientation: CGImagePropertyOrientation(image.imageOrientation), options: [:])
+        let documentSegmentationRequest = VNDetectDocumentSegmentationRequest()
+        documentSegmentationRequest.revision = VNDetectDocumentSegmentationRequestRevision1
+        try? documentSegmentationHandler.perform([documentSegmentationRequest])
+        
+        guard let result = documentSegmentationRequest.results?.first, result.confidence > 0.7 else {
+            print("未检测到文档")
+            return nil
+        }
+        return result
     }
 }

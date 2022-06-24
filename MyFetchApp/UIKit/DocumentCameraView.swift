@@ -26,7 +26,7 @@ struct DocumentCameraView: UIViewControllerRepresentable {
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
             var images: [UIImage] = []
             // 可能扫描了多张
-            print("扫描到了\(scan.pageCount)页文档")
+//            print("扫描到了\(scan.pageCount)页文档")
             for pageIndex in 0..<scan.pageCount {
                 let image = scan.imageOfPage(at: pageIndex)
                 // 对图片进行后续的处理...
