@@ -102,9 +102,11 @@ final class Store: ObservableObject {
                 return .dissmissLoading
             }]
         case .updateWebsite(let website,let index):
+            state.movieSearch.requestFinishedCount = (state.movieSearch.requestFinishedCount ?? 0 ) + 1
             state.movieSearch.websites[index] = website
         case .searchMovie(let searchText):
             state.toastLoading = true
+            state.movieSearch.requestFinishedCount = 0
             var tasks: [Task<AppAction, Error>] = []
             
             for i in 0..<appState.movieSearch.websites.count {

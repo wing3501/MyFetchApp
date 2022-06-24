@@ -15,31 +15,36 @@ struct MovieSearchView: View {
     @FocusState var isFocused: Bool
     
     var body: some View {
-        List {
-            HStack {
-                TextField("输入名称", text: $searchText)
-//                    .textFieldStyle(.roundedBorder)
-                    .focused($isFocused)
-                    .padding(.vertical,8)
-                    .sideView(sideView: Image(systemName: "magnifyingglass"))
-                    .sideView(sideView: Image(systemName: "delete.left"), position: .trailing) {
-                        searchText = ""
-                    }
-                    .border(.gray, width: 1, cornerRadius: 8, style: .continuous)
-                Button("搜索") {
-                    isFocused = false
-                    if !searchText.isEmpty {
-                        store.dispatch(.searchMovie(searchText: searchText))
-                    }
-                }
-                .padding()
-//                .background(.yellow)
-                .buttonStyle(BorderlessButtonStyle())
-                .disabled(store.appState.movieSearch.isButtonDisabled)
+        VStack {
+            if let finishedCount = store.appState.movieSearch.requestFinishedCount,finishedCount != store.appState.movieSearch.websites.count {
+                ProgressView("", value: Double(finishedCount), total: Double(store.appState.movieSearch.websites.count))
             }
-            ForEach(webSitesHasResult) { webSite in
-                NavigationLink(destination: MovieListView(movies: webSite.searchResult)) {
-                    MovieWebSiteRow(website: webSite)
+            List {
+                HStack {
+                    TextField("输入名称", text: $searchText)
+    //                    .textFieldStyle(.roundedBorder)
+                        .focused($isFocused)
+                        .padding(.vertical,8)
+                        .sideView(sideView: Image(systemName: "magnifyingglass"))
+                        .sideView(sideView: Image(systemName: "delete.left"), position: .trailing) {
+                            searchText = ""
+                        }
+                        .border(.gray, width: 1, cornerRadius: 8, style: .continuous)
+                    Button("搜索") {
+                        isFocused = false
+                        if !searchText.isEmpty {
+                            store.dispatch(.searchMovie(searchText: searchText))
+                        }
+                    }
+                    .padding()
+    //                .background(.yellow)
+                    .buttonStyle(BorderlessButtonStyle())
+                    .disabled(store.appState.movieSearch.isButtonDisabled)
+                }
+                ForEach(webSitesHasResult) { webSite in
+                    NavigationLink(destination: MovieListView(movies: webSite.searchResult)) {
+                        MovieWebSiteRow(website: webSite)
+                    }
                 }
             }
         }
@@ -52,7 +57,6 @@ struct MovieSearchView: View {
                 store.dispatch(.loadSearchSource)
             }
         }
-        
     }
     
     var webSitesHasResult: [MovieSearchWebSite] {

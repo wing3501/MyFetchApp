@@ -33,6 +33,7 @@ extension AppState {
     }
     struct MovieSearchState {
         var isButtonDisabled = true
+        var requestFinishedCount: Int?
         var websites: [MovieSearchWebSite] = []
     }
     struct MagnetState {
