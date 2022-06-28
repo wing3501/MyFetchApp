@@ -23,7 +23,10 @@ struct MovieSearchRequest {
                             }
                         }
                     }
-                }, to: searchUrl).serializingData().value
+                }, to: searchUrl,interceptor: nil,requestModifier: { request in
+                    request.timeoutInterval = 10;
+                }).serializingData().value
+                
             }else {
                 let params = paramPair(parameters)
                 data = try await AF.request(searchUrl,method: method,parameters: params).serializingData().value
