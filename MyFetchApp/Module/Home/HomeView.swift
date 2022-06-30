@@ -9,35 +9,39 @@ import SwiftUI
 import Kingfisher
 
 struct HomeView: View {
+    
+    let titleArray = ["电影天堂","电影资源搜索","图片识别磁力链接","扫描文档"]
+    let iconArray = ["play.rectangle","film","photo","doc.text"]
+    
+    @EnvironmentObject var store: Store
+    
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $store.appState.navigationPath) {
             List {
-                Section {
-                    NavigationLink(destination: DyttView().navigationBarTitle("电影天堂", displayMode: .inline)) {
-//                        HomeViewListRow(logoUrl: "https://www.ygdy8.com/images/logo.gif", SFIcon: "play.rectangle")
-                        HomeViewListRow(websiteName: "电影天堂", SFIcon: "play.rectangle")
+                Section(header: "已开发") {
+                    ForEach(0..<titleArray.count, id: \.self) { index in
+                        NavigationLink(value: index) {
+                            HomeViewListRow(websiteName: titleArray[index], SFIcon: iconArray[index])
+                        }
                     }
-                    NavigationLink(destination: MovieSearchView().navigationBarTitle("电影资源搜索", displayMode: .inline)) {
-                        HomeViewListRow(websiteName: "电影资源搜索", SFIcon: "film")
-                    }
-                    NavigationLink(destination: MagnetView().navigationBarTitle("图片识别磁力链接", displayMode: .inline)) {
-                        HomeViewListRow(websiteName: "图片识别磁力链接", SFIcon: "photo")
-                    }
-                    NavigationLink(destination: DocumentScanView().navigationBarTitle("扫描文档", displayMode: .inline)) {
-                        HomeViewListRow(websiteName: "扫描文档", SFIcon: "doc.text")
-                    }
-                } header: {
-                    Text("预设网站抓取")
                 }
-                Section {
+                    
+                Section(header: "其他") {
                     DisableHomeViewListRow()
-                } header: {
-                    Text("预设API抓取")
                 }
-                Section {
-                    DisableHomeViewListRow()
-                } header: {
-                    Text("自定义抓取")
+            }
+            .navigationDestination(for: Int.self) { index in
+                switch index {
+                case 0:
+                    DyttView()
+                case 1:
+                    MovieSearchView()
+                case 2:
+                    MagnetView()
+                case 3:
+                    DocumentScanView()
+                default:
+                    EmptyView()
                 }
             }
         }

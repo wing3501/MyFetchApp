@@ -8,7 +8,7 @@
 import Foundation
 import HandyJSON
 
-struct MovieSearchWebSite: HandyJSON,Identifiable {
+struct MovieSearchWebSite: HandyJSON,Identifiable,Hashable {
     let name: String
     let icon: String
     let baseUrl: String
@@ -40,7 +40,7 @@ struct MovieSearchWebSite: HandyJSON,Identifiable {
     }
 }
 
-struct MovieResultPath: HandyJSON {
+struct MovieResultPath: HandyJSON,Hashable {
     let xpath = ""
     let jsonPath = ""
     let movieId: ContentPath? = nil
@@ -50,7 +50,7 @@ struct MovieResultPath: HandyJSON {
     let other: [ContentPath]? = nil
 }
 
-struct ContentPath: HandyJSON {
+struct ContentPath: HandyJSON,Hashable {
     let xpath = ""
     let key = ""
     
@@ -59,12 +59,12 @@ struct ContentPath: HandyJSON {
     let regex = ""
 }
 
-struct ValueReplace: HandyJSON {
+struct ValueReplace: HandyJSON,Hashable {
     let org = ""
     let new = ""
 }
 
-struct MovieResult: Identifiable {
+struct MovieResult: Identifiable,Hashable {
     let title: String
     let href: String
     let image: String

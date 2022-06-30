@@ -14,11 +14,12 @@ struct MovieListView: View {
     
     var body: some View {
         List(movies) { movie in
-            NavigationLink {
-                MovieDetailView(url: movie.href)
-            } label: {
+            NavigationLink(value: movie) {
                 MovieListRow(movie: movie)
             }
+        }
+        .navigationDestination(for: MovieResult.self) { movie in
+            MovieDetailView(url: movie.href)
         }
     }
 }

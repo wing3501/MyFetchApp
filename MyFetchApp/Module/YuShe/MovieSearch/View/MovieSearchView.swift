@@ -42,10 +42,13 @@ struct MovieSearchView: View {
                     .disabled(store.appState.movieSearch.isButtonDisabled)
                 }
                 ForEach(webSitesHasResult) { webSite in
-                    NavigationLink(destination: MovieListView(movies: webSite.searchResult)) {
+                    NavigationLink(value: webSite) {
                         MovieWebSiteRow(website: webSite)
                     }
                 }
+            }
+            .navigationDestination(for: MovieSearchWebSite.self) { webSite in
+                MovieListView(movies: webSite.searchResult)
             }
         }
 //        .toast(isPresented: $store.appState.toastLoading, content: {

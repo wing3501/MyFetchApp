@@ -39,7 +39,7 @@ class WebviewDataFetchManager: NSObject {
         guard completionHandler == nil else { return }
         if !tasks.isEmpty {
             let (url,handler) = tasks.removeFirst()
-            print("开始抓取----\(url)")
+            print("开始抓取----\(url)-----\(Thread.current)")
             completionHandler = handler
             webView.load(URLRequest(url: url))
         }

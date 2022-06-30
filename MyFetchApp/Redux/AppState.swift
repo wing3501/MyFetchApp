@@ -7,9 +7,13 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 /// 状态管理
 struct AppState {
+    
+    /// 导航路径
+    var navigationPath = NavigationPath()
     
     /// 子View隐藏tabbar
     var hideTabView = false
