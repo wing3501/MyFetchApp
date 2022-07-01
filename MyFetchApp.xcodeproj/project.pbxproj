@@ -150,18 +150,18 @@
 				92F881DE2864921A00C12097 /* DocumentScan */,
 				927BE5532862FC4900FD2AD8 /* Magnet */,
 				927503A42850D17B0045320E /* MovieSearch */,
-				9201FA6B283F4C17004482F0 /* dytt */,
+				9201FA6B283F4C17004482F0 /* Dytt */,
 			);
 			path = YuShe;
 			sourceTree = "<group>";
 		};
-		9201FA6B283F4C17004482F0 /* dytt */ = {
+		9201FA6B283F4C17004482F0 /* Dytt */ = {
 			isa = PBXGroup;
 			children = (
 				928569272845EED4000424DD /* View */,
 				928569262845EECD000424DD /* Model */,
 			);
-			path = dytt;
+			path = Dytt;
 			sourceTree = "<group>";
 		};
 		9201FEDA283F748D004482F0 /* Extension */ = {

@@ -10,8 +10,8 @@ import Kingfisher
 
 struct HomeView: View {
     
-    let titleArray = ["电影天堂","电影资源搜索","图片识别磁力链接","扫描文档"]
-    let iconArray = ["play.rectangle","film","photo","doc.text"]
+    let titleArray = ["电影天堂","电影资源搜索","图片识别磁力链接","扫描文档","二维码生成"]
+    let iconArray = ["play.rectangle","film","photo","doc.text","qrcode"]
     
     @EnvironmentObject var store: Store
     

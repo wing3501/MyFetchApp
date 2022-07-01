@@ -27,6 +27,8 @@ struct MagnetView: View {
 //                https://xiaozhuanlan.com/topic/8205316479
 //                    【WWDC21 10041】使用 Vision 提取文档里的数据
 //                https://xiaozhuanlan.com/topic/6204139578
+//                    在 SwiftUI 利用 Live Text API　從圖片中擷取文本
+//                https://www.appcoda.com.tw/live-text-api/
                     
 //                    等iOS16,直接用 DataScannerViewController
                     store.dispatch(.updateToastMessage(message: "别问，问就是等iOS16"))
