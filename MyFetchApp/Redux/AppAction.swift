@@ -25,5 +25,9 @@ enum AppAction {
     case updateMagnetLinks(links: [String])
     case updatePasteboardText(content: String)
     case updateToastMessage(message: String)
+    case updateWifiString(wifiString: String)
+    case resetQrSetting
+    case createQrCode(qrCodeString: String)
+    case updateQrCodeImage(image: UIImage)
 }
 

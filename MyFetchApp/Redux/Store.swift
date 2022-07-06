@@ -29,6 +29,12 @@ final class Store: ObservableObject {
         //APP状态监听
         
         //...
+        
+        //业务监听
+        appState.myQrCode.checker.wifiStringChanged.sink { wifiContent in
+            self.dispatch(.updateWifiString(wifiString: wifiContent))
+        }
+        .store(in: &disposeBag)
     }
     
     /// 派发action
@@ -141,6 +147,21 @@ final class Store: ObservableObject {
             }]
         case .updateToastMessage(let message):
             state.toastMessage = message
+        case .updateWifiString(let wifiString):
+            state.myQrCode.qrcodeString = wifiString
+        case .resetQrSetting:
+            state.myQrCode.checker.wifiName = ""
+            state.myQrCode.checker.wifiPassword = ""
+            state.myQrCode.qrcodeString = ""
+            state.myQrCode.qrCodeImage = nil
+            state.myQrCode.centerImage = nil
+        case .createQrCode(let qrCodeString):
+            let centerImage = state.myQrCode.centerImage
+            return [Task{
+                return environment.createQrCode(qrCodeString,centerImage)
+            }]
+        case .updateQrCodeImage(let image):
+            state.myQrCode.qrCodeImage = image
         }
         return []
     }

@@ -49,6 +49,8 @@
 		927BE5522862F21200FD2AD8 /* View+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5512862F21200FD2AD8 /* View+++.swift */; };
 		927BE5552862FCC400FD2AD8 /* MagnetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5542862FCC400FD2AD8 /* MagnetView.swift */; };
 		927BE557286318B000FD2AD8 /* VNDetectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE556286318B000FD2AD8 /* VNDetectManager.swift */; };
+		928ACD50286ED57E00C3E434 /* MyQrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928ACD4F286ED57E00C3E434 /* MyQrCodeView.swift */; };
+		928ACF42286EF63400C3E434 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928ACF41286EF63400C3E434 /* UIImageHelper.swift */; };
 		9296066428659F0000062ABA /* CGImagePropertyOrientation+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296066328659F0000062ABA /* CGImagePropertyOrientation+++.swift */; };
 		929800992840A08100FC19D2 /* Binding+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929800982840A08000FC19D2 /* Binding+++.swift */; };
 		9298009B2840B69F00FC19D2 /* DispatchQueue+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009A2840B69F00FC19D2 /* DispatchQueue+++.swift */; };
@@ -110,6 +112,8 @@
 		927BE5512862F21200FD2AD8 /* View+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+++.swift"; sourceTree = "<group>"; };
 		927BE5542862FCC400FD2AD8 /* MagnetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnetView.swift; sourceTree = "<group>"; };
 		927BE556286318B000FD2AD8 /* VNDetectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNDetectManager.swift; sourceTree = "<group>"; };
+		928ACD4F286ED57E00C3E434 /* MyQrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQrCodeView.swift; sourceTree = "<group>"; };
+		928ACF41286EF63400C3E434 /* UIImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
 		928D6BB8285C7C92003050C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9296066328659F0000062ABA /* CGImagePropertyOrientation+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+++.swift"; sourceTree = "<group>"; };
 		929800982840A08000FC19D2 /* Binding+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+++.swift"; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 		9201FA6A283F4C0C004482F0 /* YuShe */ = {
 			isa = PBXGroup;
 			children = (
+				928ACD4E286ED56600C3E434 /* MyQrCode */,
 				92F881DE2864921A00C12097 /* DocumentScan */,
 				927BE5532862FC4900FD2AD8 /* Magnet */,
 				927503A42850D17B0045320E /* MovieSearch */,
@@ -218,6 +223,7 @@
 				92E8A34D28573D09009D3690 /* Print.swift */,
 				924A6D1C285B24AC00D52EE8 /* JsCoreHelper.swift */,
 				927BE556286318B000FD2AD8 /* VNDetectManager.swift */,
+				928ACF41286EF63400C3E434 /* UIImageHelper.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -375,6 +381,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		928ACD4E286ED56600C3E434 /* MyQrCode */ = {
+			isa = PBXGroup;
+			children = (
+				928ACD4F286ED57E00C3E434 /* MyQrCodeView.swift */,
+			);
+			path = MyQrCode;
+			sourceTree = "<group>";
+		};
 		9298009C2840BB5000FC19D2 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +492,7 @@
 				92DC3FA82859C2250092875F /* MovieWebSiteRow.swift in Sources */,
 				92701A1F283E07C700295028 /* Store.swift in Sources */,
 				92701A2E283E54E300295028 /* HttpHelper.swift in Sources */,
+				928ACD50286ED57E00C3E434 /* MyQrCodeView.swift in Sources */,
 				9259CDD128446D6000C33721 /* Date+++.swift in Sources */,
 				9296066428659F0000062ABA /* CGImagePropertyOrientation+++.swift in Sources */,
 				9298009B2840B69F00FC19D2 /* DispatchQueue+++.swift in Sources */,
@@ -506,6 +521,7 @@
 				924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */,
 				9259CDDA2844AF0400C33721 /* DyttRequest.swift in Sources */,
 				9253AD70284EFA0C0014B2A0 /* Bundle+++.swift in Sources */,
+				928ACF42286EF63400C3E434 /* UIImageHelper.swift in Sources */,
 				92F881DD28648BBF00C12097 /* DocumentCameraView.swift in Sources */,
 				9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */,
 				92CD498B284747EC008B2C80 /* String+++.swift in Sources */,

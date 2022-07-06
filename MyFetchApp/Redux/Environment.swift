@@ -248,7 +248,7 @@ extension Environment {
         return []
     }
 }
-
+// MARK: - 扫描业务
 extension Environment {
     
     /// 在处理结果中查找链接
@@ -287,5 +287,17 @@ extension Environment {
 extension XMLElement {
     func attr(_ key: String) -> String {
         return key.isEmpty ? self.stringValue : (self[key] ?? "")
+    }
+}
+
+// MARK: - 二维码相关业务
+
+extension Environment {
+    func createQrCode(_ qrCodeString: String,_ centerImage: UIImage?) -> AppAction {
+        let size = 300 * UIScreen.main.scale
+        if let image = UIImageHelper.shared.qrCode(from: qrCodeString, size: CGSize(width: size, height: size), centerImage: centerImage) {
+            return .updateQrCodeImage(image: image)
+        }
+        return .empty
     }
 }

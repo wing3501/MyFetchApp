@@ -27,6 +27,7 @@ struct AppState {
     var dytt = DyttState()
     var movieSearch = MovieSearchState()
     var magnetState = MagnetState()
+    var myQrCode = MyQrCodeState()
 }
 
 extension AppState {
@@ -42,5 +43,29 @@ extension AppState {
     }
     struct MagnetState {
         var magnetLinks: [String] = []
+    }
+    struct MyQrCodeState {
+        var qrcodeString = ""
+        var qrCodeImage: UIImage?
+        var centerImage: UIImage?
+        var checker = MyQrCodeChecker()
+        
+        class MyQrCodeChecker {
+            static let wifiString = "WIFI:T:WPA;S:{wifiName};P:{wifiPassword};H:false;"
+            @Published var wifiName = ""
+            @Published var wifiPassword = ""
+            
+            var wifiStringChanged: AnyPublisher<String,Never> {
+                $wifiName
+                    .combineLatest($wifiPassword)
+                    .flatMap { (name,password) in
+                        var wifiContent = AppState.MyQrCodeState.MyQrCodeChecker.wifiString
+                        wifiContent.replace("{wifiName}", with: name)
+                        wifiContent.replace("{wifiPassword}", with: password)
+                        return Just(wifiContent)
+                    }
+                    .eraseToAnyPublisher()
+            }
+        }
     }
 }
