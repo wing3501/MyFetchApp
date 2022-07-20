@@ -46,7 +46,6 @@
 		92701A32283E550200295028 /* Fuzi in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A31283E550200295028 /* Fuzi */; };
 		92701A34283E550600295028 /* HandyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A33283E550600295028 /* HandyJSON */; };
 		927503A72850D2330045320E /* 豆瓣资源下载大师.js in Resources */ = {isa = PBXBuildFile; fileRef = 927503A62850D2330045320E /* 豆瓣资源下载大师.js */; };
-		927BE31A2862B54300FD2AD8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE3192862B54300FD2AD8 /* TestView.swift */; };
 		927BE5522862F21200FD2AD8 /* View+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5512862F21200FD2AD8 /* View+++.swift */; };
 		927BE5552862FCC400FD2AD8 /* MagnetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5542862FCC400FD2AD8 /* MagnetView.swift */; };
 		927BE557286318B000FD2AD8 /* VNDetectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE556286318B000FD2AD8 /* VNDetectManager.swift */; };
@@ -112,7 +111,6 @@
 		92701A22283E097E00295028 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		92701A2D283E54E300295028 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
 		927503A62850D2330045320E /* 豆瓣资源下载大师.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "豆瓣资源下载大师.js"; sourceTree = "<group>"; };
-		927BE3192862B54300FD2AD8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		927BE5512862F21200FD2AD8 /* View+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+++.swift"; sourceTree = "<group>"; };
 		927BE5542862FCC400FD2AD8 /* MagnetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnetView.swift; sourceTree = "<group>"; };
 		927BE556286318B000FD2AD8 /* VNDetectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNDetectManager.swift; sourceTree = "<group>"; };
@@ -402,7 +400,6 @@
 			isa = PBXGroup;
 			children = (
 				9298009D2840C75B00FC19D2 /* TabPageView.swift */,
-				927BE3192862B54300FD2AD8 /* TestView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -542,7 +539,6 @@
 				929A6E03285AFE39004C89FC /* MovieDetailView.swift in Sources */,
 				9259CDD82844A46000C33721 /* Environment.swift in Sources */,
 				9253AD72284F00D10014B2A0 /* ActivityIndicatorView.swift in Sources */,
-				927BE31A2862B54300FD2AD8 /* TestView.swift in Sources */,
 				927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */,
 				9259CDE02844E33100C33721 /* WebviewDataFetchManager.swift in Sources */,
 				92701A1B283E061800295028 /* AccountView.swift in Sources */,

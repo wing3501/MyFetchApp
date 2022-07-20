@@ -158,6 +158,23 @@ extension View {
         renderer.scale = scale ?? UIScreen.main.scale
         return renderer.uiImage ?? UIImage()
     }
+//https://developer.apple.com/documentation/swiftui/imagerenderer
+    @MainActor
+    func generatePDF(to renderURL: URL) {
+        if let consumer = CGDataConsumer(url: renderURL as CFURL),
+        let pdfContext = CGContext(consumer: consumer, mediaBox: nil, nil) {
+            let renderer = ImageRenderer(content: self)
+            renderer.render { size, renderer in
+                let options: [CFString: Any] = [
+                    kCGPDFContextMediaBox: CGRect(origin: .zero, size: size)
+                ]
+                pdfContext.beginPDFPage(options as CFDictionary)
+                renderer(pdfContext)
+                pdfContext.endPDFPage()
+                pdfContext.closePDF()
+            }
+        }
+    }
 }
 
 // MARK: - 给原视图的某一侧增加一个视图
