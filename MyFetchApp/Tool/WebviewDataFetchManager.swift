@@ -96,6 +96,15 @@ extension WebviewDataFetchManager: WKNavigationDelegate {
         }
         startFetch()
     }
+    
+    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        //解决-Code=-1202,Https服务器证书无效
+        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
+        let serverTrust = challenge.protectionSpace.serverTrust {
+            let card = URLCredential(trust: serverTrust)
+            completionHandler(URLSession.AuthChallengeDisposition.useCredential, card)
+        }
+    }
 }
 
 

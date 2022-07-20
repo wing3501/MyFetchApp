@@ -28,6 +28,7 @@
 		9259CDDC2844BAC900C33721 /* StringEncoding+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDDB2844BAC900C33721 /* StringEncoding+++.swift */; };
 		9259CDDE2844C22A00C33721 /* SUWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDDD2844C22A00C33721 /* SUWebView.swift */; };
 		9259CDE02844E33100C33721 /* WebviewDataFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDDF2844E33100C33721 /* WebviewDataFetchManager.swift */; };
+		925E51BD287EED3900B72869 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E51BC287EED3900B72869 /* Global.swift */; };
 		92658B312859DDC20000041D /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92658B302859DDC20000041D /* MovieListView.swift */; };
 		927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927019F6283DC2FB00295028 /* MyFetchApp.swift */; };
 		927019FB283DC2FC00295028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FA283DC2FC00295028 /* Assets.xcassets */; };
@@ -59,6 +60,8 @@
 		929A6E03285AFE39004C89FC /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929A6E02285AFE39004C89FC /* MovieDetailView.swift */; };
 		92CD498B284747EC008B2C80 /* String+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498A284747EC008B2C80 /* String+++.swift */; };
 		92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */; };
+		92D5E543287FB91200E5C601 /* Task++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E542287FB91200E5C601 /* Task++.swift */; };
+		92D5E545287FBF1600E5C601 /* Text++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E544287FBF1600E5C601 /* Text++.swift */; };
 		92DC3FA82859C2250092875F /* MovieWebSiteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */; };
 		92E8A3492857095F009D3690 /* MovieSearchWebsites.json in Resources */ = {isa = PBXBuildFile; fileRef = 92538D9B285343B6007B32A3 /* MovieSearchWebsites.json */; };
 		92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34A28571667009D3690 /* MovieSearchRequest.swift */; };
@@ -90,6 +93,7 @@
 		9259CDDB2844BAC900C33721 /* StringEncoding+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringEncoding+++.swift"; sourceTree = "<group>"; };
 		9259CDDD2844C22A00C33721 /* SUWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUWebView.swift; sourceTree = "<group>"; };
 		9259CDDF2844E33100C33721 /* WebviewDataFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewDataFetchManager.swift; sourceTree = "<group>"; };
+		925E51BC287EED3900B72869 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		92658B302859DDC20000041D /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		927019F3283DC2FB00295028 /* MyFetchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFetchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927019F6283DC2FB00295028 /* MyFetchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFetchApp.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 		929A6E02285AFE39004C89FC /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		92CD498A284747EC008B2C80 /* String+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+++.swift"; sourceTree = "<group>"; };
 		92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryModel.swift; sourceTree = "<group>"; };
+		92D5E542287FB91200E5C601 /* Task++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task++.swift"; sourceTree = "<group>"; };
+		92D5E544287FBF1600E5C601 /* Text++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text++.swift"; sourceTree = "<group>"; };
 		92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWebSiteRow.swift; sourceTree = "<group>"; };
 		92E8A34A28571667009D3690 /* MovieSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchRequest.swift; sourceTree = "<group>"; };
 		92E8A34D28573D09009D3690 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
@@ -181,7 +187,9 @@
 				92CD498A284747EC008B2C80 /* String+++.swift */,
 				9253AD6F284EFA0C0014B2A0 /* Bundle+++.swift */,
 				927BE5512862F21200FD2AD8 /* View+++.swift */,
+				92D5E544287FBF1600E5C601 /* Text++.swift */,
 				9296066328659F0000062ABA /* CGImagePropertyOrientation+++.swift */,
+				92D5E542287FB91200E5C601 /* Task++.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -224,6 +232,7 @@
 				924A6D1C285B24AC00D52EE8 /* JsCoreHelper.swift */,
 				927BE556286318B000FD2AD8 /* VNDetectManager.swift */,
 				928ACF41286EF63400C3E434 /* UIImageHelper.swift */,
+				925E51BC287EED3900B72869 /* Global.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -498,10 +507,12 @@
 				9298009B2840B69F00FC19D2 /* DispatchQueue+++.swift in Sources */,
 				92F881E02864923800C12097 /* DocumentScanView.swift in Sources */,
 				927BE5522862F21200FD2AD8 /* View+++.swift in Sources */,
+				925E51BD287EED3900B72869 /* Global.swift in Sources */,
 				9201FA6D283F4C4A004482F0 /* DyttView.swift in Sources */,
 				92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */,
 				92E8A34E28573D09009D3690 /* Print.swift in Sources */,
 				92701A05283DC3E400295028 /* AppDelegate.swift in Sources */,
+				92D5E545287FBF1600E5C601 /* Text++.swift in Sources */,
 				9259CDDE2844C22A00C33721 /* SUWebView.swift in Sources */,
 				92701A1D283E077700295028 /* MainView.swift in Sources */,
 				924A6D1D285B24AC00D52EE8 /* JsCoreHelper.swift in Sources */,
@@ -519,6 +530,7 @@
 				92538D9A28534309007B32A3 /* MovieSearchWebSite.swift in Sources */,
 				927BE5552862FCC400FD2AD8 /* MagnetView.swift in Sources */,
 				924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */,
+				92D5E543287FB91200E5C601 /* Task++.swift in Sources */,
 				9259CDDA2844AF0400C33721 /* DyttRequest.swift in Sources */,
 				9253AD70284EFA0C0014B2A0 /* Bundle+++.swift in Sources */,
 				928ACF42286EF63400C3E434 /* UIImageHelper.swift in Sources */,

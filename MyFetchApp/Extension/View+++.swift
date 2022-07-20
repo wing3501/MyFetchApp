@@ -27,6 +27,139 @@ struct HideTabViewModifier: ViewModifier {
     }
 }
 
+// MARK: - 隐藏View
+
+struct Show: ViewModifier {
+    let isVisible: Bool
+
+    @ViewBuilder
+    func body(content: Content) -> some View {
+        if isVisible {
+            content
+        } else {
+            content.hidden()
+        }
+    }
+}
+
+extension View {
+    func isShow(isVisible: Bool) -> some View {
+        self.modifier(Show(isVisible: isVisible))
+    }
+}
+
+// MARK: - Branch
+
+//    .if(colored) { view in
+//      view.background(Color.blue)
+//    }
+
+extension View {
+  @ViewBuilder
+  func `if`<Transform: View>(_ condition: Bool, transform: (Self) ->  Transform) -> some View {
+    if condition { transform(self) }
+    else { self }
+  }
+}
+
+// MARK: - Print
+
+//self.Print("Inside ForEach", varOne, varTwo ...)
+
+extension View {
+    func Print(_ vars: Any...) -> some View {
+        for v in vars { print(v) }
+        return EmptyView()
+    }
+}
+
+// MARK: - Size
+
+//    .background(ReturnSize())
+
+struct ReturnSize: View {
+    var body: some View {
+        GeometryReader { geometry in
+            Color.clear
+                .onAppear {
+                    print("geo \(geometry.size)")
+                }
+        }
+    }
+}
+
+// MARK: - AnyView
+
+extension View {
+    func eraseToAnyView() -> AnyView {
+        AnyView(self)
+    }
+}
+
+// MARK: - Shake
+
+//    .onShake {  print("stop it shaking")}
+
+extension NSNotification.Name {
+    static let deviceDidShakeNotification = Notification.Name(rawValue: "deviceDidShakeNotification")
+}
+
+extension UIWindow {
+     open override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            NotificationCenter.default.post(name: .deviceDidShakeNotification, object: nil)
+        }
+     }
+}
+
+struct DeviceShakeViewModifier: ViewModifier {
+    let action: () -> Void
+
+    func body(content: Content) -> some View {
+        content
+            .onAppear()
+            .onReceive(NotificationCenter.default.publisher(for: .deviceDidShakeNotification)) { _ in
+                action()
+            }
+    }
+}
+
+extension View {
+    func onShake(perform action: @escaping () -> Void) -> some View {
+        self.modifier(DeviceShakeViewModifier(action: action))
+    }
+}
+
+// MARK: - 截图
+
+//let image = textView.snapshot().ignoresSafeArea
+
+extension View {
+    func snapshot() -> UIImage {
+        let controller = UIHostingController(rootView: self)
+        let view = controller.view
+
+        let targetSize = controller.view.intrinsicContentSize
+        view?.bounds = CGRect(origin: .zero, size: targetSize)
+        view?.backgroundColor = .clear
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+
+        return renderer.image { _ in
+            view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        }
+    }
+    
+//    利用新的 ImageRenderer API　輕鬆把 SwiftUI 視圖轉換為圖像
+//https://www.appcoda.com.tw/imagerenderer-swiftui/
+    @MainActor
+    func generateSnapshot(scale: CGFloat?) -> UIImage {
+        let renderer = ImageRenderer(content: self)
+        renderer.scale = scale ?? UIScreen.main.scale
+        return renderer.uiImage ?? UIImage()
+    }
+}
+
 // MARK: - 给原视图的某一侧增加一个视图
 
 extension View {
