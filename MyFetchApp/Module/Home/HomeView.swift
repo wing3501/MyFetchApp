@@ -18,17 +18,17 @@ struct HomeView: View {
     var body: some View {
         NavigationStack(path: $store.appState.navigationPath) {
             List {
-                Section(header: "已开发") {
+//                Section(header: "已开发") {
                     ForEach(0..<titleArray.count, id: \.self) { index in
                         NavigationLink(value: index) {
                             HomeViewListRow(websiteName: titleArray[index], SFIcon: iconArray[index])
                         }
                     }
-                }
+//                }
                     
-                Section(header: "其他") {
-                    DisableHomeViewListRow()
-                }
+//                Section(header: "其他") {
+//                    DisableHomeViewListRow()
+//                }
             }
             .navigationDestination(for: Int.self) { index in
                 switch index {
