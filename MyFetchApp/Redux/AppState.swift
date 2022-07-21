@@ -60,8 +60,8 @@ extension AppState {
                     .combineLatest($wifiPassword)
                     .flatMap { (name,password) in
                         var wifiContent = AppState.MyQrCodeState.MyQrCodeChecker.wifiString
-                        wifiContent.replace("{wifiName}", with: name)
-                        wifiContent.replace("{wifiPassword}", with: password)
+//                        wifiContent.replace("{wifiName}", with: name)
+//                        wifiContent.replace("{wifiPassword}", with: password)
                         return Just(wifiContent)
                     }
                     .eraseToAnyPublisher()

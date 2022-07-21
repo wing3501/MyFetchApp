@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-@MainActor
+
 class WebviewDataFetchManager: NSObject {
     public static let shared = WebviewDataFetchManager()
     
@@ -16,14 +16,14 @@ class WebviewDataFetchManager: NSObject {
     var completionHandler: ((String) -> Void)?
     var tasks: [(URL,(String) -> Void)] = []
     
-    @MainActor lazy var webView: WKWebView = {
+    @MainActor private lazy var webView: WKWebView = {
         let config = WKWebViewConfiguration()
         var view = WKWebView(frame: .zero, configuration: config)
         view.navigationDelegate = self
         return view
     }()
     
-    func dataString(with urlString: String,completionHandler: @escaping (String) -> Void) {
+    @MainActor private func dataString(with urlString: String,completionHandler: @escaping (String) -> Void) {
         if let url = URL(string: urlString) {
             tasks.append((url,completionHandler))
             
@@ -35,7 +35,7 @@ class WebviewDataFetchManager: NSObject {
         }
     }
     
-    func startFetch() {
+    @MainActor private func startFetch() {
         guard completionHandler == nil else { return }
         if !tasks.isEmpty {
             let (url,handler) = tasks.removeFirst()
@@ -45,7 +45,7 @@ class WebviewDataFetchManager: NSObject {
         }
     }
     
-    func dataString(with url: String) async -> String {
+    @MainActor func dataString(with url: String) async -> String {
         await withCheckedContinuation { continuation in
             dataString(with: url) { string in
                 continuation.resume(returning: string)
@@ -70,23 +70,32 @@ extension WebviewDataFetchManager: WKNavigationDelegate {
             handler("")
             completionHandler = nil
         }
-        startFetch()
+        Task {
+            await startFetch()
+        }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if let handler = completionHandler {
-            webView.evaluateJavaScript("document.documentElement.innerHTML") { data, error in
+            webView.evaluateJavaScript("document.documentElement.innerHTML") { [self] data, error in
                 if let dataString = data as? String {
+                    print("数据：\(dataString)")
                     handler(dataString)
                 }else {
+                    print("数据为空")
                     handler("")
                 }
                 print("结束抓取----\(webView.url!)")
                 self.completionHandler = nil
-                self.startFetch()
+                
+                Task {
+                    await startFetch()
+                }
             }
         }else {
-            startFetch()
+            Task {
+                await startFetch()
+            }
         }
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -94,7 +103,9 @@ extension WebviewDataFetchManager: WKNavigationDelegate {
             handler("")
             completionHandler = nil
         }
-        startFetch()
+        Task {
+            await startFetch()
+        }
     }
     
     func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {

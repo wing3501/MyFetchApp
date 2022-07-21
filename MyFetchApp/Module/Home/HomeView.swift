@@ -10,8 +10,10 @@ import Kingfisher
 
 struct HomeView: View {
     
-    let titleArray = ["电影天堂","电影资源搜索","图片识别磁力链接","扫描文档","二维码生成"]
-    let iconArray = ["play.rectangle","film","photo","doc.text","qrcode"]
+    let titleArray = [//"电影天堂",
+                      "电影资源搜索","图片识别磁力链接","扫描文档","二维码生成"]
+    let iconArray = [//"play.rectangle",
+                     "film","photo","doc.text","qrcode"]
     
     @EnvironmentObject var store: Store
     
@@ -32,13 +34,13 @@ struct HomeView: View {
             }
             .navigationDestination(for: Int.self) { index in
                 switch index {
+//                case 0:
+//                    DyttView()
                 case 0:
-                    DyttView()
-                case 1:
                     MovieSearchView()
-                case 2:
+                case 1:
                     MagnetView()
-                case 3:
+                case 2:
                     DocumentScanView()
                 default:
                     EmptyView()
