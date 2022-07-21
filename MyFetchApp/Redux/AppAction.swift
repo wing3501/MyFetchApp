@@ -22,6 +22,7 @@ enum AppAction {
     case searchMovie(searchText: String)
     case dissmissLoading
     case detectMagnet(image: UIImage)
+    case detectMagnetFrom(text: String)
     case updateMagnetLinks(links: [String])
     case updatePasteboardText(content: String)
     case updateToastMessage(message: String)

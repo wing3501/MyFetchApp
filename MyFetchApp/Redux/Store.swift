@@ -134,6 +134,11 @@ final class Store: ObservableObject {
             return [Task {
                 environment.detectMagnet(results)
             }]
+        case .detectMagnetFrom(let text):
+            let results = text.split(separator: "\n").map(String.init)
+            return [Task {
+                environment.detectMagnet(results)
+            }]
         case .updateMagnetLinks(let links):
             if links.isEmpty {
                 state.toastMessage = "未识别合适内容"

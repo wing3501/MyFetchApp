@@ -10,6 +10,7 @@
 		9201FA6D283F4C4A004482F0 /* DyttView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201FA6C283F4C4A004482F0 /* DyttView.swift */; };
 		9201FEDC283F75A0004482F0 /* Color+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201FEDB283F75A0004482F0 /* Color+++.swift */; };
 		9201FEDF283F7B87004482F0 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 9201FEDE283F7B87004482F0 /* SwiftUIX */; };
+		9205001A28892F9B0062112F /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205001928892F9A0062112F /* DataScannerView.swift */; };
 		924120C82848893700446FD9 /* DyttCategoryPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120C72848893700446FD9 /* DyttCategoryPageView.swift */; };
 		924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120C9284890C400446FD9 /* DyttItemModel.swift */; };
 		924120CC2848924400446FD9 /* DyttItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924120CB2848924400446FD9 /* DyttItemRow.swift */; };
@@ -73,6 +74,7 @@
 		9201FA6C283F4C4A004482F0 /* DyttView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttView.swift; sourceTree = "<group>"; };
 		9201FEDB283F75A0004482F0 /* Color+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+++.swift"; sourceTree = "<group>"; };
 		9201FEDD283F7B7C004482F0 /* SwiftUIX-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "SwiftUIX-master"; path = "SPM/SwiftUIX-master"; sourceTree = "<group>"; };
+		9205001928892F9A0062112F /* DataScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerView.swift; sourceTree = "<group>"; };
 		924120C72848893700446FD9 /* DyttCategoryPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryPageView.swift; sourceTree = "<group>"; };
 		924120C9284890C400446FD9 /* DyttItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttItemModel.swift; sourceTree = "<group>"; };
 		924120CB2848924400446FD9 /* DyttItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttItemRow.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				9259CDDD2844C22A00C33721 /* SUWebView.swift */,
 				9253AD71284F00D10014B2A0 /* ActivityIndicatorView.swift */,
 				92F881DC28648BBE00C12097 /* DocumentCameraView.swift */,
+				9205001928892F9A0062112F /* DataScannerView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				92701A2E283E54E300295028 /* HttpHelper.swift in Sources */,
 				928ACD50286ED57E00C3E434 /* MyQrCodeView.swift in Sources */,
 				9259CDD128446D6000C33721 /* Date+++.swift in Sources */,
+				9205001A28892F9B0062112F /* DataScannerView.swift in Sources */,
 				9296066428659F0000062ABA /* CGImagePropertyOrientation+++.swift in Sources */,
 				9298009B2840B69F00FC19D2 /* DispatchQueue+++.swift in Sources */,
 				92F881E02864923800C12097 /* DocumentScanView.swift in Sources */,

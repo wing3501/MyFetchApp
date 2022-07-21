@@ -9,6 +9,7 @@ import Foundation
 import Vision
 import UIKit
 import ImageIO
+import VisionKit
 
 class VNDetectManager {
     static let shared = VNDetectManager()
@@ -21,6 +22,9 @@ class VNDetectManager {
         detectText(from: image, with: "zh-Hans")
     }
     
+    /// 从图片上识别二维码
+    /// - Parameter image: 图片
+    /// - Returns: 二维码信息数组
     func detectQrCode(from image: UIImage) -> [String] {
         
         guard let cgimage = image.cgImage else { return [] }

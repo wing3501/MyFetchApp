@@ -15,6 +15,7 @@ struct MagnetView: View {
     
     @State var isShowPhotoLibrary = false
     @State var image: UIImage?
+    @State var isShowDataScannerView = false
     
     var body: some View {
         VStack {
@@ -30,9 +31,9 @@ struct MagnetView: View {
 //                    在 SwiftUI 利用 Live Text API　從圖片中擷取文本
 //                https://www.appcoda.com.tw/live-text-api/
                     
-//                    等iOS16,直接用 DataScannerViewController
-                    store.dispatch(.updateToastMessage(message: "别问，问就是等iOS16"))
+                    isShowDataScannerView.toggle()
                 }
+                .disabled(!DataScannerView.dataScannerIsSupported)
             }
             .padding()
             .padding(.top,80)
@@ -57,6 +58,22 @@ struct MagnetView: View {
                 isShowPhotoLibrary = false
             }
         }
+        .fullScreenCover(isPresented: $isShowDataScannerView, content: {
+            ZStack(alignment: .topTrailing) {
+                DataScannerView(isShow: $isShowDataScannerView, recognizedDataTypes: [.text(languages: ["en-US"])]) { scanString in
+                    store.dispatch(.detectMagnetFrom(text: scanString))
+                    isShowDataScannerView.toggle()
+                }
+                Button {
+                    isShowDataScannerView.toggle()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                }
+                .offset(x: -20, y: 20)
+            }
+        })
         .toast(item: $store.appState.toastMessage, dismissAfter: 1.5) { toastString in
             ToastView(toastString)
         }
