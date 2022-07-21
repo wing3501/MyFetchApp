@@ -59,19 +59,9 @@ struct MagnetView: View {
             }
         }
         .fullScreenCover(isPresented: $isShowDataScannerView, content: {
-            ZStack(alignment: .topTrailing) {
-                DataScannerView(isShow: $isShowDataScannerView, recognizedDataTypes: [.text(languages: ["en-US"])]) { scanString in
-                    store.dispatch(.detectMagnetFrom(text: scanString))
-                    isShowDataScannerView.toggle()
-                }
-                Button {
-                    isShowDataScannerView.toggle()
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                }
-                .offset(x: -20, y: 20)
+            DataScannerView(isShow: $isShowDataScannerView, recognizedDataTypes: [.text(languages: ["en-US"])]) { scanString in
+                store.dispatch(.detectMagnetFrom(text: scanString))
+                isShowDataScannerView.toggle()
             }
         })
         .toast(item: $store.appState.toastMessage, dismissAfter: 1.5) { toastString in

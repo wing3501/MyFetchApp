@@ -9,27 +9,31 @@ import Foundation
 import VisionKit
 import SwiftUI
 
-//struct DataScannerView: View {
-//    @Binding var isShow: Bool
-//    let recognizedDataTypes: Set<DataScannerViewController.RecognizedDataType>
-//    let tapOnItem: (String)->Void
-//
-//    var body: some View {
-//        ZStack(alignment: .topTrailing) {
-//            DataScanner(isShow: $isShow, recognizedDataTypes: recognizedDataTypes, tapOnItem: tapOnItem)
-//            Button {
-//                isShow.toggle()
-//            } label: {
-//                Image(systemName: "xmark.circle.fill")
-//                    .resizable()
-//                    .frame(width: 40, height: 40)
-//            }
-//            .offset(x: -20, y: 20)
-//        }
-//    }
-//}
+struct DataScannerView: View {
+    @Binding var isShow: Bool
+    let recognizedDataTypes: Set<DataScannerViewController.RecognizedDataType>
+    let tapOnItem: (String)->Void
 
-struct DataScannerView: UIViewControllerRepresentable {
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            DataScanner(isShow: $isShow, recognizedDataTypes: recognizedDataTypes, tapOnItem: tapOnItem)
+            Button {
+                isShow.toggle()
+            } label: {
+                Image(systemName: "xmark.circle.fill")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+            }
+            .offset(x: -20, y: 20)
+        }
+    }
+    
+    @MainActor static var dataScannerIsSupported: Bool {
+        DataScannerViewController.isSupported && DataScannerViewController.isAvailable
+    }
+}
+
+struct DataScanner: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = DataScannerViewController
     
@@ -38,9 +42,9 @@ struct DataScannerView: UIViewControllerRepresentable {
     let tapOnItem: (String)->Void
     
     class Coordinator: NSObject,DataScannerViewControllerDelegate {
-        let parent: DataScannerView
+        let parent: DataScanner
         
-        init(_ parent: DataScannerView) {
+        init(_ parent: DataScanner) {
             self.parent = parent
         }
         
@@ -86,9 +90,5 @@ struct DataScannerView: UIViewControllerRepresentable {
         } else {
             uiViewController.stopScanning()
         }
-    }
-    
-    @MainActor static var dataScannerIsSupported: Bool {
-        DataScannerViewController.isSupported && DataScannerViewController.isAvailable
     }
 }
