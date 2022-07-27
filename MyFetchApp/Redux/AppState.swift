@@ -57,11 +57,17 @@ extension AppState {
             
             var wifiStringChanged: AnyPublisher<String,Never> {
                 $wifiName
-                    .combineLatest($wifiPassword)
+                    .filter({ !$0.isEmpty })
+                    .combineLatest($wifiPassword.filter({ !$0.isEmpty }))
                     .flatMap { (name,password) in
-                        var wifiContent = AppState.MyQrCodeState.MyQrCodeChecker.wifiString
+                        //暂时崩溃
+//                        Symbol not found: _$sSm17_StringProcessingSQ7ElementRpzrlE7replace_4with15maxReplacementsyqd___qd_0_SitSTRd__SlRd_0_ABQyd__ACRSABQyd_0_AGRSr0_lF
+//                        var wifiContent = AppState.MyQrCodeState.MyQrCodeChecker.wifiString
 //                        wifiContent.replace("{wifiName}", with: name)
 //                        wifiContent.replace("{wifiPassword}", with: password)
+                        
+                        
+                        let wifiContent = "WIFI:T:WPA;S:" + name + ";P:" + password + ";H:false;"
                         return Just(wifiContent)
                     }
                     .eraseToAnyPublisher()

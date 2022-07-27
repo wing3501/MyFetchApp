@@ -42,6 +42,8 @@ struct HomeView: View {
                     MagnetView()
                 case 2:
                     DocumentScanView()
+                case 3:
+                    MyQrCodeView()
                 default:
                     EmptyView()
                 }
