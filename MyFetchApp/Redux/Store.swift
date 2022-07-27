@@ -167,6 +167,10 @@ final class Store: ObservableObject {
             }]
         case .updateQrCodeImage(let image):
             state.myQrCode.qrCodeImage = image
+        case .saveToAlbum(let image):
+            return [Task{
+                return await environment.saveToAlbum(image)
+            }]
         }
         return []
     }

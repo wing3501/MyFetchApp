@@ -26,7 +26,7 @@ class UIImageHelper {
     ///   - centerImage: 中心图片
     ///   - size: 尺寸
     /// - Returns: 二维码图片
-    func qrCode(from content: String,size: CGSize ,centerImage: UIImage? = nil) -> UIImage? {
+    public func qrCode(from content: String,size: CGSize ,centerImage: UIImage? = nil) -> UIImage? {
         // 1.创建一个二维码滤镜实例
         guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
         filter.setDefaults()
@@ -82,7 +82,7 @@ class UIImageHelper {
     ///   - content: 内容
     ///   - size: 尺寸
     /// - Returns: 图片
-    func code128(from content: String, size: CGSize) -> UIImage? {
+    public func code128(from content: String, size: CGSize) -> UIImage? {
         guard let filter = CIFilter(name: "CICode128BarcodeGenerator") else { return nil }
         filter.setDefaults()
         guard let data = content.data(using: .utf8) else { return nil }
@@ -98,7 +98,7 @@ class UIImageHelper {
     ///   - ciimage: 图片
     ///   - size: 尺寸
     /// - Returns: 高清化之后的图片
-    func scale(ciimage: CIImage, to size: CGSize) -> UIImage? {
+    public func scale(ciimage: CIImage, to size: CGSize) -> UIImage? {
         // 将CIImage转成CGImageRef
         let integralRect = CGRectIntegral(ciimage.extent) // 将rect取整后返回，origin取舍，size取入
         guard let imageRef = CIContext().createCGImage(ciimage, from: integralRect) else { return nil }
@@ -123,6 +123,14 @@ class UIImageHelper {
     private var saveAlbumCompletion: ((Bool) -> Void)?
     public func saveImageToAlbum(_ image: UIImage,_ completion: @escaping (Bool) -> Void) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    public func saveImageToAlbum(_ image: UIImage) async -> Bool {
+        await withCheckedContinuation { continuation in
+            saveImageToAlbum(image) { success in
+                continuation.resume(returning: success)
+            }
+        }
     }
     
     @objc private func image(_ image: UIImage?, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer?) {

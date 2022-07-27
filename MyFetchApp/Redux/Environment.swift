@@ -300,4 +300,9 @@ extension Environment {
         }
         return .empty
     }
+    
+    func saveToAlbum(_ image: UIImage) async -> AppAction {
+        let success = await UIImageHelper.shared.saveImageToAlbum(image)
+        return .updateToastMessage(message: success ? "保存成功" : "保存失败")
+    }
 }

@@ -94,7 +94,10 @@ struct QrCodePreviewView: View {
                         Button {
                             print("Change country setting")
                         } label: {
-                            Label("Choose Country", systemImage: "globe")
+                            Label("保存到相册") {
+                                Image(systemName: "photo.on.rectangle.angled")
+                                    .foregroundStyle(.green, .cyan)
+                            }
                         }
 
                         Button {
