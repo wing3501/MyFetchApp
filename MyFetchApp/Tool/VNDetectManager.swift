@@ -15,11 +15,11 @@ class VNDetectManager {
     static let shared = VNDetectManager()
     
     func detectTextWithEn(from image: UIImage) -> [String] {
-        detectText(from: image, with: "en-US")
+        detectText(from: image, with: ["en-US"])
     }
     
     func detectTextWithZh(from image: UIImage) -> [String] {
-        detectText(from: image, with: "zh-Hans")
+        detectText(from: image, with: ["zh-Hans"])
     }
     
     /// 从图片上识别二维码
@@ -53,7 +53,7 @@ class VNDetectManager {
     ///   - image: 图片
     ///   - language: 语言
     /// - Returns: 文字数据
-    private func detectText(from image: UIImage, with language: String) -> [String] {
+    func detectText(from image: UIImage, with language: [String]) -> [String] {
         var resultStringArray: [String] = []
         if let cgimage = image.cgImage {
             let textRequest = VNRecognizeTextRequest()
@@ -66,7 +66,7 @@ class VNDetectManager {
             // 查看支持的语言
     //        let supportLanauages = try? textRequest.supportedRecognitionLanguages() // iOS 15才有的api
             // ["en-US", "fr-FR", "it-IT", "de-DE", "es-ES", "pt-BR", "zh-Hans", "zh-Hant"]
-            textRequest.recognitionLanguages = [language]
+            textRequest.recognitionLanguages = language
             
             // 使用correctedImage创建新的handler
             let requestHandler = VNImageRequestHandler(cgImage: cgimage, options: [:])

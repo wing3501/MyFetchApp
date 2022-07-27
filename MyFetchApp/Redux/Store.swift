@@ -11,7 +11,7 @@ import UIKit
 
 @MainActor
 final class Store: ObservableObject {
-//    @Published private(set) var appState = AppState() //有些第三方组件需要修改状态
+//    @Published private(set) var appState = AppState() //有些第三方组件需要修改状态。破坏了所有在状态都在store修改的原则。
     @Published var appState = AppState()
     private let environment = Environment()
     private var disposeBag = Set<AnyCancellable>()

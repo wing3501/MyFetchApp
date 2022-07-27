@@ -76,7 +76,8 @@ struct HomeViewListRow: View {
                         .padding()
                     Image(systemName: SFIcon)
                         .resizable()
-                        .frame(width: 30, height: 30)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30)
                 }
             }
         }
