@@ -120,4 +120,19 @@ class UIImageHelper {
         return UIImage(cgImage: scaledImageRef, scale: UIScreen.main.scale, orientation: .up)
     }
     
+    private var saveAlbumCompletion: ((Bool) -> Void)?
+    public func saveImageToAlbum(_ image: UIImage,_ completion: @escaping (Bool) -> Void) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc private func image(_ image: UIImage?, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer?) {
+        if let block = saveAlbumCompletion {
+            if let _ = error {
+                block(false)
+            }else {
+                block(true)
+            }
+            saveAlbumCompletion = nil
+        }
+    }
 }
