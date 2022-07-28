@@ -9,7 +9,7 @@ import UIKit
 import CoreImage
 
 
-class UIImageHelper {
+class UIImageHelper: NSObject {
     static let shared = UIImageHelper()
     
     //!< L: 7%
@@ -122,6 +122,7 @@ class UIImageHelper {
     
     private var saveAlbumCompletion: ((Bool) -> Void)?
     public func saveImageToAlbum(_ image: UIImage,_ completion: @escaping (Bool) -> Void) {
+        saveAlbumCompletion = completion
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     

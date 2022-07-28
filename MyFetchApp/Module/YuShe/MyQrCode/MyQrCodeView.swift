@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftUIX
+import ToastUI
 
 struct MyQrCodeView: View {
     
@@ -75,11 +76,15 @@ struct MyQrCodeView: View {
                 store.dispatch(.createQrCode(qrCodeString: store.appState.myQrCode.qrcodeString))
             }
         }
+        .toast(item: $store.appState.toastMessage, dismissAfter: 1.5) { toastString in
+            ToastView(toastString)
+        }
         .scrollDismissesKeyboard(.automatic)
     }
 }
 
 struct QrCodePreviewView: View {
+    @EnvironmentObject var store: Store
     let qrCodeImage: UIImage?
     
     var body: some View {
@@ -92,7 +97,7 @@ struct QrCodePreviewView: View {
                     .padding()
                     .contextMenu {
                         Button {
-                            print("Change country setting")
+                            store.dispatch(.saveToAlbum(image: qrCodeImage))
                         } label: {
                             Label("保存到相册") {
                                 Image(systemName: "photo.on.rectangle.angled")
