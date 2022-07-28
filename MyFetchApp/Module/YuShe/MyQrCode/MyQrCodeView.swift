@@ -93,11 +93,12 @@ struct MyQrCodeView: View {
 struct QrCodePreviewView: View {
     @EnvironmentObject var store: Store
     let qrCodeImage: UIImage?
+    let qrImage: Image? = nil
     
     var body: some View {
         ZStack {
-            if let qrCodeImage {
-                Image(uiImage: qrCodeImage)
+            if let qrCodeImage,let qrImage = Image(uiImage: qrCodeImage) {
+                qrImage
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 300, height: 300)
@@ -111,11 +112,9 @@ struct QrCodePreviewView: View {
                                     .foregroundStyle(.green, .cyan)
                             }
                         }
-
-                        Button {
-                            print("Enable geolocation")
-                        } label: {
-                            Label("Detect Location", systemImage: "location.circle")
+                        
+                        ShareLink(item: qrImage, preview: SharePreview("二维码", image: qrImage)) {
+                            Label("分享", systemImage:  "square.and.arrow.up")
                         }
                     }
             }else {
