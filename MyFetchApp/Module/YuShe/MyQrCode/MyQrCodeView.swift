@@ -13,6 +13,7 @@ struct MyQrCodeView: View {
     
     @EnvironmentObject var store: Store
     @State var isShowPhotoLibrary = false
+    @State var hasCenterImage = false
     @FocusState private var focusedField: MyQrCodeField?
     
     enum MyQrCodeField {
@@ -36,12 +37,18 @@ struct MyQrCodeView: View {
                 TextField("内容", text: $store.appState.myQrCode.qrcodeString)
                     .focused($focusedField, equals: .qrContent)
                     .submitLabel(.done)
-                    
-                if let _ = store.appState.myQrCode.centerImage {
-                    Toggle("二维码中心需要一张图片？", isOn: .constant(true))
-                }else {
-                    Toggle("二维码中心需要一张图片？", isOn: $isShowPhotoLibrary)
-                }
+                
+                Toggle("二维码中心需要一张图片？", isOn: $hasCenterImage.onChange({ hasCenter in
+                    focusedField = nil
+                    if(hasCenter) {
+                        isShowPhotoLibrary = true
+                    }else {
+                        store.dispatch(.cleanQrCenterImage)
+                        if let _ = store.appState.myQrCode.qrCodeImage {
+                            store.dispatch(.createQrCode(qrCodeString: store.appState.myQrCode.qrcodeString))
+                        }
+                    }
+                }))
                 
                 Button("生成二维码") {
                     focusedField = nil
@@ -62,7 +69,7 @@ struct MyQrCodeView: View {
         }
         .sheet(isPresented: $isShowPhotoLibrary) {
             ImagePicker(image: $store.appState.myQrCode.centerImage, encoding: nil) {
-                print("取消了------")
+                hasCenterImage = false
                 isShowPhotoLibrary = false
             }
         }
@@ -76,7 +83,7 @@ struct MyQrCodeView: View {
                 store.dispatch(.createQrCode(qrCodeString: store.appState.myQrCode.qrcodeString))
             }
         }
-        .toast(item: $store.appState.toastMessage, dismissAfter: 1.5) { toastString in
+        .toast(item: $store.appState.toastMessage, dismissAfter: 1) { toastString in
             ToastView(toastString)
         }
         .scrollDismissesKeyboard(.automatic)

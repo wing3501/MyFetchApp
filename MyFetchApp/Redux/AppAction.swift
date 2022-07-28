@@ -30,6 +30,7 @@ enum AppAction {
     case resetQrSetting
     case createQrCode(qrCodeString: String)
     case updateQrCodeImage(image: UIImage)
+    case cleanQrCenterImage
     case saveToAlbum(image: UIImage)
 }
 

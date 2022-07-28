@@ -167,6 +167,8 @@ final class Store: ObservableObject {
             }]
         case .updateQrCodeImage(let image):
             state.myQrCode.qrCodeImage = image
+        case .cleanQrCenterImage:
+            state.myQrCode.centerImage = nil
         case .saveToAlbum(let image):
             return [Task{
                 return await environment.saveToAlbum(image)
