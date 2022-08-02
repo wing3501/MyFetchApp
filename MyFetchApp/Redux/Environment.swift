@@ -8,6 +8,7 @@
 import Foundation
 import Fuzi
 import UIKit
+import SwiftSoup
 
 /// 副作用处理
 final class Environment {
@@ -309,11 +310,35 @@ extension Environment {
 
 
 extension Environment {
-    func loadSwitchPage(_ page: Int) async -> AppAction {
+    /// 请求总页数
+    /// - Parameter pageUrl: 网址
+    /// - Returns: 页数
+    func requestTotalPage(_ pageUrl: String) async -> AppAction {
+        let mainPage = await Switch520Request.loadHtml(pageUrl)
+        if !mainPage.isEmpty {
+            do {
+                let doc: Document = try SwiftSoup.parse(mainPage)
+                if let element = try doc.select("a[class=page-numbers]").last()?.html(),let total = Int(element) {
+                    return .updateSwitch520TotalPage(total: total)
+                }
+            } catch Exception.Error(let type, let message) {
+                print("解析出错：\(type),\(message)")
+            } catch {
+                print("error")
+            }
+        }
+        return .updateSwitch520TotalPage(total: 0)
+    }
+    
+    
+    func fetchAllSwitchData() async -> AppAction {
+//        let mainPage = await Switch520Request.loadHtml(<#T##url: String##String#>)
+        
+        
 //        let html = await Switch520Request.loadPage(1)
 //        let html = await Switch520Request.requestDownloadUrl()
-        let html = await Switch520Request.loadDownloadDetail()
-        print("请求到-----\(html)")
+//        let html = await Switch520Request.loadDownloadDetail()
+//        print("请求到-----\(html)")
         return .empty
     }
 }

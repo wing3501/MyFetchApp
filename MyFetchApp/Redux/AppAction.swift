@@ -32,7 +32,7 @@ enum AppAction {
     case updateQrCodeImage(image: UIImage)
     case cleanQrCenterImage
     case saveToAlbum(image: UIImage)
-    case loadSwitchPage(page: Int)
-    
+    case fetchSwitch520TotalPage
+    case updateSwitch520TotalPage(total: Int)
 }
 

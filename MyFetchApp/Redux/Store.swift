@@ -173,10 +173,13 @@ final class Store: ObservableObject {
             return [Task{
                 return await environment.saveToAlbum(image)
             }]
-        case .loadSwitchPage(let page):
+        case .fetchSwitch520TotalPage:
+            let pageUrl = state.switch520.page + "1"
             return [Task{
-                return await environment.loadSwitchPage(page)
+                return await environment.requestTotalPage(pageUrl)
             }]
+        case .updateSwitch520TotalPage(let total):
+            state.switch520.totalPage = total
         }
         return []
     }
