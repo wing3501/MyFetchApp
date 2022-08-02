@@ -75,6 +75,17 @@ extension String {
         return predicate.evaluate(with: self)
     }
     
+    var isUrlText: Bool {
+        let regex = "((ht|f)tps?):\\/\\/[\\w\\-]+(\\.[\\w\\-]+)+([\\w\\-\\.,@?^=%&:\\/~\\+#]*[\\w\\-\\@?^=%&\\/~\\+#])?"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        return predicate.evaluate(with: self)
+    }
+    
+    var regexUrlText: [String] {
+        let regex = "((ht|f)tps?):\\/\\/[\\w\\-]+(\\.[\\w\\-]+)+([\\w\\-\\.,@?^=%&:\\/~\\+#]*[\\w\\-\\@?^=%&\\/~\\+#])?"
+        return subString(with: regex)
+    }
+    
     func subString(with regex: String) -> Array<String> {
         var array: [String] = []
         if let regularExpression = try? NSRegularExpression(pattern: regex, options: .caseInsensitive) {

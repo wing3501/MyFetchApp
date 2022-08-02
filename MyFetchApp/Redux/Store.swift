@@ -174,12 +174,25 @@ final class Store: ObservableObject {
                 return await environment.saveToAlbum(image)
             }]
         case .fetchSwitch520TotalPage:
-            let pageUrl = state.switch520.page + "1"
+            let pageUrl = state.switch520.mainPage
             return [Task{
                 return await environment.requestTotalPage(pageUrl)
             }]
         case .updateSwitch520TotalPage(let total):
+            print("总页数:\(total)")
             state.switch520.totalPage = total
+            if(total > 0) {
+                return [Task{
+                    return .fetchGamePage(page: 1)
+                }]
+            }
+        case .fetchGamePage(let page):
+            state.toastLoadingMessage = "同步数据: \(page)/\(state.switch520.totalPage) 页"
+            state.toastLoading = true
+            let pageUrl = state.switch520.basePageUrl + "\(page)"
+            return [Task{
+                return await environment.fetchGamePage(pageUrl)
+            }]
         }
         return []
     }

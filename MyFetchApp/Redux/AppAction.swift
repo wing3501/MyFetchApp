@@ -34,5 +34,6 @@ enum AppAction {
     case saveToAlbum(image: UIImage)
     case fetchSwitch520TotalPage
     case updateSwitch520TotalPage(total: Int)
+    case fetchGamePage(page: Int)
 }
 

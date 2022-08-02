@@ -14,7 +14,8 @@ struct Switch520: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             .task {
-                store.dispatch(.fetchSwitch520TotalPage)
+//                store.dispatch(.fetchSwitch520TotalPage)
+                store.dispatch(.fetchGamePage(page: 1))
             }
     }
 }

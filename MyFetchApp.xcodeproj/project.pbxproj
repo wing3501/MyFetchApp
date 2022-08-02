@@ -61,7 +61,7 @@
 		92CD498B284747EC008B2C80 /* String+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498A284747EC008B2C80 /* String+++.swift */; };
 		92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */; };
 		92D5E543287FB91200E5C601 /* Task++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E542287FB91200E5C601 /* Task++.swift */; };
-		92D5E545287FBF1600E5C601 /* Text++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E544287FBF1600E5C601 /* Text++.swift */; };
+		92D5E545287FBF1600E5C601 /* Text+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E544287FBF1600E5C601 /* Text+++.swift */; };
 		92DC3FA82859C2250092875F /* MovieWebSiteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */; };
 		92E8A3492857095F009D3690 /* MovieSearchWebsites.json in Resources */ = {isa = PBXBuildFile; fileRef = 92538D9B285343B6007B32A3 /* MovieSearchWebsites.json */; };
 		92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34A28571667009D3690 /* MovieSearchRequest.swift */; };
@@ -69,6 +69,7 @@
 		92EB658D2898C98D00FC02FC /* Switch520.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB658C2898C98D00FC02FC /* Switch520.swift */; };
 		92EB658F2898CB4200FC02FC /* Switch520Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB658E2898CB4200FC02FC /* Switch520Request.swift */; };
 		92EB65942898F90D00FC02FC /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92EB65932898F90D00FC02FC /* SwiftSoup */; };
+		92EB65972899133A00FC02FC /* Switch520Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB65962899133A00FC02FC /* Switch520Game.swift */; };
 		92F881DD28648BBF00C12097 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F881DC28648BBE00C12097 /* DocumentCameraView.swift */; };
 		92F881E02864923800C12097 /* DocumentScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F881DF2864923800C12097 /* DocumentScanView.swift */; };
 /* End PBXBuildFile section */
@@ -131,13 +132,14 @@
 		92CD498A284747EC008B2C80 /* String+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+++.swift"; sourceTree = "<group>"; };
 		92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryModel.swift; sourceTree = "<group>"; };
 		92D5E542287FB91200E5C601 /* Task++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task++.swift"; sourceTree = "<group>"; };
-		92D5E544287FBF1600E5C601 /* Text++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text++.swift"; sourceTree = "<group>"; };
+		92D5E544287FBF1600E5C601 /* Text+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+++.swift"; sourceTree = "<group>"; };
 		92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWebSiteRow.swift; sourceTree = "<group>"; };
 		92E8A34A28571667009D3690 /* MovieSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchRequest.swift; sourceTree = "<group>"; };
 		92E8A34D28573D09009D3690 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		92EB658C2898C98D00FC02FC /* Switch520.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520.swift; sourceTree = "<group>"; };
 		92EB658E2898CB4200FC02FC /* Switch520Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520Request.swift; sourceTree = "<group>"; };
 		92EB65922898F8EB00FC02FC /* SwiftSoup */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftSoup; path = SPM/SwiftSoup; sourceTree = "<group>"; };
+		92EB65962899133A00FC02FC /* Switch520Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520Game.swift; sourceTree = "<group>"; };
 		92F881DC28648BBE00C12097 /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraView.swift; sourceTree = "<group>"; };
 		92F881DF2864923800C12097 /* DocumentScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,7 +197,7 @@
 				92CD498A284747EC008B2C80 /* String+++.swift */,
 				9253AD6F284EFA0C0014B2A0 /* Bundle+++.swift */,
 				927BE5512862F21200FD2AD8 /* View+++.swift */,
-				92D5E544287FBF1600E5C601 /* Text++.swift */,
+				92D5E544287FBF1600E5C601 /* Text+++.swift */,
 				9296066328659F0000062ABA /* CGImagePropertyOrientation+++.swift */,
 				92D5E542287FB91200E5C601 /* Task++.swift */,
 			);
@@ -420,9 +422,18 @@
 		92EB658B2898C96F00FC02FC /* Switch */ = {
 			isa = PBXGroup;
 			children = (
+				92EB65952899130800FC02FC /* Model */,
 				92EB658C2898C98D00FC02FC /* Switch520.swift */,
 			);
 			path = Switch;
+			sourceTree = "<group>";
+		};
+		92EB65952899130800FC02FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92EB65962899133A00FC02FC /* Switch520Game.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		92F881DE2864921A00C12097 /* DocumentScan */ = {
@@ -534,7 +545,7 @@
 				92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */,
 				92E8A34E28573D09009D3690 /* Print.swift in Sources */,
 				92701A05283DC3E400295028 /* AppDelegate.swift in Sources */,
-				92D5E545287FBF1600E5C601 /* Text++.swift in Sources */,
+				92D5E545287FBF1600E5C601 /* Text+++.swift in Sources */,
 				9259CDDE2844C22A00C33721 /* SUWebView.swift in Sources */,
 				92701A1D283E077700295028 /* MainView.swift in Sources */,
 				924A6D1D285B24AC00D52EE8 /* JsCoreHelper.swift in Sources */,
@@ -565,6 +576,7 @@
 				9259CDD82844A46000C33721 /* Environment.swift in Sources */,
 				9253AD72284F00D10014B2A0 /* ActivityIndicatorView.swift in Sources */,
 				927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */,
+				92EB65972899133A00FC02FC /* Switch520Game.swift in Sources */,
 				9259CDE02844E33100C33721 /* WebviewDataFetchManager.swift in Sources */,
 				92701A1B283E061800295028 /* AccountView.swift in Sources */,
 			);

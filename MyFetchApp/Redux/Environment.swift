@@ -313,9 +313,9 @@ extension Environment {
     /// 请求总页数
     /// - Parameter pageUrl: 网址
     /// - Returns: 页数
-    func requestTotalPage(_ pageUrl: String) async -> AppAction {
-        let mainPage = await Switch520Request.loadHtml(pageUrl)
-        if !mainPage.isEmpty {
+     func requestTotalPage(_ pageUrl: String) async -> AppAction {
+        
+        if let mainPage = await Switch520Request.loadHtml(pageUrl) {
             do {
                 let doc: Document = try SwiftSoup.parse(mainPage)
                 if let element = try doc.select("a[class=page-numbers]").last()?.html(),let total = Int(element) {
@@ -330,11 +330,61 @@ extension Environment {
         return .updateSwitch520TotalPage(total: 0)
     }
     
-    
-    func fetchAllSwitchData() async -> AppAction {
-//        let mainPage = await Switch520Request.loadHtml(<#T##url: String##String#>)
+    func fetchGamePage(_ pageUrl: String) async -> AppAction {
+        if let pageHtml = await Switch520Request.loadHtml(pageUrl) {
+            do {
+                let doc: Document = try SwiftSoup.parse(pageHtml)
+                let elements = try doc.select("article")
+                for element in elements {
+                    if let id = try element.attr("id").split(separator: "-").second {
+                        let imageUrl = try element.select("img.lazyload").attr("data-src")
+                        let title = try element.select("h2").text()
+                        let categorys = try element.select("a[rel=category]").map { try $0.text() }
+                        let datetime = try element.select("time").attr("datetime")
+                        let href = try element.select("h2").select("a").attr("href")
+                        
+//                        print("id:\(id)")
+//                        print("imageUrl:\(imageUrl)")
+//                        print("title:\(title)")
+//                        print("categorys:\(categorys)")
+//                        print("datetime:\(datetime)")
+//                        print("href:\(href)")
+                        
+                        if let downloadInfoUrl = await Switch520Request.requestDownloadUrl(String(id)),
+                           let downloadInfo = await Switch520Request.loadHtml(downloadInfoUrl),
+                           let downloadInfoHtmlUrl = downloadInfo.regexUrlText.first,
+                           let downloadInfoHtml = await Switch520Request.loadHtml(downloadInfoHtmlUrl)
+                            {
+                            
+                            do {
+                                let doc: Document = try SwiftSoup.parse(downloadInfoHtml)
+                                let downloadAddress = try doc.select("meta[name=description]").attr("content")
+                                
+                                var game = Switch520Game(id: String(id), title: title, imageUrl: imageUrl, category: categorys, datetime: datetime, downloadAdress: downloadAddress)
+                                
+                                
+                                
+                            } catch Exception.Error(let type, let message) {
+                                print("解析出错：\(type),\(message)")
+                            } catch {
+                                print("error")
+                            }
+                            break
+                        }else {
+                            print("无下载地址，是个汇总帖子")
+                        }
+                    }
+                }
+            } catch Exception.Error(let type, let message) {
+                print("解析出错：\(type),\(message)")
+            } catch {
+                print("error")
+            }
+        }
         
         
+        
+//        article
 //        let html = await Switch520Request.loadPage(1)
 //        let html = await Switch520Request.requestDownloadUrl()
 //        let html = await Switch520Request.loadDownloadDetail()

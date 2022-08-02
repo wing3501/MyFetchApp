@@ -69,7 +69,8 @@ extension AppState {
         }
     }
     struct Switch520State {
-        let page = "https://switch520.com/page/"
+        let mainPage = "https://switch520.com"
+        let basePageUrl = "https://switch520.com/page/"
         var totalPage = 0
     }
 }
