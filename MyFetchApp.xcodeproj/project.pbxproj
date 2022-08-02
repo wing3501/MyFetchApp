@@ -68,6 +68,7 @@
 		92E8A34E28573D09009D3690 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34D28573D09009D3690 /* Print.swift */; };
 		92EB658D2898C98D00FC02FC /* Switch520.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB658C2898C98D00FC02FC /* Switch520.swift */; };
 		92EB658F2898CB4200FC02FC /* Switch520Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB658E2898CB4200FC02FC /* Switch520Request.swift */; };
+		92EB65942898F90D00FC02FC /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92EB65932898F90D00FC02FC /* SwiftSoup */; };
 		92F881DD28648BBF00C12097 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F881DC28648BBE00C12097 /* DocumentCameraView.swift */; };
 		92F881E02864923800C12097 /* DocumentScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F881DF2864923800C12097 /* DocumentScanView.swift */; };
 /* End PBXBuildFile section */
@@ -136,6 +137,7 @@
 		92E8A34D28573D09009D3690 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		92EB658C2898C98D00FC02FC /* Switch520.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520.swift; sourceTree = "<group>"; };
 		92EB658E2898CB4200FC02FC /* Switch520Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520Request.swift; sourceTree = "<group>"; };
+		92EB65922898F8EB00FC02FC /* SwiftSoup */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftSoup; path = SPM/SwiftSoup; sourceTree = "<group>"; };
 		92F881DC28648BBE00C12097 /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraView.swift; sourceTree = "<group>"; };
 		92F881DF2864923800C12097 /* DocumentScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				92701A0E283DC94C00295028 /* Kingfisher in Frameworks */,
 				92701A30283E54FF00295028 /* Alamofire in Frameworks */,
 				9201FEDF283F7B87004482F0 /* SwiftUIX in Frameworks */,
+				92EB65942898F90D00FC02FC /* SwiftSoup in Frameworks */,
 				92701A34283E550600295028 /* HandyJSON in Frameworks */,
 				929A6E01285AD462004C89FC /* ToastUI in Frameworks */,
 			);
@@ -299,6 +302,7 @@
 				9201FEDD283F7B7C004482F0 /* SwiftUIX-master */,
 				9253AD6B284EF68C0014B2A0 /* Refresh-master */,
 				929A6DFF285AD454004C89FC /* ToastUI-3.0.0 */,
+				92EB65922898F8EB00FC02FC /* SwiftSoup */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -453,6 +457,7 @@
 				9201FEDE283F7B87004482F0 /* SwiftUIX */,
 				9253AD6C284EF6980014B2A0 /* Refresh */,
 				929A6E00285AD462004C89FC /* ToastUI */,
+				92EB65932898F90D00FC02FC /* SwiftSoup */,
 			);
 			productName = MyFetchApp;
 			productReference = 927019F3283DC2FB00295028 /* MyFetchApp.app */;
@@ -799,6 +804,10 @@
 		929A6E00285AD462004C89FC /* ToastUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ToastUI;
+		};
+		92EB65932898F90D00FC02FC /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
