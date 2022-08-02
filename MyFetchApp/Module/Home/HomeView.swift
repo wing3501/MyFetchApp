@@ -11,9 +11,9 @@ import Kingfisher
 struct HomeView: View {
     
     let titleArray = [//"电影天堂",
-                      "电影资源搜索","图片识别磁力链接","扫描文档","二维码生成"]
+                      "电影资源搜索","图片识别磁力链接","扫描文档","二维码生成","Switch520"]
     let iconArray = [//"play.rectangle",
-                     "film","photo","doc.text","qrcode"]
+                     "film","photo","doc.text","qrcode","gamecontroller"]
     
     @EnvironmentObject var store: Store
     
@@ -44,6 +44,8 @@ struct HomeView: View {
                     DocumentScanView()
                 case 3:
                     MyQrCodeView()
+                case 4:
+                    Switch520()
                 default:
                     EmptyView()
                 }

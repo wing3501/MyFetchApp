@@ -306,3 +306,14 @@ extension Environment {
         return .updateToastMessage(message: success ? "保存成功" : "保存失败")
     }
 }
+
+
+extension Environment {
+    func loadSwitchPage(_ page: Int) async -> AppAction {
+//        let html = await Switch520Request.loadPage(1)
+//        let html = await Switch520Request.requestDownloadUrl()
+        let html = await Switch520Request.loadDownloadDetail()
+        print("请求到-----\(html)")
+        return .empty
+    }
+}

@@ -66,6 +66,8 @@
 		92E8A3492857095F009D3690 /* MovieSearchWebsites.json in Resources */ = {isa = PBXBuildFile; fileRef = 92538D9B285343B6007B32A3 /* MovieSearchWebsites.json */; };
 		92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34A28571667009D3690 /* MovieSearchRequest.swift */; };
 		92E8A34E28573D09009D3690 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34D28573D09009D3690 /* Print.swift */; };
+		92EB658D2898C98D00FC02FC /* Switch520.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB658C2898C98D00FC02FC /* Switch520.swift */; };
+		92EB658F2898CB4200FC02FC /* Switch520Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB658E2898CB4200FC02FC /* Switch520Request.swift */; };
 		92F881DD28648BBF00C12097 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F881DC28648BBE00C12097 /* DocumentCameraView.swift */; };
 		92F881E02864923800C12097 /* DocumentScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F881DF2864923800C12097 /* DocumentScanView.swift */; };
 /* End PBXBuildFile section */
@@ -132,6 +134,8 @@
 		92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWebSiteRow.swift; sourceTree = "<group>"; };
 		92E8A34A28571667009D3690 /* MovieSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchRequest.swift; sourceTree = "<group>"; };
 		92E8A34D28573D09009D3690 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
+		92EB658C2898C98D00FC02FC /* Switch520.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520.swift; sourceTree = "<group>"; };
+		92EB658E2898CB4200FC02FC /* Switch520Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520Request.swift; sourceTree = "<group>"; };
 		92F881DC28648BBE00C12097 /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraView.swift; sourceTree = "<group>"; };
 		92F881DF2864923800C12097 /* DocumentScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +161,7 @@
 		9201FA6A283F4C0C004482F0 /* YuShe */ = {
 			isa = PBXGroup;
 			children = (
+				92EB658B2898C96F00FC02FC /* Switch */,
 				928ACD4E286ED56600C3E434 /* MyQrCode */,
 				92F881DE2864921A00C12097 /* DocumentScan */,
 				927BE5532862FC4900FD2AD8 /* Magnet */,
@@ -311,6 +316,7 @@
 				92701A2D283E54E300295028 /* HttpHelper.swift */,
 				9259CDD92844AF0400C33721 /* DyttRequest.swift */,
 				92E8A34A28571667009D3690 /* MovieSearchRequest.swift */,
+				92EB658E2898CB4200FC02FC /* Switch520Request.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -405,6 +411,14 @@
 				9298009D2840C75B00FC19D2 /* TabPageView.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		92EB658B2898C96F00FC02FC /* Switch */ = {
+			isa = PBXGroup;
+			children = (
+				92EB658C2898C98D00FC02FC /* Switch520.swift */,
+			);
+			path = Switch;
 			sourceTree = "<group>";
 		};
 		92F881DE2864921A00C12097 /* DocumentScan */ = {
@@ -502,10 +516,12 @@
 				92701A1F283E07C700295028 /* Store.swift in Sources */,
 				92701A2E283E54E300295028 /* HttpHelper.swift in Sources */,
 				928ACD50286ED57E00C3E434 /* MyQrCodeView.swift in Sources */,
+				92EB658D2898C98D00FC02FC /* Switch520.swift in Sources */,
 				9259CDD128446D6000C33721 /* Date+++.swift in Sources */,
 				9205001A28892F9B0062112F /* DataScannerView.swift in Sources */,
 				9296066428659F0000062ABA /* CGImagePropertyOrientation+++.swift in Sources */,
 				9298009B2840B69F00FC19D2 /* DispatchQueue+++.swift in Sources */,
+				92EB658F2898CB4200FC02FC /* Switch520Request.swift in Sources */,
 				92F881E02864923800C12097 /* DocumentScanView.swift in Sources */,
 				927BE5522862F21200FD2AD8 /* View+++.swift in Sources */,
 				925E51BD287EED3900B72869 /* Global.swift in Sources */,

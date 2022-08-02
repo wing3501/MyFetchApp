@@ -173,6 +173,10 @@ final class Store: ObservableObject {
             return [Task{
                 return await environment.saveToAlbum(image)
             }]
+        case .loadSwitchPage(let page):
+            return [Task{
+                return await environment.loadSwitchPage(page)
+            }]
         }
         return []
     }
