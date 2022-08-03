@@ -32,8 +32,10 @@ enum AppAction {
     case updateQrCodeImage(image: UIImage)
     case cleanQrCenterImage
     case saveToAlbum(image: UIImage)
-    case fetchSwitch520TotalPage
-    case updateSwitch520TotalPage(total: Int)
+    case fetchSwitch520TotalPage(needFetch: Bool)
+    case updateSwitch520TotalPage(needFetch: Bool,total: Int)
+    case fetchGameEnd(games: [Switch520Game])
     case fetchGamePage(page: Int)
+    case fetchGamePageEnd(page: Int,games: [Switch520Game])
 }
 

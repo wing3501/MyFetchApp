@@ -63,6 +63,7 @@
 		92D5E543287FB91200E5C601 /* Task++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E542287FB91200E5C601 /* Task++.swift */; };
 		92D5E545287FBF1600E5C601 /* Text+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E544287FBF1600E5C601 /* Text+++.swift */; };
 		92DC3FA82859C2250092875F /* MovieWebSiteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */; };
+		92E54977289A58E300A2451E /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E54976289A58E300A2451E /* FileHelper.swift */; };
 		92E8A3492857095F009D3690 /* MovieSearchWebsites.json in Resources */ = {isa = PBXBuildFile; fileRef = 92538D9B285343B6007B32A3 /* MovieSearchWebsites.json */; };
 		92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34A28571667009D3690 /* MovieSearchRequest.swift */; };
 		92E8A34E28573D09009D3690 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34D28573D09009D3690 /* Print.swift */; };
@@ -134,6 +135,7 @@
 		92D5E542287FB91200E5C601 /* Task++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task++.swift"; sourceTree = "<group>"; };
 		92D5E544287FBF1600E5C601 /* Text+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+++.swift"; sourceTree = "<group>"; };
 		92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWebSiteRow.swift; sourceTree = "<group>"; };
+		92E54976289A58E300A2451E /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		92E8A34A28571667009D3690 /* MovieSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchRequest.swift; sourceTree = "<group>"; };
 		92E8A34D28573D09009D3690 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		92EB658C2898C98D00FC02FC /* Switch520.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		9259CDD428446F6C00C33721 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				92E54976289A58E300A2451E /* FileHelper.swift */,
 				9259CDD528446FD600C33721 /* Defaults.swift */,
 				9259CDDF2844E33100C33721 /* WebviewDataFetchManager.swift */,
 				92E8A34D28573D09009D3690 /* Print.swift */,
@@ -568,6 +571,7 @@
 				9253AD70284EFA0C0014B2A0 /* Bundle+++.swift in Sources */,
 				928ACF42286EF63400C3E434 /* UIImageHelper.swift in Sources */,
 				92F881DD28648BBF00C12097 /* DocumentCameraView.swift in Sources */,
+				92E54977289A58E300A2451E /* FileHelper.swift in Sources */,
 				9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */,
 				92CD498B284747EC008B2C80 /* String+++.swift in Sources */,
 				927BE557286318B000FD2AD8 /* VNDetectManager.swift in Sources */,

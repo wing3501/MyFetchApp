@@ -313,13 +313,13 @@ extension Environment {
     /// 请求总页数
     /// - Parameter pageUrl: 网址
     /// - Returns: 页数
-     func requestTotalPage(_ pageUrl: String) async -> AppAction {
+     func requestTotalPage(_ pageUrl: String) async -> Int {
         
         if let mainPage = await Switch520Request.loadHtml(pageUrl) {
             do {
                 let doc: Document = try SwiftSoup.parse(mainPage)
                 if let element = try doc.select("a[class=page-numbers]").last()?.html(),let total = Int(element) {
-                    return .updateSwitch520TotalPage(total: total)
+                    return total
                 }
             } catch Exception.Error(let type, let message) {
                 print("解析出错：\(type),\(message)")
@@ -327,10 +327,11 @@ extension Environment {
                 print("error")
             }
         }
-        return .updateSwitch520TotalPage(total: 0)
+        return 0
     }
     
-    func fetchGamePage(_ pageUrl: String) async -> AppAction {
+    func fetchGamePage(_ pageUrl: String) async -> [Switch520Game] {
+        var games: [Switch520Game] = []
         if let pageHtml = await Switch520Request.loadHtml(pageUrl) {
             do {
                 let doc: Document = try SwiftSoup.parse(pageHtml)
@@ -360,35 +361,59 @@ extension Environment {
                                 let doc: Document = try SwiftSoup.parse(downloadInfoHtml)
                                 let downloadAddress = try doc.select("meta[name=description]").attr("content")
                                 
-                                var game = Switch520Game(id: String(id), title: title, imageUrl: imageUrl, category: categorys, datetime: datetime, downloadAdress: downloadAddress)
+                                let game = Switch520Game(id: String(id), title: title, imageUrl: imageUrl, category: categorys, datetime: datetime, downloadAdress: downloadAddress)
                                 
-                                
+                                games.append(game)
+                                print("✅ 请求成功：\(title)  \(pageUrl)")
                                 
                             } catch Exception.Error(let type, let message) {
-                                print("解析出错：\(type),\(message)")
+                                print("❌ 下载页 解析出错：\(title) \(type),\(message)")
                             } catch {
-                                print("error")
+                                print("❌ 下载页 error: \(title)")
                             }
-                            break
                         }else {
-                            print("无下载地址，是个汇总帖子")
+                            if let detailHtml = await Switch520Request.loadHtml(href) {
+                                do {
+                                    let doc: Document = try SwiftSoup.parse(detailHtml)
+                                    let downloadAddress = try doc.select("div.entry-content").text()
+                                    if let _ = downloadAddress.range(of: "https://pan.baidu.com") {
+                                        let game = Switch520Game(id: String(id), title: title, imageUrl: imageUrl, category: categorys, datetime: datetime, downloadAdress: downloadAddress)
+                                        games.append(game)
+                                        print("✅ 请求成功：\(title)  \(pageUrl)")
+                                    }else {
+                                        print("❌ \(title)：无下载地址，是个汇总帖子")
+                                    }
+                                } catch Exception.Error(let type, let message) {
+                                    print("❌ 详情页 解析出错：\(title) \(type),\(message)")
+                                } catch {
+                                    print("❌ 详情页 error: \(title)")
+                                }
+                            }else {
+                                print("❌ \(title)：无下载地址，是个汇总帖子")
+                            }
                         }
                     }
                 }
             } catch Exception.Error(let type, let message) {
-                print("解析出错：\(type),\(message)")
+                print("❌ 列表页 解析出错：\(pageUrl) \(type),\(message)")
             } catch {
-                print("error")
+                print("❌ 列表页 error: \(pageUrl)")
             }
         }
-        
-        
-        
-//        article
-//        let html = await Switch520Request.loadPage(1)
-//        let html = await Switch520Request.requestDownloadUrl()
-//        let html = await Switch520Request.loadDownloadDetail()
-//        print("请求到-----\(html)")
+        return games
+    }
+    
+    func fetchGamePage(_ page: Int,_ pageUrl: String) async -> AppAction {
+        let games = await fetchGamePage(pageUrl)
+        return .fetchGamePageEnd(page: page, games: games)
+    }
+}
+
+extension Environment {
+    func test(_ i: Int) async -> AppAction {
+        print("work \(i) --- start")
+        try? await Task.sleep(seconds: 0.5)
+        print("work \(i) --- end")
         return .empty
     }
 }

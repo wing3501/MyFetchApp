@@ -71,6 +71,9 @@ extension AppState {
     struct Switch520State {
         let mainPage = "https://switch520.com"
         let basePageUrl = "https://switch520.com/page/"
+        let fileName = "games.json"
         var totalPage = 0
+        var games: [Switch520Game] = []
+        
     }
 }

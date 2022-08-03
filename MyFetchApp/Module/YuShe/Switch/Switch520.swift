@@ -11,11 +11,15 @@ struct Switch520: View {
     
     @EnvironmentObject var store: Store
     
+    init() {
+        
+    }
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             .task {
-//                store.dispatch(.fetchSwitch520TotalPage)
-                store.dispatch(.fetchGamePage(page: 1))
+                store.dispatch(.fetchSwitch520TotalPage(needFetch: true))
+//                store.dispatch(.fetchGamePage(page: 191))
             }
     }
 }

@@ -42,7 +42,7 @@ final class Store: ObservableObject {
     /// - Returns: 副作用任务
     @discardableResult
     func dispatch(_ action: AppAction) -> Task<Void, Never>? {
-        Task {
+        return Task {
             // 一个action可能产生多个副作用，且副作用task之间非结构化，所以用了task数组
             let tasks = reducer(state: &appState, action: action, environment: environment)
             for task in tasks {
@@ -173,26 +173,42 @@ final class Store: ObservableObject {
             return [Task{
                 return await environment.saveToAlbum(image)
             }]
-        case .fetchSwitch520TotalPage:
+        case .fetchSwitch520TotalPage(let needFetch):
             let pageUrl = state.switch520.mainPage
             return [Task{
-                return await environment.requestTotalPage(pageUrl)
+                let total = await environment.requestTotalPage(pageUrl)
+                return .updateSwitch520TotalPage(needFetch: needFetch, total: total)
             }]
-        case .updateSwitch520TotalPage(let total):
+        case .updateSwitch520TotalPage(let needFetch,let total):
             print("总页数:\(total)")
             state.switch520.totalPage = total
-            if(total > 0) {
+            let basePageUrl = state.switch520.basePageUrl
+            if(total > 0 && needFetch) {
                 return [Task{
-                    return .fetchGamePage(page: 1)
+                    //一页一页
+                    var games: [Switch520Game] = []
+                    for page in 1...total {
+                        let pageUrl = basePageUrl + "\(page)"
+                        games.append(contentsOf: await environment.fetchGamePage(pageUrl))
+                    }
+                    return .fetchGameEnd(games: games)
                 }]
             }
+        case .fetchGameEnd(let games):
+            FileHelper.create(fileName: state.switch520.fileName, to: .documentDirectory, with: games.toJSONString()?.utf8Data)
+            print("抓取结束----")
         case .fetchGamePage(let page):
-            state.toastLoadingMessage = "同步数据: \(page)/\(state.switch520.totalPage) 页"
-            state.toastLoading = true
             let pageUrl = state.switch520.basePageUrl + "\(page)"
             return [Task{
-                return await environment.fetchGamePage(pageUrl)
+                return await environment.fetchGamePage(page,pageUrl)
             }]
+        case .fetchGamePageEnd(let page,let games):
+            state.switch520.games.append(contentsOf: games)
+            // 如果抓取完了，就写入文件
+//            if(page == 1) {
+//                FileHelper.create(fileName: state.switch520.fileName, to: .documentDirectory, with: games.toJSONString()?.utf8Data)
+//            }
+            print("抓取结束----")
         }
         return []
     }
