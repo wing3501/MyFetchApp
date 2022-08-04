@@ -37,5 +37,8 @@ enum AppAction {
     case fetchGameEnd(games: [Switch520Game])
     case fetchGamePage(page: Int)
     case fetchGamePageEnd(page: Int,games: [Switch520Game])
+    case saveGames
+    case loadGames
+    case loadGamesEnd(games: [Switch520Game])
 }
 

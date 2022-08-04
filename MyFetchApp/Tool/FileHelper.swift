@@ -17,16 +17,24 @@ struct FileHelper {
     ///   - name: 文件名
     /// - Returns: Json数据
     static func loadJSON<T: Codable>(from directory: FileManager.SearchPathDirectory,fileName name: String) -> T? {
+        if let data = loadFile(from: directory, fileName: name) {
+            return try? JSONDecoder().decode(T.self, from: data)
+        }
+        return nil
+    }
+    
+    static func loadFile(from directory: FileManager.SearchPathDirectory,fileName name: String) -> Data? {
         if let dirPath = NSSearchPathForDirectoriesInDomains(directory, .userDomainMask, true).first {
             let filePath = dirPath + "/" + name
             if fm.fileExists(atPath: filePath) {
                 if let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
-                    return try? JSONDecoder().decode(T.self, from: data)
+                    return data
                 }
             }
         }
         return nil
     }
+    
     
     /// 把Json数据写入沙盒文件
     /// - Parameters:
@@ -77,4 +85,8 @@ struct FileHelper {
         return filePath
     }
     
+    
+    static func fileExists(atPath path: String) -> Bool {
+        fm.fileExists(atPath: path)
+    }
 }

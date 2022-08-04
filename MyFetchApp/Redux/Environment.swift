@@ -407,6 +407,48 @@ extension Environment {
         let games = await fetchGamePage(pageUrl)
         return .fetchGamePageEnd(page: page, games: games)
     }
+    
+    func loadGames(_ mainPage: String,_ basePageUrl: String,_ fileName: String) async -> AppAction {
+        guard let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return .loadGamesEnd(games: []) }
+        let filePath = dirPath + "/" + fileName
+        var url = URL.documentsDirectory.appending(path: fileName)
+        if !FileHelper.fileExists(atPath: filePath),let fileUrl = Bundle.main.url(forResource: fileName, withExtension: nil) {
+            url = fileUrl
+        }
+        
+        if let json = try? String(contentsOf: url, encoding: .utf8),
+           var games = [Switch520Game].deserialize(from: json)?.compactMap({ $0 }) {
+            var gameIdSet = Set(games.map({ $0.id }))
+            //同步最新数据
+            let tatol = await requestTotalPage(mainPage)
+            var continueFetch = true
+            var needUpdateFile = false
+            if tatol > 0 {
+                for page in 1...tatol {
+                    let pageGames = await fetchGamePage(basePageUrl + String(page))
+                    for newGame in pageGames {
+                        if gameIdSet.contains(newGame.id) {
+                            continueFetch = false
+                            break
+                        }else {
+                            games.append(newGame)
+                            gameIdSet.insert(newGame.id)
+                            needUpdateFile = true
+                        }
+                    }
+                    if !continueFetch {
+                        break
+                    }
+                }
+            }
+            //更新文件
+            if needUpdateFile {
+                FileHelper.create(fileName: fileName, to: .documentDirectory, with: games.toJSONString()?.utf8Data)
+            }
+            return .loadGamesEnd(games: games)
+        }
+        return .loadGamesEnd(games: [])
+    }
 }
 
 extension Environment {

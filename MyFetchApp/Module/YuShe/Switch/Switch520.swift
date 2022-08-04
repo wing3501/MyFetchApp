@@ -16,7 +16,9 @@ struct Switch520: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("保存", action: {
+            store.dispatch(.saveGames)
+        })
             .task {
                 store.dispatch(.fetchSwitch520TotalPage(needFetch: true))
 //                store.dispatch(.fetchGamePage(page: 191))

@@ -204,11 +204,20 @@ final class Store: ObservableObject {
             }]
         case .fetchGamePageEnd(let page,let games):
             state.switch520.games.append(contentsOf: games)
-            // 如果抓取完了，就写入文件
-//            if(page == 1) {
-//                FileHelper.create(fileName: state.switch520.fileName, to: .documentDirectory, with: games.toJSONString()?.utf8Data)
-//            }
-            print("抓取结束----")
+        case .saveGames:
+            let games = state.switch520.games
+            FileHelper.create(fileName: state.switch520.fileName, to: .documentDirectory, with: games.toJSONString()?.utf8Data)
+            print("保存文件结束")
+        case .loadGames:
+            let mainPage = state.switch520.mainPage
+            let basePageUrl = state.switch520.basePageUrl
+            let fileName = state.switch520.fileName
+            return [Task {
+                return await environment.loadGames(mainPage, basePageUrl, fileName)
+            }]
+        case .loadGamesEnd(let games):
+            state.switch520.games = games
+            
         }
         return []
     }
