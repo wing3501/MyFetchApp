@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftUIX
 import ToastUI
+import PhotosUI
 
 struct MyQrCodeView: View {
     

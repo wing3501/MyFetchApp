@@ -6,23 +6,29 @@
 //
 
 import SwiftUI
-import SwiftUIX
 import ToastUI
+import PhotosUI
 
 struct MagnetView: View {
     
     @EnvironmentObject var store: Store
     
-    @State var isShowPhotoLibrary = false
+    @State private var selectedItem: PhotosPickerItem? = nil
+    @State private var selectedImageData: Data? = nil
+   
     @State var image: UIImage?
     @State var isShowDataScannerView = false
     
     var body: some View {
         VStack {
             HStack {
-                MagnetViewButton(title: "从相册选择",color:.green) {
-                    isShowPhotoLibrary.toggle()
+                //How to Use the SwiftUI PhotosPicker
+                //https://swiftsenpai.com/development/swiftui-photos-picker/?utm_source=rss&utm_medium=rss&utm_campaign=swiftui-photos-picker
+                
+                PhotosPicker(selection: $selectedItem, matching: .images, preferredItemEncoding: .automatic, photoLibrary: .shared()) {
+                    MagnetViewButton(title: "从相册选择",color: .green)
                 }
+                
                 MagnetViewButton(title: "扫一扫",color:.red) {
 //                    【WWDC22 10025】VisionKit 的机器视觉方案，更智能的捕获文本与条码
 //                https://xiaozhuanlan.com/topic/8205316479
@@ -52,12 +58,14 @@ struct MagnetView: View {
             .padding()
             Spacer()
         }
-        .sheet(isPresented: $isShowPhotoLibrary) {
-            ImagePicker(image: $image, encoding: nil) {
-                print("取消了------")
-                isShowPhotoLibrary = false
+        .onChange(of: selectedItem, perform: { newItem in
+            Task {
+                if let data = try? await newItem?.loadTransferable(type: Data.self),
+                   let uiimage = UIImage(data: data){
+                   image = uiimage
+                }
             }
-        }
+        })
         .fullScreenCover(isPresented: $isShowDataScannerView, content: {
             DataScannerView(isShow: $isShowDataScannerView, recognizedDataTypes: [.text(languages: ["en-US"])]) { scanString in
                 store.dispatch(.detectMagnetFrom(text: scanString))
@@ -83,22 +91,37 @@ struct MagnetView: View {
 struct MagnetViewButton: View {
     let title: String
     let color: Color
-    let action: () -> Void
+    var action: (() -> Void)? = nil
     
     var body: some View {
-        Button {
-            action()
-        } label: {
-            Text(title)
-                .font(.title3)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-        }
+        content
         .frame(maxWidth: .infinity, minHeight: 50)
         .background(color)
         .buttonStyle(BorderlessButtonStyle())
         .cornerRadius(8)
     }
+    
+    var text: some View {
+        Text(title)
+            .font(.title3)
+            .fontWeight(.bold)
+            .foregroundColor(.white)
+    }
+    
+    var content: some View {
+        Group {
+            if let action {
+                Button {
+                    action()
+                } label: {
+                    text
+                }
+            }else {
+                text
+            }
+        }
+    }
+    
 }
 
 struct MagnetView_Previews: PreviewProvider {
