@@ -31,6 +31,7 @@
 		9259CDE02844E33100C33721 /* WebviewDataFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDDF2844E33100C33721 /* WebviewDataFetchManager.swift */; };
 		925E51BD287EED3900B72869 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E51BC287EED3900B72869 /* Global.swift */; };
 		92658B312859DDC20000041D /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92658B302859DDC20000041D /* MovieListView.swift */; };
+		926AF76D289D20F1003006CA /* games.json in Resources */ = {isa = PBXBuildFile; fileRef = 926AF76C289D20F1003006CA /* games.json */; };
 		927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927019F6283DC2FB00295028 /* MyFetchApp.swift */; };
 		927019FB283DC2FC00295028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FA283DC2FC00295028 /* Assets.xcassets */; };
 		927019FE283DC2FC00295028 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927019FD283DC2FC00295028 /* Preview Assets.xcassets */; };
@@ -101,6 +102,7 @@
 		9259CDDF2844E33100C33721 /* WebviewDataFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewDataFetchManager.swift; sourceTree = "<group>"; };
 		925E51BC287EED3900B72869 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		92658B302859DDC20000041D /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		926AF76C289D20F1003006CA /* games.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = games.json; sourceTree = "<group>"; };
 		927019F3283DC2FB00295028 /* MyFetchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFetchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927019F6283DC2FB00295028 /* MyFetchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFetchApp.swift; sourceTree = "<group>"; };
 		927019FA283DC2FC00295028 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 			children = (
 				92EB65952899130800FC02FC /* Model */,
 				92EB658C2898C98D00FC02FC /* Switch520.swift */,
+				926AF76C289D20F1003006CA /* games.json */,
 			);
 			path = Switch520;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E8A3492857095F009D3690 /* MovieSearchWebsites.json in Resources */,
+				926AF76D289D20F1003006CA /* games.json in Resources */,
 				927019FE283DC2FC00295028 /* Preview Assets.xcassets in Resources */,
 				927503A72850D2330045320E /* 豆瓣资源下载大师.js in Resources */,
 				927019FB283DC2FC00295028 /* Assets.xcassets in Resources */,

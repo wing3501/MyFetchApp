@@ -202,7 +202,7 @@ final class Store: ObservableObject {
             return [Task{
                 return await environment.fetchGamePage(page,pageUrl)
             }]
-        case .fetchGamePageEnd(let page,let games):
+        case .fetchGamePageEnd(_ ,let games):
             state.switch520.games.append(contentsOf: games)
         case .saveGames:
             let games = state.switch520.games
