@@ -168,7 +168,7 @@
 		9201FA6A283F4C0C004482F0 /* YuShe */ = {
 			isa = PBXGroup;
 			children = (
-				92EB658B2898C96F00FC02FC /* Switch */,
+				92EB658B2898C96F00FC02FC /* Switch520 */,
 				928ACD4E286ED56600C3E434 /* MyQrCode */,
 				92F881DE2864921A00C12097 /* DocumentScan */,
 				927BE5532862FC4900FD2AD8 /* Magnet */,
@@ -422,13 +422,13 @@
 			path = SwiftUI;
 			sourceTree = "<group>";
 		};
-		92EB658B2898C96F00FC02FC /* Switch */ = {
+		92EB658B2898C96F00FC02FC /* Switch520 */ = {
 			isa = PBXGroup;
 			children = (
 				92EB65952899130800FC02FC /* Model */,
 				92EB658C2898C98D00FC02FC /* Switch520.swift */,
 			);
-			path = Switch;
+			path = Switch520;
 			sourceTree = "<group>";
 		};
 		92EB65952899130800FC02FC /* Model */ = {
