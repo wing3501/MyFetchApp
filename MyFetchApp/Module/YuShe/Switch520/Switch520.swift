@@ -11,6 +11,8 @@ struct Switch520: View {
     
     @EnvironmentObject var store: Store
     @State private var searchText = ""
+    @State private var isShowAlert = false
+    @State private var selectedItemDownloadAdress = ""
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -21,6 +23,11 @@ struct Switch520: View {
             LazyVGrid(columns: columns, spacing: 8) {
                 ForEach(searchResults, id: \.self) { item in
                     Switch520GameItemView(item: item)
+                        .onTapGesture {
+                            UIPasteboard.general.string = item.downloadAdress
+                            selectedItemDownloadAdress = item.downloadAdress
+                            isShowAlert.toggle()
+                        }
                 }
             }
             .padding(.horizontal,8)
@@ -34,6 +41,10 @@ struct Switch520: View {
         })
         .task {
             store.dispatch(.loadGames)
+        }
+        .alert(isPresented: $isShowAlert) {
+            
+            Alert(title: Text("已复制到粘贴板"), message: Text(selectedItemDownloadAdress), dismissButton: .cancel(Text("知道了")))
         }
     }
     
