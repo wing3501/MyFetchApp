@@ -21,6 +21,7 @@
 		9253AD6D284EF6980014B2A0 /* Refresh in Frameworks */ = {isa = PBXBuildFile; productRef = 9253AD6C284EF6980014B2A0 /* Refresh */; };
 		9253AD70284EFA0C0014B2A0 /* Bundle+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253AD6F284EFA0C0014B2A0 /* Bundle+++.swift */; };
 		9253AD72284F00D10014B2A0 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253AD71284F00D10014B2A0 /* ActivityIndicatorView.swift */; };
+		92593B3428A34BBB009CB651 /* Switch520GameItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92593B3328A34BBB009CB651 /* Switch520GameItemView.swift */; };
 		9259CDD128446D6000C33721 /* Date+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD028446D6000C33721 /* Date+++.swift */; };
 		9259CDD328446EEC00C33721 /* Array+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD228446EEC00C33721 /* Array+++.swift */; };
 		9259CDD628446FD600C33721 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259CDD528446FD600C33721 /* Defaults.swift */; };
@@ -92,6 +93,7 @@
 		9253AD6B284EF68C0014B2A0 /* Refresh-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Refresh-master"; path = "SPM/Refresh-master"; sourceTree = "<group>"; };
 		9253AD6F284EFA0C0014B2A0 /* Bundle+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+++.swift"; sourceTree = "<group>"; };
 		9253AD71284F00D10014B2A0 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		92593B3328A34BBB009CB651 /* Switch520GameItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520GameItemView.swift; sourceTree = "<group>"; };
 		9259CDD028446D6000C33721 /* Date+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+++.swift"; sourceTree = "<group>"; };
 		9259CDD228446EEC00C33721 /* Array+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+++.swift"; sourceTree = "<group>"; };
 		9259CDD528446FD600C33721 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			children = (
 				92EB65952899130800FC02FC /* Model */,
 				92EB658C2898C98D00FC02FC /* Switch520.swift */,
+				92593B3328A34BBB009CB651 /* Switch520GameItemView.swift */,
 				926AF76C289D20F1003006CA /* games.json */,
 			);
 			path = Switch520;
@@ -555,6 +558,7 @@
 				92D5E545287FBF1600E5C601 /* Text+++.swift in Sources */,
 				9259CDDE2844C22A00C33721 /* SUWebView.swift in Sources */,
 				92701A1D283E077700295028 /* MainView.swift in Sources */,
+				92593B3428A34BBB009CB651 /* Switch520GameItemView.swift in Sources */,
 				924A6D1D285B24AC00D52EE8 /* JsCoreHelper.swift in Sources */,
 				924120C82848893700446FD9 /* DyttCategoryPageView.swift in Sources */,
 				92701A21283E084C00295028 /* AppState.swift in Sources */,

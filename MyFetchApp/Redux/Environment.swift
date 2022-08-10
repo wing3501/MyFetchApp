@@ -418,33 +418,35 @@ extension Environment {
         
         if let json = try? String(contentsOf: url, encoding: .utf8),
            var games = [Switch520Game].deserialize(from: json)?.compactMap({ $0 }) {
-            var gameIdSet = Set(games.map({ $0.id }))
-            //同步最新数据
-            let tatol = await requestTotalPage(mainPage)
-            var continueFetch = true
-            var needUpdateFile = false
-            if tatol > 0 {
-                for page in 1...tatol {
-                    let pageGames = await fetchGamePage(basePageUrl + String(page))
-                    for newGame in pageGames {
-                        if gameIdSet.contains(newGame.id) {
-                            continueFetch = false
-                            break
-                        }else {
-                            games.append(newGame)
-                            gameIdSet.insert(newGame.id)
-                            needUpdateFile = true
-                        }
-                    }
-                    if !continueFetch {
-                        break
-                    }
-                }
-            }
-            //更新文件
-            if needUpdateFile {
-                FileHelper.create(fileName: fileName, to: .documentDirectory, with: games.toJSONString()?.utf8Data)
-            }
+            
+            //不爬了
+//            var gameIdSet = Set(games.map({ $0.id }))
+//            //同步最新数据
+//            let tatol = await requestTotalPage(mainPage)
+//            var continueFetch = true
+//            var needUpdateFile = false
+//            if tatol > 0 {
+//                for page in 1...tatol {
+//                    let pageGames = await fetchGamePage(basePageUrl + String(page))
+//                    for newGame in pageGames {
+//                        if gameIdSet.contains(newGame.id) {
+//                            continueFetch = false
+//                            break
+//                        }else {
+//                            games.append(newGame)
+//                            gameIdSet.insert(newGame.id)
+//                            needUpdateFile = true
+//                        }
+//                    }
+//                    if !continueFetch {
+//                        break
+//                    }
+//                }
+//            }
+//            //更新文件
+//            if needUpdateFile {
+//                FileHelper.create(fileName: fileName, to: .documentDirectory, with: games.toJSONString()?.utf8Data)
+//            }
             return .loadGamesEnd(games: games)
         }
         return .loadGamesEnd(games: [])
