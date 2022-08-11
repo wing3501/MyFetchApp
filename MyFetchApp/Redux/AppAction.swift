@@ -40,5 +40,7 @@ enum AppAction {
     case saveGames
     case loadGames
     case loadGamesEnd(games: [Switch520Game])
+    case loadGameInCoreData
+    case loadGameInCoreDataEnd(games: [Game])
 }
 

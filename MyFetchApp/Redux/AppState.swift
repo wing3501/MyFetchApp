@@ -74,6 +74,6 @@ extension AppState {
         let fileName = "games.json"
         var totalPage = 0
         var games: [Switch520Game] = []
-        
+        var gamesCoreData: [Game] = []
     }
 }

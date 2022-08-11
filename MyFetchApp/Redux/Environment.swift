@@ -419,7 +419,7 @@ extension Environment {
         if let json = try? String(contentsOf: url, encoding: .utf8),
            var games = [Switch520Game].deserialize(from: json)?.compactMap({ $0 }) {
             
-            //不爬了
+            //不爬了,对方被爬得换域名了
 //            var gameIdSet = Set(games.map({ $0.id }))
 //            //同步最新数据
 //            let tatol = await requestTotalPage(mainPage)
@@ -451,6 +451,18 @@ extension Environment {
         }
         return .loadGamesEnd(games: [])
     }
+    
+    func loadGameInCoreData(_ fileName: String) async -> AppAction {
+        var games = GameDataHelper.shared.fetch()
+        if games.isEmpty,
+           let fileUrl = Bundle.main.url(forResource: fileName, withExtension: nil),
+           let json = try? String(contentsOf: fileUrl, encoding: .utf8),
+           let gameModels = [Switch520Game].deserialize(from: json)?.compactMap({ $0 }) {
+            games = GameDataHelper.shared.save(gameModels)
+        }
+        return .loadGameInCoreDataEnd(games: games)
+    }
+    
 }
 
 extension Environment {

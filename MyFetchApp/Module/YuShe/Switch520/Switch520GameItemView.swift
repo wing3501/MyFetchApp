@@ -9,23 +9,26 @@ import SwiftUI
 import Kingfisher
 
 struct Switch520GameItemView: View {
-    let item: Switch520Game
+    let title: String
+    let imageUrl: String
+    let category: [String]
+    let datetime: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
 //            KFImage(URL(string: item.imageUrl)) //对方把图床换了
-            KFImage(URL(string: "https://picsum.photos/300/200?aa=\(item.imageUrl )"))
+            KFImage(URL(string: "https://picsum.photos/300/200?aa=\(imageUrl)"))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(height: 120)
                 .clipped()
-            GameItemTagView(category: item.category)
-            Text(item.title)
+            GameItemTagView(category: category)
+            Text(title)
                 .foregroundColor(.white)
                 .lineLimit(2...2)
                 .font(Font.system(size: 15), weight: .bold)
                 .padding(.leading, 8)
-            Text(item.datetime)
+            Text(datetime)
                 .foregroundColor(.gray)
                 .font(Font.system(size: 10))
                 .padding(EdgeInsets(top: 0, leading: 8, bottom: 12, trailing: 0))
@@ -62,6 +65,7 @@ struct GameItemTagView: View {
 
 struct Switch520GameItemView_Previews: PreviewProvider {
     static var previews: some View {
-        Switch520GameItemView(item: Switch520Game.example)
+        let item = Switch520Game.example
+        Switch520GameItemView(title: item.title, imageUrl: item.imageUrl, category: item.category, datetime: item.datetime)
     }
 }

@@ -69,10 +69,16 @@
 		92E8A3492857095F009D3690 /* MovieSearchWebsites.json in Resources */ = {isa = PBXBuildFile; fileRef = 92538D9B285343B6007B32A3 /* MovieSearchWebsites.json */; };
 		92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34A28571667009D3690 /* MovieSearchRequest.swift */; };
 		92E8A34E28573D09009D3690 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8A34D28573D09009D3690 /* Print.swift */; };
+		92E96A7128A38CE000E17797 /* Game520.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92E96A6F28A38CE000E17797 /* Game520.xcdatamodeld */; };
+		92E96A7328A3944200E17797 /* GameDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E96A7228A3944200E17797 /* GameDataHelper.swift */; };
 		92EB658D2898C98D00FC02FC /* Switch520.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB658C2898C98D00FC02FC /* Switch520.swift */; };
 		92EB658F2898CB4200FC02FC /* Switch520Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB658E2898CB4200FC02FC /* Switch520Request.swift */; };
 		92EB65942898F90D00FC02FC /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92EB65932898F90D00FC02FC /* SwiftSoup */; };
 		92EB65972899133A00FC02FC /* Switch520Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB65962899133A00FC02FC /* Switch520Game.swift */; };
+		92EF586328A52182009D7CB9 /* Game+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF585F28A52182009D7CB9 /* Game+CoreDataClass.swift */; };
+		92EF586428A52182009D7CB9 /* Game+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF586028A52182009D7CB9 /* Game+CoreDataProperties.swift */; };
+		92EF586528A52182009D7CB9 /* GameCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF586128A52182009D7CB9 /* GameCategory+CoreDataClass.swift */; };
+		92EF586628A52182009D7CB9 /* GameCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF586228A52182009D7CB9 /* GameCategory+CoreDataProperties.swift */; };
 		92F881DD28648BBF00C12097 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F881DC28648BBE00C12097 /* DocumentCameraView.swift */; };
 		92F881E02864923800C12097 /* DocumentScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F881DF2864923800C12097 /* DocumentScanView.swift */; };
 /* End PBXBuildFile section */
@@ -142,10 +148,16 @@
 		92E54976289A58E300A2451E /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		92E8A34A28571667009D3690 /* MovieSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchRequest.swift; sourceTree = "<group>"; };
 		92E8A34D28573D09009D3690 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
+		92E96A7028A38CE000E17797 /* Game520.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game520.xcdatamodel; sourceTree = "<group>"; };
+		92E96A7228A3944200E17797 /* GameDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataHelper.swift; sourceTree = "<group>"; };
 		92EB658C2898C98D00FC02FC /* Switch520.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520.swift; sourceTree = "<group>"; };
 		92EB658E2898CB4200FC02FC /* Switch520Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520Request.swift; sourceTree = "<group>"; };
 		92EB65922898F8EB00FC02FC /* SwiftSoup */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftSoup; path = SPM/SwiftSoup; sourceTree = "<group>"; };
 		92EB65962899133A00FC02FC /* Switch520Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520Game.swift; sourceTree = "<group>"; };
+		92EF585F28A52182009D7CB9 /* Game+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataClass.swift"; sourceTree = "<group>"; };
+		92EF586028A52182009D7CB9 /* Game+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		92EF586128A52182009D7CB9 /* GameCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		92EF586228A52182009D7CB9 /* GameCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92F881DC28648BBE00C12097 /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraView.swift; sourceTree = "<group>"; };
 		92F881DF2864923800C12097 /* DocumentScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -440,7 +452,13 @@
 		92EB65952899130800FC02FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				92EF585F28A52182009D7CB9 /* Game+CoreDataClass.swift */,
+				92EF586028A52182009D7CB9 /* Game+CoreDataProperties.swift */,
+				92EF586128A52182009D7CB9 /* GameCategory+CoreDataClass.swift */,
+				92EF586228A52182009D7CB9 /* GameCategory+CoreDataProperties.swift */,
 				92EB65962899133A00FC02FC /* Switch520Game.swift */,
+				92E96A6F28A38CE000E17797 /* Game520.xcdatamodeld */,
+				92E96A7228A3944200E17797 /* GameDataHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -556,13 +574,17 @@
 				92E8A34E28573D09009D3690 /* Print.swift in Sources */,
 				92701A05283DC3E400295028 /* AppDelegate.swift in Sources */,
 				92D5E545287FBF1600E5C601 /* Text+++.swift in Sources */,
+				92E96A7328A3944200E17797 /* GameDataHelper.swift in Sources */,
 				9259CDDE2844C22A00C33721 /* SUWebView.swift in Sources */,
 				92701A1D283E077700295028 /* MainView.swift in Sources */,
 				92593B3428A34BBB009CB651 /* Switch520GameItemView.swift in Sources */,
+				92EF586428A52182009D7CB9 /* Game+CoreDataProperties.swift in Sources */,
 				924A6D1D285B24AC00D52EE8 /* JsCoreHelper.swift in Sources */,
 				924120C82848893700446FD9 /* DyttCategoryPageView.swift in Sources */,
 				92701A21283E084C00295028 /* AppState.swift in Sources */,
 				92701A23283E097E00295028 /* AppAction.swift in Sources */,
+				92EF586528A52182009D7CB9 /* GameCategory+CoreDataClass.swift in Sources */,
+				92E96A7128A38CE000E17797 /* Game520.xcdatamodeld in Sources */,
 				924120CC2848924400446FD9 /* DyttItemRow.swift in Sources */,
 				9259CDD628446FD600C33721 /* Defaults.swift in Sources */,
 				92538D9628533BC1007B32A3 /* MovieSearchView.swift in Sources */,
@@ -585,12 +607,14 @@
 				927BE557286318B000FD2AD8 /* VNDetectManager.swift in Sources */,
 				9259CDD328446EEC00C33721 /* Array+++.swift in Sources */,
 				929A6E03285AFE39004C89FC /* MovieDetailView.swift in Sources */,
+				92EF586328A52182009D7CB9 /* Game+CoreDataClass.swift in Sources */,
 				9259CDD82844A46000C33721 /* Environment.swift in Sources */,
 				9253AD72284F00D10014B2A0 /* ActivityIndicatorView.swift in Sources */,
 				927019F7283DC2FB00295028 /* MyFetchApp.swift in Sources */,
 				92EB65972899133A00FC02FC /* Switch520Game.swift in Sources */,
 				9259CDE02844E33100C33721 /* WebviewDataFetchManager.swift in Sources */,
 				92701A1B283E061800295028 /* AccountView.swift in Sources */,
+				92EF586628A52182009D7CB9 /* GameCategory+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,6 +858,19 @@
 			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		92E96A6F28A38CE000E17797 /* Game520.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92E96A7028A38CE000E17797 /* Game520.xcdatamodel */,
+			);
+			currentVersion = 92E96A7028A38CE000E17797 /* Game520.xcdatamodel */;
+			path = Game520.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 927019EB283DC2FB00295028 /* Project object */;
 }

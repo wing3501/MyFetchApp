@@ -217,7 +217,13 @@ final class Store: ObservableObject {
             }]
         case .loadGamesEnd(let games):
             state.switch520.games = games
-            
+        case .loadGameInCoreData:
+            let fileName = state.switch520.fileName
+            return [Task{
+                return await environment.loadGameInCoreData(fileName)
+            }]
+        case .loadGameInCoreDataEnd(let games):
+            state.switch520.gamesCoreData = games
         }
         return []
     }
