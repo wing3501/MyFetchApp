@@ -84,7 +84,6 @@ struct MagnetView: View {
                 store.dispatch(.detectMagnet(image: img))
             }
         }
-        .hideTabView($store.appState.hideTabView)
     }
 }
 

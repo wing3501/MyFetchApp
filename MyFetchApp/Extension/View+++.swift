@@ -11,6 +11,8 @@ import SwiftUI
 // MARK: - 隐藏Tabbar
 
 extension View {
+    // 这种方案还是有问题,会出现不带item的tabbar
+    // 还是改为NavigationView 包 TabView 的形式来解决  https://www.opensourceagenda.com/projects/hide-tabbar-in-swiftui
     func hideTabView(_ hideTabView: Binding<Bool>) -> some View {
         self.modifier(HideTabViewModifier(hideTabView: hideTabView))
     }

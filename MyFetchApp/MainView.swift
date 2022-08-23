@@ -21,24 +21,44 @@ struct MainView: View {
     }
     
     var body: some View {
-        TabView(selection: $selection) {
-            HomeView()
-                .tabItem {
-                    if !store.appState.hideTabView {
-                        Label("首页", systemImage: "house")
+        NavigationStack(path: $store.appState.navigationPath) {
+            TabView(selection: $selection) {
+                HomeView()
+                    .tabItem {
+                        if !store.appState.hideTabView {
+                            Label("首页", systemImage: "house")
+                        }
+                        
                     }
-                    
-                }
-                .tag(MainTabIndex.home)
-            AccountView()
-                .tabItem {
-                    if !store.appState.hideTabView {
-                        Label("我的", systemImage: "person")
+                    .tag(MainTabIndex.home)
+                AccountView()
+                    .tabItem {
+                        if !store.appState.hideTabView {
+                            Label("我的", systemImage: "person")
+                        }
                     }
+                    .tag(MainTabIndex.account)
+            }
+            .edgesIgnoringSafeArea(.top)
+            .navigationDestination(for: Int.self) { index in
+                switch index {
+    //                case 0:
+    //                    DyttView()
+                case 0:
+                    MovieSearchView()
+                case 1:
+                    MagnetView()
+                case 2:
+                    DocumentScanView()
+                case 3:
+                    MyQrCodeView()
+                case 4:
+                    Switch520()
+                default:
+                    EmptyView()
                 }
-                .tag(MainTabIndex.account)
+            }
         }
-        .edgesIgnoringSafeArea(.top)
         .environmentObject(store)
     }
 }
