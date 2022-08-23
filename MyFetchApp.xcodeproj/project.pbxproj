@@ -52,6 +52,7 @@
 		927BE5522862F21200FD2AD8 /* View+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5512862F21200FD2AD8 /* View+++.swift */; };
 		927BE5552862FCC400FD2AD8 /* MagnetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5542862FCC400FD2AD8 /* MagnetView.swift */; };
 		927BE557286318B000FD2AD8 /* VNDetectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE556286318B000FD2AD8 /* VNDetectManager.swift */; };
+		927F8E5F28AF383F00330616 /* UIImage++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927F8E5E28AF383F00330616 /* UIImage++.swift */; };
 		928ACD50286ED57E00C3E434 /* MyQrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928ACD4F286ED57E00C3E434 /* MyQrCodeView.swift */; };
 		928ACF42286EF63400C3E434 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928ACF41286EF63400C3E434 /* UIImageHelper.swift */; };
 		9296066428659F0000062ABA /* CGImagePropertyOrientation+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296066328659F0000062ABA /* CGImagePropertyOrientation+++.swift */; };
@@ -131,6 +132,7 @@
 		927BE5512862F21200FD2AD8 /* View+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+++.swift"; sourceTree = "<group>"; };
 		927BE5542862FCC400FD2AD8 /* MagnetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnetView.swift; sourceTree = "<group>"; };
 		927BE556286318B000FD2AD8 /* VNDetectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNDetectManager.swift; sourceTree = "<group>"; };
+		927F8E5E28AF383F00330616 /* UIImage++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage++.swift"; sourceTree = "<group>"; };
 		928ACD4F286ED57E00C3E434 /* MyQrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQrCodeView.swift; sourceTree = "<group>"; };
 		928ACF41286EF63400C3E434 /* UIImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
 		928D6BB8285C7C92003050C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -181,7 +183,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9201FA6A283F4C0C004482F0 /* YuShe */ = {
+		9201FA6A283F4C0C004482F0 /* Toys */ = {
 			isa = PBXGroup;
 			children = (
 				92EB658B2898C96F00FC02FC /* Switch520 */,
@@ -191,7 +193,7 @@
 				927503A42850D17B0045320E /* MovieSearch */,
 				9201FA6B283F4C17004482F0 /* Dytt */,
 			);
-			path = YuShe;
+			path = Toys;
 			sourceTree = "<group>";
 		};
 		9201FA6B283F4C17004482F0 /* Dytt */ = {
@@ -218,6 +220,7 @@
 				92D5E544287FBF1600E5C601 /* Text+++.swift */,
 				9296066328659F0000062ABA /* CGImagePropertyOrientation+++.swift */,
 				92D5E542287FB91200E5C601 /* Task++.swift */,
+				927F8E5E28AF383F00330616 /* UIImage++.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -360,7 +363,7 @@
 		92701A15283E05C500295028 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				9201FA6A283F4C0C004482F0 /* YuShe */,
+				9201FA6A283F4C0C004482F0 /* Toys */,
 				92701A17283E05E000295028 /* Account */,
 				92701A16283E05CC00295028 /* Home */,
 			);
@@ -598,6 +601,7 @@
 				924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */,
 				92D5E543287FB91200E5C601 /* Task++.swift in Sources */,
 				9259CDDA2844AF0400C33721 /* DyttRequest.swift in Sources */,
+				927F8E5F28AF383F00330616 /* UIImage++.swift in Sources */,
 				9253AD70284EFA0C0014B2A0 /* Bundle+++.swift in Sources */,
 				928ACF42286EF63400C3E434 /* UIImageHelper.swift in Sources */,
 				92F881DD28648BBF00C12097 /* DocumentCameraView.swift in Sources */,
