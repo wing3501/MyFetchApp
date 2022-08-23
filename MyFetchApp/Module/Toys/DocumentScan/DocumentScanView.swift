@@ -39,8 +39,6 @@ struct DocumentScanView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200)
             }
-            Text("\(scanResults.count)")//去掉这行，会导致DocumentResultView 取到的scanResults为空
-                .hidden()
             Spacer()
         }
         .fullScreenCover(isPresented: $isShowCameraView) {
@@ -55,7 +53,7 @@ struct DocumentScanView: View {
         }
         .onChange(of: image, perform: detectText)
         .sheet(isPresented: $isShowResults, content: {
-            DocumentResultView(results: scanResults)
+            DocumentResultView(texts: $scanResults)
                 .ignoresSafeArea()
                 .presentationDetents([.large,.height(300)])
                 .presentationDragIndicator(.visible)
@@ -77,17 +75,17 @@ struct DocumentScanView: View {
     }
     
     struct DocumentResultView: View {
-        let text: String
-        
-        init(results: [String]) {
-            text = results.joined(separator: "\n")
-        }
+        @Binding var texts: [String]
         
         var body: some View {
             Text(text)
                 .font(.headline)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.black)
+        }
+        
+        var text: String {
+            return texts.joined(separator: "\n")
         }
     }
 }
