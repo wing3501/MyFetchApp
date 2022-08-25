@@ -62,6 +62,7 @@
 		9298009E2840C75B00FC19D2 /* TabPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298009D2840C75B00FC19D2 /* TabPageView.swift */; };
 		929A6E01285AD462004C89FC /* ToastUI in Frameworks */ = {isa = PBXBuildFile; productRef = 929A6E00285AD462004C89FC /* ToastUI */; };
 		929A6E03285AFE39004C89FC /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929A6E02285AFE39004C89FC /* MovieDetailView.swift */; };
+		92ABFB1E28B750C500C3BF29 /* UserDefaults+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ABFB1D28B750C500C3BF29 /* UserDefaults+++.swift */; };
 		92CD498B284747EC008B2C80 /* String+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498A284747EC008B2C80 /* String+++.swift */; };
 		92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */; };
 		92D5E543287FB91200E5C601 /* Task+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E542287FB91200E5C601 /* Task+++.swift */; };
@@ -144,6 +145,7 @@
 		9298009D2840C75B00FC19D2 /* TabPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPageView.swift; sourceTree = "<group>"; };
 		929A6DFF285AD454004C89FC /* ToastUI-3.0.0 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ToastUI-3.0.0"; path = "SPM/ToastUI-3.0.0"; sourceTree = "<group>"; };
 		929A6E02285AFE39004C89FC /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		92ABFB1D28B750C500C3BF29 /* UserDefaults+++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+++.swift"; sourceTree = "<group>"; };
 		92CD498A284747EC008B2C80 /* String+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+++.swift"; sourceTree = "<group>"; };
 		92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryModel.swift; sourceTree = "<group>"; };
 		92D5E542287FB91200E5C601 /* Task+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+++.swift"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		9201FEDA283F748D004482F0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				92ABFB1D28B750C500C3BF29 /* UserDefaults+++.swift */,
 				9201FEDB283F75A0004482F0 /* Color+++.swift */,
 				929800982840A08000FC19D2 /* Binding+++.swift */,
 				9298009A2840B69F00FC19D2 /* DispatchQueue+++.swift */,
@@ -574,6 +577,7 @@
 				92EB658F2898CB4200FC02FC /* Switch520Request.swift in Sources */,
 				92F881E02864923800C12097 /* DocumentScanView.swift in Sources */,
 				927BE5522862F21200FD2AD8 /* View+++.swift in Sources */,
+				92ABFB1E28B750C500C3BF29 /* UserDefaults+++.swift in Sources */,
 				925E51BD287EED3900B72869 /* Global.swift in Sources */,
 				9201FA6D283F4C4A004482F0 /* DyttView.swift in Sources */,
 				92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */,
