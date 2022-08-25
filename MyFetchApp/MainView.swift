@@ -59,7 +59,7 @@ struct MainView: View {
                 }
             }
         }
-        .cover(with: $store.appState.coverView)
+//        .cover(with: $store.appState.coverView)
         .environmentObject(store)
     }
 }

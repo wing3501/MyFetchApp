@@ -77,6 +77,5 @@ extension AppState {
         var totalPage = 0
         var games: [Switch520Game] = []
         var gamesCoreData: [Game] = []
-        var selectedGame: Switch520Game?
     }
 }

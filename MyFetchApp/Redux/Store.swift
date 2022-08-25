@@ -228,10 +228,6 @@ final class Store: ObservableObject {
             state.coverView = coverView
         case .closeTopCoverView:
             state.coverView = nil
-        case .showGameDetail(let game):
-            state.switch520.selectedGame = game
-        case .closeGameDetail:
-            state.switch520.selectedGame = nil
         }
         return []
     }

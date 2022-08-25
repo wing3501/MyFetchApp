@@ -22,6 +22,7 @@ struct GameDataInCoreData: View {
     @EnvironmentObject var store: Store
     @State private var searchText = ""
     @State private var selectedItemDownloadAdress = ""
+    @State private var selectedGame: Switch520Game?
     
     @Namespace private var imageEffect
     
@@ -35,15 +36,14 @@ struct GameDataInCoreData: View {
             LazyVGrid(columns: columns, spacing: 8) {
                 ForEach(searchResults, id: \.self) { item in
                     let game = Switch520Game.game(from: item)
-                    if store.appState.switch520.selectedGame?.id == game.id {
+                    if selectedGame?.id == game.id {
                         Spacer()
                     }else {
                         Switch520GameItemView(title: game.title, imageUrl: game.imageUrl, category: game.category, datetime: game.datetime, effectId: game.imageUrl, namespace: imageEffect)
                             .onTapGesture {
                                 UIPasteboard.general.string = item.downloadAdress ?? ""
                                 withAnimation {
-                                    store.dispatch(.showGameDetail(game: game))
-                                    store.dispatch(.showTopCoverView(coverView: detailView(selectedGame: game)))
+                                    selectedGame = game
                                 }
                             }
                     }
@@ -61,6 +61,9 @@ struct GameDataInCoreData: View {
         .task {
             store.dispatch(.loadGameInCoreData)
         }
+        .overlay {
+            detailView
+        }
     }
     
     var searchResults: [Game] {
@@ -76,26 +79,17 @@ struct GameDataInCoreData: View {
         }
     }
     
-    func detailView(selectedGame: Switch520Game) -> AnyView {
-        Switch520GameDetailView(title: selectedGame.title, imageUrl: selectedGame.imageUrl, downloadAdress: selectedGame.downloadAdress, effectId: selectedGame.imageUrl, namespace: imageEffect) {
-            store.dispatch(.closeGameDetail)
-            store.dispatch(.closeTopCoverView)
+    var detailView: AnyView? {
+        if let selectedGame {
+            return Switch520GameDetailView(title: selectedGame.title, imageUrl: selectedGame.imageUrl, downloadAdress: selectedGame.downloadAdress, effectId: selectedGame.imageUrl, namespace: imageEffect) {
+                withAnimation {
+                    self.selectedGame = nil
+                }
+            }
+            .eraseToAnyView()
         }
-        .eraseToAnyView()
+        return nil
     }
-    
-//    var detailView: AnyView? {
-//        if let selectedGame = store.appState.switch520.selectedGame {
-//            return Switch520GameDetailView(title: selectedGame.title, imageUrl: selectedGame.imageUrl, downloadAdress: selectedGame.downloadAdress, effectId: selectedGame.imageUrl, namespace: imageEffect) {
-//                withAnimation {
-//                    store.dispatch(.closeGameDetail)
-//                    store.dispatch(.closeTopCoverView)
-//                }
-//            }
-//            .eraseToAnyView()
-//        }
-//        return nil
-//    }
 }
 
 // 直接从json文件里读取数据

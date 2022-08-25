@@ -45,7 +45,5 @@ enum AppAction {
     case loadGameInCoreDataEnd(games: [Game])
     case showTopCoverView(coverView: AnyView?)
     case closeTopCoverView
-    case showGameDetail(game: Switch520Game)
-    case closeGameDetail
 }
 
