@@ -224,6 +224,14 @@ final class Store: ObservableObject {
             }]
         case .loadGameInCoreDataEnd(let games):
             state.switch520.gamesCoreData = games
+        case .showTopCoverView(let coverView):
+            state.coverView = coverView
+        case .closeTopCoverView:
+            state.coverView = nil
+        case .showGameDetail(let game):
+            state.switch520.selectedGame = game
+        case .closeGameDetail:
+            state.switch520.selectedGame = nil
         }
         return []
     }

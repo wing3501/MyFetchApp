@@ -7,6 +7,25 @@
 
 import SwiftUI
 
+// MARK: - 遮罩视图
+
+extension View {
+    func cover(with view: Binding<AnyView?>) -> some View {
+        self.modifier(CoverViewModifier(coverView: view))
+    }
+}
+
+struct CoverViewModifier: ViewModifier {
+    @Binding var coverView: AnyView?
+    
+    func body(content: Content) -> some View {
+        content.overlay {
+            if let coverView {
+                coverView
+            }
+        }
+    }
+}
 
 // MARK: - 隐藏Tabbar
 

@@ -48,6 +48,7 @@
 		92701A30283E54FF00295028 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A2F283E54FF00295028 /* Alamofire */; };
 		92701A32283E550200295028 /* Fuzi in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A31283E550200295028 /* Fuzi */; };
 		92701A34283E550600295028 /* HandyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A33283E550600295028 /* HandyJSON */; };
+		927198A628B4BE59000EDAB2 /* Switch520GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927198A528B4BE59000EDAB2 /* Switch520GameDetailView.swift */; };
 		927503A72850D2330045320E /* 豆瓣资源下载大师.js in Resources */ = {isa = PBXBuildFile; fileRef = 927503A62850D2330045320E /* 豆瓣资源下载大师.js */; };
 		927BE5522862F21200FD2AD8 /* View+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5512862F21200FD2AD8 /* View+++.swift */; };
 		927BE5552862FCC400FD2AD8 /* MagnetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5542862FCC400FD2AD8 /* MagnetView.swift */; };
@@ -63,7 +64,7 @@
 		929A6E03285AFE39004C89FC /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929A6E02285AFE39004C89FC /* MovieDetailView.swift */; };
 		92CD498B284747EC008B2C80 /* String+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498A284747EC008B2C80 /* String+++.swift */; };
 		92CD498D28478D16008B2C80 /* DyttCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */; };
-		92D5E543287FB91200E5C601 /* Task++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E542287FB91200E5C601 /* Task++.swift */; };
+		92D5E543287FB91200E5C601 /* Task+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E542287FB91200E5C601 /* Task+++.swift */; };
 		92D5E545287FBF1600E5C601 /* Text+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5E544287FBF1600E5C601 /* Text+++.swift */; };
 		92DC3FA82859C2250092875F /* MovieWebSiteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */; };
 		92E54977289A58E300A2451E /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E54976289A58E300A2451E /* FileHelper.swift */; };
@@ -128,6 +129,7 @@
 		92701A20283E084C00295028 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		92701A22283E097E00295028 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		92701A2D283E54E300295028 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
+		927198A528B4BE59000EDAB2 /* Switch520GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520GameDetailView.swift; sourceTree = "<group>"; };
 		927503A62850D2330045320E /* 豆瓣资源下载大师.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "豆瓣资源下载大师.js"; sourceTree = "<group>"; };
 		927BE5512862F21200FD2AD8 /* View+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+++.swift"; sourceTree = "<group>"; };
 		927BE5542862FCC400FD2AD8 /* MagnetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnetView.swift; sourceTree = "<group>"; };
@@ -144,7 +146,7 @@
 		929A6E02285AFE39004C89FC /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		92CD498A284747EC008B2C80 /* String+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+++.swift"; sourceTree = "<group>"; };
 		92CD498C28478D16008B2C80 /* DyttCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyttCategoryModel.swift; sourceTree = "<group>"; };
-		92D5E542287FB91200E5C601 /* Task++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task++.swift"; sourceTree = "<group>"; };
+		92D5E542287FB91200E5C601 /* Task+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+++.swift"; sourceTree = "<group>"; };
 		92D5E544287FBF1600E5C601 /* Text+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+++.swift"; sourceTree = "<group>"; };
 		92DC3FA72859C2250092875F /* MovieWebSiteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWebSiteRow.swift; sourceTree = "<group>"; };
 		92E54976289A58E300A2451E /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
@@ -219,7 +221,7 @@
 				927BE5512862F21200FD2AD8 /* View+++.swift */,
 				92D5E544287FBF1600E5C601 /* Text+++.swift */,
 				9296066328659F0000062ABA /* CGImagePropertyOrientation+++.swift */,
-				92D5E542287FB91200E5C601 /* Task++.swift */,
+				92D5E542287FB91200E5C601 /* Task+++.swift */,
 				927F8E5E28AF383F00330616 /* UIImage++.swift */,
 			);
 			path = Extension;
@@ -447,6 +449,7 @@
 				92EB65952899130800FC02FC /* Model */,
 				92EB658C2898C98D00FC02FC /* Switch520.swift */,
 				92593B3328A34BBB009CB651 /* Switch520GameItemView.swift */,
+				927198A528B4BE59000EDAB2 /* Switch520GameDetailView.swift */,
 				926AF76C289D20F1003006CA /* games.json */,
 			);
 			path = Switch520;
@@ -579,6 +582,7 @@
 				92D5E545287FBF1600E5C601 /* Text+++.swift in Sources */,
 				92E96A7328A3944200E17797 /* GameDataHelper.swift in Sources */,
 				9259CDDE2844C22A00C33721 /* SUWebView.swift in Sources */,
+				927198A628B4BE59000EDAB2 /* Switch520GameDetailView.swift in Sources */,
 				92701A1D283E077700295028 /* MainView.swift in Sources */,
 				92593B3428A34BBB009CB651 /* Switch520GameItemView.swift in Sources */,
 				92EF586428A52182009D7CB9 /* Game+CoreDataProperties.swift in Sources */,
@@ -599,7 +603,7 @@
 				92538D9A28534309007B32A3 /* MovieSearchWebSite.swift in Sources */,
 				927BE5552862FCC400FD2AD8 /* MagnetView.swift in Sources */,
 				924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */,
-				92D5E543287FB91200E5C601 /* Task++.swift in Sources */,
+				92D5E543287FB91200E5C601 /* Task+++.swift in Sources */,
 				9259CDDA2844AF0400C33721 /* DyttRequest.swift in Sources */,
 				927F8E5F28AF383F00330616 /* UIImage++.swift in Sources */,
 				9253AD70284EFA0C0014B2A0 /* Bundle+++.swift in Sources */,

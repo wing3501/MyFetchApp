@@ -23,6 +23,8 @@ struct AppState {
     /// 通用Loading
     var toastLoadingMessage = "Loading..."
     var toastLoading = false
+    /// 最上层遮罩
+    var coverView: AnyView?
     
     var dytt = DyttState()
     var movieSearch = MovieSearchState()
@@ -75,5 +77,6 @@ extension AppState {
         var totalPage = 0
         var games: [Switch520Game] = []
         var gamesCoreData: [Game] = []
+        var selectedGame: Switch520Game?
     }
 }

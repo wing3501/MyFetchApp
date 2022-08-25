@@ -21,8 +21,10 @@ struct Switch520: View {
 struct GameDataInCoreData: View {
     @EnvironmentObject var store: Store
     @State private var searchText = ""
-    @State private var isShowAlert = false
     @State private var selectedItemDownloadAdress = ""
+    
+    @Namespace private var imageEffect
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -33,12 +35,18 @@ struct GameDataInCoreData: View {
             LazyVGrid(columns: columns, spacing: 8) {
                 ForEach(searchResults, id: \.self) { item in
                     let game = Switch520Game.game(from: item)
-                    Switch520GameItemView(title: game.title, imageUrl: game.imageUrl, category: game.category, datetime: game.datetime)
-                        .onTapGesture {
-                            UIPasteboard.general.string = item.downloadAdress ?? ""
-                            selectedItemDownloadAdress = item.downloadAdress ?? ""
-                            isShowAlert.toggle()
-                        }
+                    if store.appState.switch520.selectedGame?.id == game.id {
+                        Spacer()
+                    }else {
+                        Switch520GameItemView(title: game.title, imageUrl: game.imageUrl, category: game.category, datetime: game.datetime, effectId: game.imageUrl, namespace: imageEffect)
+                            .onTapGesture {
+                                UIPasteboard.general.string = item.downloadAdress ?? ""
+                                withAnimation {
+                                    store.dispatch(.showGameDetail(game: game))
+                                    store.dispatch(.showTopCoverView(coverView: detailView(selectedGame: game)))
+                                }
+                            }
+                    }
                 }
             }
             .padding(.horizontal,8)
@@ -52,10 +60,6 @@ struct GameDataInCoreData: View {
         })
         .task {
             store.dispatch(.loadGameInCoreData)
-        }
-        .alert(isPresented: $isShowAlert) {
-            
-            Alert(title: Text("已复制到粘贴板"), message: Text(selectedItemDownloadAdress), dismissButton: .cancel(Text("知道了")))
         }
     }
     
@@ -71,6 +75,27 @@ struct GameDataInCoreData: View {
             }
         }
     }
+    
+    func detailView(selectedGame: Switch520Game) -> AnyView {
+        Switch520GameDetailView(title: selectedGame.title, imageUrl: selectedGame.imageUrl, downloadAdress: selectedGame.downloadAdress, effectId: selectedGame.imageUrl, namespace: imageEffect) {
+            store.dispatch(.closeGameDetail)
+            store.dispatch(.closeTopCoverView)
+        }
+        .eraseToAnyView()
+    }
+    
+//    var detailView: AnyView? {
+//        if let selectedGame = store.appState.switch520.selectedGame {
+//            return Switch520GameDetailView(title: selectedGame.title, imageUrl: selectedGame.imageUrl, downloadAdress: selectedGame.downloadAdress, effectId: selectedGame.imageUrl, namespace: imageEffect) {
+//                withAnimation {
+//                    store.dispatch(.closeGameDetail)
+//                    store.dispatch(.closeTopCoverView)
+//                }
+//            }
+//            .eraseToAnyView()
+//        }
+//        return nil
+//    }
 }
 
 // 直接从json文件里读取数据
@@ -79,6 +104,7 @@ struct GameDataInJson: View {
     @State private var searchText = ""
     @State private var isShowAlert = false
     @State private var selectedItemDownloadAdress = ""
+    @Namespace private var imageEffect
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -88,7 +114,7 @@ struct GameDataInJson: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 8) {
                 ForEach(searchResults, id: \.self) { item in
-                    Switch520GameItemView(title: item.title, imageUrl: item.imageUrl, category: item.category, datetime: item.datetime)
+                    Switch520GameItemView(title: item.title, imageUrl: item.imageUrl, category: item.category, datetime: item.datetime, effectId: item.imageUrl, namespace: imageEffect)
                         .onTapGesture {
                             UIPasteboard.general.string = item.downloadAdress
                             selectedItemDownloadAdress = item.downloadAdress

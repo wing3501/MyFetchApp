@@ -13,6 +13,8 @@ struct Switch520GameItemView: View {
     let imageUrl: String
     let category: [String]
     let datetime: String
+    let effectId: String
+    let namespace: Namespace.ID
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -22,6 +24,8 @@ struct Switch520GameItemView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(height: 120)
                 .clipped()
+                .matchedGeometryEffect(id: effectId, in: namespace)
+                
             GameItemTagView(category: category)
             Text(title)
                 .foregroundColor(.white)
@@ -60,12 +64,5 @@ struct GameItemTagView: View {
         }
 //        .background(.yellow)
         .padding(.horizontal, 8)
-    }
-}
-
-struct Switch520GameItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        let item = Switch520Game.example
-        Switch520GameItemView(title: item.title, imageUrl: item.imageUrl, category: item.category, datetime: item.datetime)
     }
 }

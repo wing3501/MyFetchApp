@@ -25,17 +25,17 @@ struct MainView: View {
             TabView(selection: $selection) {
                 HomeView()
                     .tabItem {
-                        if !store.appState.hideTabView {
+//                        if !store.appState.hideTabView { //不用这种方式来隐藏tabView
                             Label("首页", systemImage: "house")
-                        }
+//                        }
                         
                     }
                     .tag(MainTabIndex.home)
                 AccountView()
                     .tabItem {
-                        if !store.appState.hideTabView {
+//                        if !store.appState.hideTabView {
                             Label("我的", systemImage: "person")
-                        }
+//                        }
                     }
                     .tag(MainTabIndex.account)
             }
@@ -59,6 +59,7 @@ struct MainView: View {
                 }
             }
         }
+        .cover(with: $store.appState.coverView)
         .environmentObject(store)
     }
 }

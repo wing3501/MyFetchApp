@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 enum AppAction {
     case empty
@@ -42,5 +43,9 @@ enum AppAction {
     case loadGamesEnd(games: [Switch520Game])
     case loadGameInCoreData
     case loadGameInCoreDataEnd(games: [Game])
+    case showTopCoverView(coverView: AnyView?)
+    case closeTopCoverView
+    case showGameDetail(game: Switch520Game)
+    case closeGameDetail
 }
 
