@@ -23,6 +23,7 @@ struct GameDataInCoreData: View {
     @State private var searchText = ""
     @State private var selectedItemDownloadAdress = ""
     @State private var selectedGame: Switch520Game?
+    @State private var navigationBarVisible = true
     
     @Namespace private var imageEffect
     
@@ -43,8 +44,11 @@ struct GameDataInCoreData: View {
                             Switch520GameItemView(title: game.title, imageUrl: game.imageUrl, category: game.category, datetime: game.datetime, effectId: game.imageUrl, namespace: imageEffect)
                                 .onTapGesture {
                                     UIPasteboard.general.string = item.downloadAdress ?? ""
-                                    withAnimation {
-                                        selectedGame = game
+                                    navigationBarVisible = false
+                                    delay(0.3) {
+                                        withAnimation {
+                                            selectedGame = game
+                                        }
                                     }
                                 }
                         }
@@ -53,7 +57,7 @@ struct GameDataInCoreData: View {
                 .padding(.horizontal,8)
             }
         }
-        .toolbar(selectedGame == nil ? .visible : .hidden, for: .navigationBar)
+        .toolbar(navigationBarVisible ? .visible : .hidden, for: .navigationBar)
         .searchable(text: $searchText, prompt: "输入名称")
         .searchSuggestions({
             ForEach(searchResults, id: \.self) { result in
@@ -85,8 +89,11 @@ struct GameDataInCoreData: View {
     var detailView: AnyView? {
         if let selectedGame {
             return Switch520GameDetailView(title: selectedGame.title, imageUrl: selectedGame.imageUrl, downloadAdress: selectedGame.downloadAdress, effectId: selectedGame.imageUrl, namespace: imageEffect) {
-                withAnimation {
-                    self.selectedGame = nil
+                self.navigationBarVisible = true
+                delay(0.3) {
+                    withAnimation {
+                        self.selectedGame = nil
+                    }
                 }
             }
             .eraseToAnyView()
