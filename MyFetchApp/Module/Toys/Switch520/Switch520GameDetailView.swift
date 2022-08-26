@@ -37,7 +37,7 @@ struct Switch520GameDetailView: View {
                 .foregroundColor(.gray)
             Spacer()
         }
-        .background(.yellow)
+//        .background(.yellow)
     }
 }
 
