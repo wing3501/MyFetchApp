@@ -32,25 +32,28 @@ struct GameDataInCoreData: View {
     ]
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 8) {
-                ForEach(searchResults, id: \.self) { item in
-                    let game = Switch520Game.game(from: item)
-                    if selectedGame?.id == game.id {
-                        Spacer()
-                    }else {
-                        Switch520GameItemView(title: game.title, imageUrl: game.imageUrl, category: game.category, datetime: game.datetime, effectId: game.imageUrl, namespace: imageEffect)
-                            .onTapGesture {
-                                UIPasteboard.general.string = item.downloadAdress ?? ""
-                                withAnimation {
-                                    selectedGame = game
+        VStack {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 8) {
+                    ForEach(searchResults, id: \.self) { item in
+                        let game = Switch520Game.game(from: item)
+                        if selectedGame?.id == game.id {
+                            Spacer()
+                        }else {
+                            Switch520GameItemView(title: game.title, imageUrl: game.imageUrl, category: game.category, datetime: game.datetime, effectId: game.imageUrl, namespace: imageEffect)
+                                .onTapGesture {
+                                    UIPasteboard.general.string = item.downloadAdress ?? ""
+                                    withAnimation {
+                                        selectedGame = game
+                                    }
                                 }
-                            }
+                        }
                     }
                 }
+                .padding(.horizontal,8)
             }
-            .padding(.horizontal,8)
         }
+        .toolbar(selectedGame == nil ? .visible : .hidden, for: .navigationBar)
         .searchable(text: $searchText, prompt: "输入名称")
         .searchSuggestions({
             ForEach(searchResults, id: \.self) { result in
