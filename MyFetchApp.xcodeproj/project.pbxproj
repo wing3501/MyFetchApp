@@ -50,6 +50,7 @@
 		92701A34283E550600295028 /* HandyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 92701A33283E550600295028 /* HandyJSON */; };
 		927198A628B4BE59000EDAB2 /* Switch520GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927198A528B4BE59000EDAB2 /* Switch520GameDetailView.swift */; };
 		927503A72850D2330045320E /* 豆瓣资源下载大师.js in Resources */ = {isa = PBXBuildFile; fileRef = 927503A62850D2330045320E /* 豆瓣资源下载大师.js */; };
+		9279ABEA28BE3BD6004B379E /* UIApplication+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9279ABE928BE3BD6004B379E /* UIApplication+++.swift */; };
 		927BE5522862F21200FD2AD8 /* View+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5512862F21200FD2AD8 /* View+++.swift */; };
 		927BE5552862FCC400FD2AD8 /* MagnetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE5542862FCC400FD2AD8 /* MagnetView.swift */; };
 		927BE557286318B000FD2AD8 /* VNDetectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927BE556286318B000FD2AD8 /* VNDetectManager.swift */; };
@@ -78,6 +79,7 @@
 		92EB658F2898CB4200FC02FC /* Switch520Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB658E2898CB4200FC02FC /* Switch520Request.swift */; };
 		92EB65942898F90D00FC02FC /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92EB65932898F90D00FC02FC /* SwiftSoup */; };
 		92EB65972899133A00FC02FC /* Switch520Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB65962899133A00FC02FC /* Switch520Game.swift */; };
+		92EDE3F828BF0934008DD188 /* Publisher+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDE3F728BF0934008DD188 /* Publisher+++.swift */; };
 		92EF586328A52182009D7CB9 /* Game+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF585F28A52182009D7CB9 /* Game+CoreDataClass.swift */; };
 		92EF586428A52182009D7CB9 /* Game+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF586028A52182009D7CB9 /* Game+CoreDataProperties.swift */; };
 		92EF586528A52182009D7CB9 /* GameCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF586128A52182009D7CB9 /* GameCategory+CoreDataClass.swift */; };
@@ -132,6 +134,7 @@
 		92701A2D283E54E300295028 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
 		927198A528B4BE59000EDAB2 /* Switch520GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520GameDetailView.swift; sourceTree = "<group>"; };
 		927503A62850D2330045320E /* 豆瓣资源下载大师.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "豆瓣资源下载大师.js"; sourceTree = "<group>"; };
+		9279ABE928BE3BD6004B379E /* UIApplication+++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+++.swift"; sourceTree = "<group>"; };
 		927BE5512862F21200FD2AD8 /* View+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+++.swift"; sourceTree = "<group>"; };
 		927BE5542862FCC400FD2AD8 /* MagnetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnetView.swift; sourceTree = "<group>"; };
 		927BE556286318B000FD2AD8 /* VNDetectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNDetectManager.swift; sourceTree = "<group>"; };
@@ -160,6 +163,7 @@
 		92EB658E2898CB4200FC02FC /* Switch520Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520Request.swift; sourceTree = "<group>"; };
 		92EB65922898F8EB00FC02FC /* SwiftSoup */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftSoup; path = SPM/SwiftSoup; sourceTree = "<group>"; };
 		92EB65962899133A00FC02FC /* Switch520Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520Game.swift; sourceTree = "<group>"; };
+		92EDE3F728BF0934008DD188 /* Publisher+++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+++.swift"; sourceTree = "<group>"; };
 		92EF585F28A52182009D7CB9 /* Game+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92EF586028A52182009D7CB9 /* Game+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92EF586128A52182009D7CB9 /* GameCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -225,7 +229,9 @@
 				92D5E544287FBF1600E5C601 /* Text+++.swift */,
 				9296066328659F0000062ABA /* CGImagePropertyOrientation+++.swift */,
 				92D5E542287FB91200E5C601 /* Task+++.swift */,
+				9279ABE928BE3BD6004B379E /* UIApplication+++.swift */,
 				927F8E5E28AF383F00330616 /* UIImage++.swift */,
+				92EDE3F728BF0934008DD188 /* Publisher+++.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -568,6 +574,7 @@
 				92DC3FA82859C2250092875F /* MovieWebSiteRow.swift in Sources */,
 				92701A1F283E07C700295028 /* Store.swift in Sources */,
 				92701A2E283E54E300295028 /* HttpHelper.swift in Sources */,
+				9279ABEA28BE3BD6004B379E /* UIApplication+++.swift in Sources */,
 				928ACD50286ED57E00C3E434 /* MyQrCodeView.swift in Sources */,
 				92EB658D2898C98D00FC02FC /* Switch520.swift in Sources */,
 				9259CDD128446D6000C33721 /* Date+++.swift in Sources */,
@@ -576,6 +583,7 @@
 				9298009B2840B69F00FC19D2 /* DispatchQueue+++.swift in Sources */,
 				92EB658F2898CB4200FC02FC /* Switch520Request.swift in Sources */,
 				92F881E02864923800C12097 /* DocumentScanView.swift in Sources */,
+				92EDE3F828BF0934008DD188 /* Publisher+++.swift in Sources */,
 				927BE5522862F21200FD2AD8 /* View+++.swift in Sources */,
 				92ABFB1E28B750C500C3BF29 /* UserDefaults+++.swift in Sources */,
 				925E51BD287EED3900B72869 /* Global.swift in Sources */,
