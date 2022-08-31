@@ -80,6 +80,7 @@
 		92EB65942898F90D00FC02FC /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92EB65932898F90D00FC02FC /* SwiftSoup */; };
 		92EB65972899133A00FC02FC /* Switch520Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB65962899133A00FC02FC /* Switch520Game.swift */; };
 		92EDE3F828BF0934008DD188 /* Publisher+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDE3F728BF0934008DD188 /* Publisher+++.swift */; };
+		92EDE3FC28BF4300008DD188 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDE3FB28BF4300008DD188 /* CoreDataStack.swift */; };
 		92EF586328A52182009D7CB9 /* Game+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF585F28A52182009D7CB9 /* Game+CoreDataClass.swift */; };
 		92EF586428A52182009D7CB9 /* Game+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF586028A52182009D7CB9 /* Game+CoreDataProperties.swift */; };
 		92EF586528A52182009D7CB9 /* GameCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF586128A52182009D7CB9 /* GameCategory+CoreDataClass.swift */; };
@@ -164,6 +165,7 @@
 		92EB65922898F8EB00FC02FC /* SwiftSoup */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftSoup; path = SPM/SwiftSoup; sourceTree = "<group>"; };
 		92EB65962899133A00FC02FC /* Switch520Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520Game.swift; sourceTree = "<group>"; };
 		92EDE3F728BF0934008DD188 /* Publisher+++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+++.swift"; sourceTree = "<group>"; };
+		92EDE3FB28BF4300008DD188 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		92EF585F28A52182009D7CB9 /* Game+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92EF586028A52182009D7CB9 /* Game+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92EF586128A52182009D7CB9 /* GameCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				927BE556286318B000FD2AD8 /* VNDetectManager.swift */,
 				928ACF41286EF63400C3E434 /* UIImageHelper.swift */,
 				925E51BC287EED3900B72869 /* Global.swift */,
+				92EDE3FB28BF4300008DD188 /* CoreDataStack.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				92538D9628533BC1007B32A3 /* MovieSearchView.swift in Sources */,
 				929800992840A08100FC19D2 /* Binding+++.swift in Sources */,
 				92701A19283E060100295028 /* HomeView.swift in Sources */,
+				92EDE3FC28BF4300008DD188 /* CoreDataStack.swift in Sources */,
 				92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */,
 				9201FEDC283F75A0004482F0 /* Color+++.swift in Sources */,
 				92658B312859DDC20000041D /* MovieListView.swift in Sources */,
