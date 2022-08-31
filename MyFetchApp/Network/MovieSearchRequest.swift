@@ -11,6 +11,7 @@ import Alamofire
 struct MovieSearchRequest {
     static func searchMovie(_ searchUrl: String,method: HTTPMethod,parameters: String?,encode: String? = "gb2312") async -> String {
         do {
+            print("搜索--\(searchUrl)")
             let data: Data
             if method == .post {
                 data = try await AF.upload(multipartFormData: { multipartFormData in

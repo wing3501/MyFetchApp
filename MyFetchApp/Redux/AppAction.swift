@@ -19,8 +19,9 @@ enum AppAction {
     case updateDyttCategoryPageLoadMore(category: DyttCategoryModel,items: [DyttItemModel],pageHrefs: [(Int,String)])
     case loadSearchSource
     case updateSearchSource(websites: [MovieSearchWebSite])
-    case updateWebsite(website: MovieSearchWebSite,index: Int)
+    case updateWebsite(searchText: String,website: MovieSearchWebSite,index: Int)
     case searchMovie(searchText: String)
+    case searchMovieBy(searchText: String,websiteIndex: Int)
     case dissmissLoading
     case detectMagnet(image: UIImage)
     case detectMagnetFrom(text: String)

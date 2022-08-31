@@ -1,40 +1,5 @@
 [
-    {   "name":"悠悠mp4",
-        "icon":"https://www.uump4.net/view/img/logo.png",
-        "baseUrl":"https://www.uump4.net",
-        "searchUrl": "https://www.uump4.net/search-{searchText}.htm",
-        "searchKeyReplace":{
-            "org":"%",
-            "new":"_"
-        },
-        "resultPath": {
-                "xpath": "//ul[@class='list-unstyled threadlist mb-0']/li",
-                "title": {
-                    "xpath":".//div[@class='subject break-all']/a[last()]",
-                    "key":""
-                },
-                "href": {
-                    "xpath":".//div[@class='subject break-all']/a[last()]",
-                    "key":"href"
-                },
-                "other":[
-                    {
-                        "xpath": ".//div[@class='subject break-all']/a[1]",
-                        "key":""
-                    },
-                    {
-                        "xpath": ".//div[@class='subject break-all']/a[2]",
-                        "key":""
-                    }
-                    ,
-                    {
-                        "xpath": ".//div[@class='subject break-all']/a[3]",
-                        "key":""
-                    }
-                ]
-        }
-    }
-    ,
+    
     {   "name":"迅雷电影天堂",
         "icon":"https://www.xl720.com/logo.png",
         "baseUrl":"https://www.xl720.com",

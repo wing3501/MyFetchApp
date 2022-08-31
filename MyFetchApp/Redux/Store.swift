@@ -44,8 +44,7 @@ final class Store: ObservableObject {
     func dispatch(_ action: AppAction) -> Task<Void, Never>? {
         return Task {
             // 一个action可能产生多个副作用，且副作用task之间非结构化，所以用了task数组
-            let tasks = reducer(state: &appState, action: action, environment: environment)
-            for task in tasks {
+            if let task = reducer(state: &appState, action: action, environment: environment) {
                 do {
                     //副作用产生的新action，继续派发
                     let action = try await task.value
@@ -63,22 +62,22 @@ final class Store: ObservableObject {
     ///   - action: 更改状态的动作
     ///   - environment: 处理具体任务，并返回副作用
     /// - Returns: 副作用
-    func reducer(state: inout AppState, action: AppAction, environment: Environment) -> [Task<AppAction, Error>] {
+    func reducer(state: inout AppState, action: AppAction, environment: Environment) -> Task<AppAction, Error>? {
         switch action {
         case .empty:
             break
         case .loadDyttCategories:
             let url = state.dytt.mainPage
-            return [Task {
+            return Task {
                 await environment.loadDyttCategories(url)
-            }]
+            }
         case .updateDyttCategories(let categoryData):
             state.dytt.categoryData = categoryData
         case .loadDyttCategoryPage(let category):
             let host = state.dytt.host
-            return [Task {
+            return Task {
                 await environment.loadDyttCategoryPage(host,category)
-            }]
+            }
         case .updateDyttCategoryPage(let category, let items, let pageHrefs):
             category.dataArray = items
             category.pageHrefs = pageHrefs
@@ -87,9 +86,9 @@ final class Store: ObservableObject {
             category.footerRefreshing = true
             category.currentPage += 1
             let host = state.dytt.host
-            return [Task {
+            return Task {
                 await environment.dyttCategoryPageLoadMore(host,category)
-            }]
+            }
         case .updateDyttCategoryPageLoadMore(let category, let items, let pageHrefs):
             print("加载更多--------结束")
             category.dataArray = category.dataArray + items
@@ -97,48 +96,50 @@ final class Store: ObservableObject {
             category.footerRefreshing = false
             category.noMore = category.currentPage == category.pageHrefs.count
         case .loadSearchSource:
-            return [Task {
+            return Task {
                 await environment.loadSearchSource()
-            }]
+            }
         case .updateSearchSource(let websites):
             state.movieSearch.websites = websites
             state.movieSearch.isButtonDisabled = websites.isEmpty
-            return [Task {
-//                try? await Task.sleep(nanoseconds: 1_000_000_000)
+            return Task {
+                // try? await Task.sleep(nanoseconds: 1_000_000_000)
                 return .dissmissLoading
-            }]
-        case .updateWebsite(let website,let index):
+            }
+        case .updateWebsite(let searchText ,let website,let index):
             state.movieSearch.requestFinishedCount = (state.movieSearch.requestFinishedCount ?? 0 ) + 1
             state.movieSearch.websites[index] = website
+            if index < state.movieSearch.websites.count - 1 {
+                return Task {
+                    .searchMovieBy(searchText: searchText, websiteIndex: index + 1)
+                }
+            }
         case .searchMovie(let searchText):
             state.toastLoading = true
             state.movieSearch.requestFinishedCount = 0
-            var tasks: [Task<AppAction, Error>] = []
-            
-            for i in 0..<appState.movieSearch.websites.count {
-//            for i in 0..<1 {
-                appState.movieSearch.websites[i].searchResult.removeAll()
-                let website = appState.movieSearch.websites[i]
-                tasks.append(Task { () -> AppAction in
-                    let newWebsite = await environment.searchMovie(searchText, from: website)
-                    return .updateWebsite(website: newWebsite, index: i)
-                })
+            return Task {
+                return .searchMovieBy(searchText: searchText, websiteIndex: 0)
             }
-            return tasks
+        case .searchMovieBy(let searchText,let websiteIndex):
+            let website = appState.movieSearch.websites[websiteIndex]
+            return Task {
+                let newWebsite = await environment.searchMovie(searchText, from: website)
+                return .updateWebsite(searchText: searchText ,website: newWebsite, index: websiteIndex)
+            }
         case .dissmissLoading:
             state.toastLoading = false
         case .detectMagnet(let image):
             print("开始识别图片")
 //            state.toastLoading = true
             let results = VNDetectManager.shared.detectTextWithEn(from: image)
-            return [Task {
+            return Task {
                 environment.detectMagnet(results)
-            }]
+            }
         case .detectMagnetFrom(let text):
             let results = text.split(separator: "\n").map(String.init)
-            return [Task {
+            return Task {
                 environment.detectMagnet(results)
-            }]
+            }
         case .updateMagnetLinks(let links):
             if links.isEmpty {
                 state.toastMessage = "未识别合适内容"
@@ -147,9 +148,9 @@ final class Store: ObservableObject {
             state.magnetState.magnetLinks = links
         case .updatePasteboardText(let text):
             UIPasteboard.general.string = text
-            return [Task{
+            return Task{
                 return .updateToastMessage(message: "已复制到粘贴板")
-            }]
+            }
         case .updateToastMessage(let message):
             state.toastMessage = message
         case .updateWifiString(let wifiString):
@@ -162,29 +163,29 @@ final class Store: ObservableObject {
             state.myQrCode.centerImage = nil
         case .createQrCode(let qrCodeString):
             let centerImage = state.myQrCode.centerImage
-            return [Task{
+            return Task{
                 return environment.createQrCode(qrCodeString,centerImage)
-            }]
+            }
         case .updateQrCodeImage(let image):
             state.myQrCode.qrCodeImage = image
         case .cleanQrCenterImage:
             state.myQrCode.centerImage = nil
         case .saveToAlbum(let image):
-            return [Task{
+            return Task{
                 return await environment.saveToAlbum(image)
-            }]
+            }
         case .fetchSwitch520TotalPage(let needFetch):
             let pageUrl = state.switch520.mainPage
-            return [Task{
+            return Task{
                 let total = await environment.requestTotalPage(pageUrl)
                 return .updateSwitch520TotalPage(needFetch: needFetch, total: total)
-            }]
+            }
         case .updateSwitch520TotalPage(let needFetch,let total):
             print("总页数:\(total)")
             state.switch520.totalPage = total
             let basePageUrl = state.switch520.basePageUrl
             if(total > 0 && needFetch) {
-                return [Task{
+                return Task{
                     //一页一页
                     var games: [Switch520Game] = []
                     for page in 1...total {
@@ -192,16 +193,16 @@ final class Store: ObservableObject {
                         games.append(contentsOf: await environment.fetchGamePage(pageUrl))
                     }
                     return .fetchGameEnd(games: games)
-                }]
+                }
             }
         case .fetchGameEnd(let games):
             FileHelper.create(fileName: state.switch520.fileName, to: .documentDirectory, with: games.toJSONString()?.utf8Data)
             print("抓取结束----")
         case .fetchGamePage(let page):
             let pageUrl = state.switch520.basePageUrl + "\(page)"
-            return [Task{
+            return Task{
                 return await environment.fetchGamePage(page,pageUrl)
-            }]
+            }
         case .fetchGamePageEnd(_ ,let games):
             state.switch520.games.append(contentsOf: games)
         case .saveGames:
@@ -212,16 +213,16 @@ final class Store: ObservableObject {
             let mainPage = state.switch520.mainPage
             let basePageUrl = state.switch520.basePageUrl
             let fileName = state.switch520.fileName
-            return [Task {
+            return Task {
                 return await environment.loadGames(mainPage, basePageUrl, fileName)
-            }]
+            }
         case .loadGamesEnd(let games):
             state.switch520.games = games
         case .loadGameInCoreData:
             let fileName = state.switch520.fileName
-            return [Task{
+            return Task{
                 return await environment.loadGameInCoreData(fileName)
-            }]
+            }
         case .loadGameInCoreDataEnd(let games):
             state.switch520.gamesCoreData = games
         case .showTopCoverView(let coverView):
@@ -229,6 +230,6 @@ final class Store: ObservableObject {
         case .closeTopCoverView:
             state.coverView = nil
         }
-        return []
+        return nil
     }
 }
