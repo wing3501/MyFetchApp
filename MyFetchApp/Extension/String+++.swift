@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import CommonCrypto
 
 extension String: Identifiable {
     public typealias ID = String
@@ -15,9 +16,34 @@ extension String: Identifiable {
     }
 }
 
+// MARK: - 随机数
 extension String {
+    enum RandomSource: String {
+        case AZaz09 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        case az09 = "abcdefghijklmnopqrstuvwxyz0123456789"
+        case num = "0123456789"
+    }
     
-    // MARK: - 子串
+    /// 生成一串随机字符串
+    static func random(source: RandomSource = .AZaz09,count: Int) -> String {
+        var array: [Character] = []
+        let sourceString = source.rawValue
+        var i = 0
+        while i < count{
+            if let ch = source.rawValue.randomElement() {
+                array.append(ch)
+                
+            }else {
+                array.append("0")
+            }
+            i += 1
+        }
+        return String(array)
+    }
+}
+
+// MARK: - 子串
+extension String {
     var rangeOfAll: NSRange {
         NSMakeRange(0, self.count)
     }
@@ -45,9 +71,11 @@ extension String {
     subscript(_ closeRange: ClosedRange<Int>) -> String.SubSequence {
         substring(closeRange.lowerBound, closeRange.upperBound)
     }
-    
-    // MARK: - 编码
-    
+}
+
+
+// MARK: - 编码
+extension String {
     var URLEncode: String {
         guard let encoded = addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed) else { return "" }
         return encoded
@@ -68,7 +96,11 @@ extension String {
         return data
     }
     
-    // MARK: - 正则
+    
+}
+
+// MARK: - 正则
+extension String {
     var isNumberText: Bool {
         let regex = "^[0-9]*$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
@@ -99,9 +131,11 @@ extension String {
         }
         return array
     }
-    
-    // MARK: - json
-    
+}
+
+
+// MARK: - json
+extension String {
     /// json字符串转字典
     var toDictionary: Dictionary<String,Any>? {
         (try? JSONSerialization.jsonObject(with: self.utf8Data)) as? Dictionary<String,Any>
@@ -171,6 +205,8 @@ extension String {
         return nil
     }
 }
+
+
 
 
 

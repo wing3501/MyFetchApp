@@ -54,6 +54,8 @@ struct MainView: View {
                     MyQrCodeView()
                 case 4:
                     Switch520()
+                case 5:
+                    MyEnglishWord()
                 default:
                     EmptyView()
                 }

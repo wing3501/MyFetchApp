@@ -31,6 +31,7 @@ struct AppState {
     var magnetState = MagnetState()
     var myQrCode = MyQrCodeState()
     var switch520 = Switch520State()
+    var enState = MyEnglishWordState()
 }
 
 extension AppState {
@@ -77,5 +78,11 @@ extension AppState {
         var totalPage = 0
         var games: [Switch520Game] = []
         var gamesCoreData: [Game] = []
+    }
+    
+    struct MyEnglishWordState {
+        
+        
+        
     }
 }

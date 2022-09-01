@@ -81,6 +81,11 @@
 		92EB65972899133A00FC02FC /* Switch520Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB65962899133A00FC02FC /* Switch520Game.swift */; };
 		92EDE3F828BF0934008DD188 /* Publisher+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDE3F728BF0934008DD188 /* Publisher+++.swift */; };
 		92EDE3FC28BF4300008DD188 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDE3FB28BF4300008DD188 /* CoreDataStack.swift */; };
+		92EDE3FF28BF4947008DD188 /* MyEnglishWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDE3FE28BF4947008DD188 /* MyEnglishWord.swift */; };
+		92EDE40128BF4A93008DD188 /* EnglishTranslateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDE40028BF4A93008DD188 /* EnglishTranslateRequest.swift */; };
+		92EDE40528BF4F08008DD188 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDE40428BF4F08008DD188 /* Config.swift */; };
+		92EDE7D928BF6143008DD188 /* String+++MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDE7D828BF6143008DD188 /* String+++MD5.swift */; };
+		92EDE7DC28BF88EE008DD188 /* TranslateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDE7DB28BF88ED008DD188 /* TranslateResponse.swift */; };
 		92EF586328A52182009D7CB9 /* Game+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF585F28A52182009D7CB9 /* Game+CoreDataClass.swift */; };
 		92EF586428A52182009D7CB9 /* Game+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF586028A52182009D7CB9 /* Game+CoreDataProperties.swift */; };
 		92EF586528A52182009D7CB9 /* GameCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF586128A52182009D7CB9 /* GameCategory+CoreDataClass.swift */; };
@@ -166,6 +171,11 @@
 		92EB65962899133A00FC02FC /* Switch520Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch520Game.swift; sourceTree = "<group>"; };
 		92EDE3F728BF0934008DD188 /* Publisher+++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+++.swift"; sourceTree = "<group>"; };
 		92EDE3FB28BF4300008DD188 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		92EDE3FE28BF4947008DD188 /* MyEnglishWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEnglishWord.swift; sourceTree = "<group>"; };
+		92EDE40028BF4A93008DD188 /* EnglishTranslateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishTranslateRequest.swift; sourceTree = "<group>"; };
+		92EDE40428BF4F08008DD188 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		92EDE7D828BF6143008DD188 /* String+++MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+++MD5.swift"; sourceTree = "<group>"; };
+		92EDE7DB28BF88ED008DD188 /* TranslateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateResponse.swift; sourceTree = "<group>"; };
 		92EF585F28A52182009D7CB9 /* Game+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92EF586028A52182009D7CB9 /* Game+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92EF586128A52182009D7CB9 /* GameCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -196,6 +206,7 @@
 		9201FA6A283F4C0C004482F0 /* Toys */ = {
 			isa = PBXGroup;
 			children = (
+				92EDE3FD28BF4923008DD188 /* MyEnglishWord */,
 				92EB658B2898C96F00FC02FC /* Switch520 */,
 				928ACD4E286ED56600C3E434 /* MyQrCode */,
 				92F881DE2864921A00C12097 /* DocumentScan */,
@@ -226,6 +237,7 @@
 				9259CDD228446EEC00C33721 /* Array+++.swift */,
 				9259CDDB2844BAC900C33721 /* StringEncoding+++.swift */,
 				92CD498A284747EC008B2C80 /* String+++.swift */,
+				92EDE7D828BF6143008DD188 /* String+++MD5.swift */,
 				9253AD6F284EFA0C0014B2A0 /* Bundle+++.swift */,
 				927BE5512862F21200FD2AD8 /* View+++.swift */,
 				92D5E544287FBF1600E5C601 /* Text+++.swift */,
@@ -313,6 +325,7 @@
 				92701A15283E05C500295028 /* Module */,
 				92701A14283E056F00295028 /* Redux */,
 				92701A13283E056C00295028 /* Network */,
+				92EDE40328BF4EF1008DD188 /* Config */,
 				927019F6283DC2FB00295028 /* MyFetchApp.swift */,
 				92701A04283DC3E400295028 /* AppDelegate.swift */,
 				92701A1C283E077700295028 /* MainView.swift */,
@@ -359,6 +372,7 @@
 				9259CDD92844AF0400C33721 /* DyttRequest.swift */,
 				92E8A34A28571667009D3690 /* MovieSearchRequest.swift */,
 				92EB658E2898CB4200FC02FC /* Switch520Request.swift */,
+				92EDE40028BF4A93008DD188 /* EnglishTranslateRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -481,6 +495,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		92EDE3FD28BF4923008DD188 /* MyEnglishWord */ = {
+			isa = PBXGroup;
+			children = (
+				92EDE7DA28BF88C9008DD188 /* Model */,
+				92EDE3FE28BF4947008DD188 /* MyEnglishWord.swift */,
+			);
+			path = MyEnglishWord;
+			sourceTree = "<group>";
+		};
+		92EDE40328BF4EF1008DD188 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				92EDE40428BF4F08008DD188 /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		92EDE7DA28BF88C9008DD188 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92EDE7DB28BF88ED008DD188 /* TranslateResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		92F881DE2864921A00C12097 /* DocumentScan */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,6 +615,7 @@
 				9259CDDC2844BAC900C33721 /* StringEncoding+++.swift in Sources */,
 				92DC3FA82859C2250092875F /* MovieWebSiteRow.swift in Sources */,
 				92701A1F283E07C700295028 /* Store.swift in Sources */,
+				92EDE7D928BF6143008DD188 /* String+++MD5.swift in Sources */,
 				92701A2E283E54E300295028 /* HttpHelper.swift in Sources */,
 				9279ABEA28BE3BD6004B379E /* UIApplication+++.swift in Sources */,
 				928ACD50286ED57E00C3E434 /* MyQrCodeView.swift in Sources */,
@@ -585,6 +625,7 @@
 				9296066428659F0000062ABA /* CGImagePropertyOrientation+++.swift in Sources */,
 				9298009B2840B69F00FC19D2 /* DispatchQueue+++.swift in Sources */,
 				92EB658F2898CB4200FC02FC /* Switch520Request.swift in Sources */,
+				92EDE40128BF4A93008DD188 /* EnglishTranslateRequest.swift in Sources */,
 				92F881E02864923800C12097 /* DocumentScanView.swift in Sources */,
 				92EDE3F828BF0934008DD188 /* Publisher+++.swift in Sources */,
 				927BE5522862F21200FD2AD8 /* View+++.swift in Sources */,
@@ -608,10 +649,12 @@
 				92EF586528A52182009D7CB9 /* GameCategory+CoreDataClass.swift in Sources */,
 				92E96A7128A38CE000E17797 /* Game520.xcdatamodeld in Sources */,
 				924120CC2848924400446FD9 /* DyttItemRow.swift in Sources */,
+				92EDE3FF28BF4947008DD188 /* MyEnglishWord.swift in Sources */,
 				9259CDD628446FD600C33721 /* Defaults.swift in Sources */,
 				92538D9628533BC1007B32A3 /* MovieSearchView.swift in Sources */,
 				929800992840A08100FC19D2 /* Binding+++.swift in Sources */,
 				92701A19283E060100295028 /* HomeView.swift in Sources */,
+				92EDE40528BF4F08008DD188 /* Config.swift in Sources */,
 				92EDE3FC28BF4300008DD188 /* CoreDataStack.swift in Sources */,
 				92E8A34B28571667009D3690 /* MovieSearchRequest.swift in Sources */,
 				9201FEDC283F75A0004482F0 /* Color+++.swift in Sources */,
@@ -621,6 +664,7 @@
 				924120CA284890C400446FD9 /* DyttItemModel.swift in Sources */,
 				92D5E543287FB91200E5C601 /* Task+++.swift in Sources */,
 				9259CDDA2844AF0400C33721 /* DyttRequest.swift in Sources */,
+				92EDE7DC28BF88EE008DD188 /* TranslateResponse.swift in Sources */,
 				927F8E5F28AF383F00330616 /* UIImage++.swift in Sources */,
 				9253AD70284EFA0C0014B2A0 /* Bundle+++.swift in Sources */,
 				928ACF42286EF63400C3E434 /* UIImageHelper.swift in Sources */,
