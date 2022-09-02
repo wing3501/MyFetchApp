@@ -19,10 +19,12 @@ struct MyEnglishWord: View {
                 }
             }
             .task {
-                let val = await EnglishTranslateRequest.baiduTranslate("One")
-                print("\(val)")
+//                let val = await EnglishTranslateRequest.baiduTranslate("One")
+//                print("\(val)")
                 
-//                await EnglishTranslateRequest.bingWebTranslate("go to")
+                await EnglishTranslateRequest.bingWebTranslate("apple")
+                print("---------------")
+                await EnglishTranslateRequest.bingWebTranslate("go to")
             }
     }
 }
