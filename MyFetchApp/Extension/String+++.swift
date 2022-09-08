@@ -95,8 +95,18 @@ extension String {
         guard let data = self.data(using: .utf8) else { return Data() }
         return data
     }
-    
-    
+    // 处理字符串中的html编码
+    var decodedHtml: String {
+      let attr = try? NSAttributedString(
+        data: Data(utf8),
+        options: [
+          .documentType: NSAttributedString.DocumentType.html,
+          .characterEncoding: String.Encoding.utf8.rawValue
+        ],
+        documentAttributes: nil)
+
+      return attr?.string ?? self
+    }
 }
 
 // MARK: - 正则
