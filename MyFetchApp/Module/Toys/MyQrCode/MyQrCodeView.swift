@@ -68,6 +68,7 @@ struct MyQrCodeView: View {
                 QrCodePreviewView(qrCodeImage: store.appState.myQrCode.qrCodeImage)
             }
         }
+        .toolbar(.hidden, for: .tabBar)
         .sheet(isPresented: $isShowPhotoLibrary) {
             ImagePicker(image: $store.appState.myQrCode.centerImage, encoding: nil) {
                 hasCenterImage = false

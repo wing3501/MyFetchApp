@@ -273,7 +273,7 @@ extension Environment {
                 }
             }
         }
-        return .updateMagnetLinks(links: links)
+        return .updateMagnetLinks(links: links.isEmpty ? results : links)
     }
     
     func magnetLink(from string: String) -> String? {

@@ -132,6 +132,7 @@ final class Store: ObservableObject {
             print("开始识别图片")
 //            state.toastLoading = true
             let results = VNDetectManager.shared.detectTextWithEn(from: image)
+            print("识别结果----\(results)")
             return Task {
                 environment.detectMagnet(results)
             }

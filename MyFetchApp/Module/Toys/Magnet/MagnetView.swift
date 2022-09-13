@@ -58,6 +58,7 @@ struct MagnetView: View {
             .padding()
             Spacer()
         }
+        .toolbar(.hidden, for: .tabBar)
         .onChange(of: selectedItem, perform: { newItem in
             Task {
                 if let data = try? await newItem?.loadTransferable(type: Data.self),

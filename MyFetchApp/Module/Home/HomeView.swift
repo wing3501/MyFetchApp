@@ -16,18 +16,30 @@ struct HomeView: View {
     @EnvironmentObject var store: Store
     
     var body: some View {
-        List {
-//                Section(header: "已开发") {
+        NavigationStack(path: $store.appState.navigationPath) {
+            List {
                 ForEach(0..<titleArray.count, id: \.self) { index in
                     NavigationLink(value: index) {
                         HomeViewListRow(websiteName: titleArray[index], SFIcon: iconArray[index])
                     }
                 }
-//                }
-                
-//                Section(header: "其他") {
-//                    DisableHomeViewListRow()
-//                }
+            }
+            .navigationDestination(for: Int.self) { index in
+                switch index {
+                case 0:
+                    MovieSearchView()
+                case 1:
+                    MagnetView()
+                case 2:
+                    DocumentScanView()
+                case 3:
+                    MyQrCodeView()
+                case 4:
+                    Switch520()
+                default:
+                    EmptyView()
+                }
+            }
         }
     }
 }

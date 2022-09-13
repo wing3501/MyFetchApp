@@ -51,6 +51,7 @@ struct DocumentScanView: View {
                 }
             }
         }
+        .toolbar(.hidden, for: .tabBar)
         .onChange(of: image, perform: detectText)
         .sheet(isPresented: $isShowResults, content: {
             DocumentResultView(texts: $scanResults)

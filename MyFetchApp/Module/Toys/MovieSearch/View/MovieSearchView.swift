@@ -50,6 +50,7 @@ struct MovieSearchView: View {
             .navigationDestination(for: MovieSearchWebSite.self) { webSite in
                 MovieListView(movies: webSite.searchResult)
             }
+            .toolbar(.hidden, for: .tabBar)
         }
 //        .toast(isPresented: $store.appState.toastLoading, content: {
 //            ToastView(store.appState.toastLoadingMessage)

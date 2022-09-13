@@ -21,46 +21,19 @@ struct MainView: View {
     }
     
     var body: some View {
-        NavigationStack(path: $store.appState.navigationPath) {
-            TabView(selection: $selection) {
-                HomeView()
-                    .tabItem {
-//                        if !store.appState.hideTabView { //不用这种方式来隐藏tabView
-                            Label("首页", systemImage: "house")
-//                        }
-                        
-                    }
-                    .tag(MainTabIndex.home)
-                AccountView()
-                    .tabItem {
-//                        if !store.appState.hideTabView {
-                            Label("我的", systemImage: "person")
-//                        }
-                    }
-                    .tag(MainTabIndex.account)
-            }
-            .edgesIgnoringSafeArea(.top)
-            .navigationDestination(for: Int.self) { index in
-                switch index {
-    //                case 0:
-    //                    DyttView()
-                case 0:
-                    MovieSearchView()
-                case 1:
-                    MagnetView()
-                case 2:
-                    DocumentScanView()
-                case 3:
-                    MyQrCodeView()
-                case 4:
-                    Switch520()
-                case 5:
-                    MyEnglishWord()
-                default:
-                    EmptyView()
+        TabView(selection: $selection) {
+            HomeView()
+                .tabItem {
+                    Label("首页", systemImage: "house")
                 }
-            }
+                .tag(MainTabIndex.home)
+            AccountView()
+                .tabItem {
+                    Label("我的", systemImage: "person")
+                }
+                .tag(MainTabIndex.account)
         }
+        .edgesIgnoringSafeArea(.top)
 //        .cover(with: $store.appState.coverView)
         .environmentObject(store)
     }

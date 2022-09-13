@@ -58,6 +58,7 @@ struct GameDataInCoreData: View {
             }
         }
         .toolbar(navigationBarVisible ? .visible : .hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .tabBar)
         .searchable(text: $searchText, prompt: "输入名称")
         .searchSuggestions({
             ForEach(searchResults, id: \.self) { result in
